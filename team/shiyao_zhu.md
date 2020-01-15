@@ -8,8 +8,8 @@
 ## Links
 
 - [GitHub](https://github.com/ezsypzsy)
-- [LinkedIn]()
-- [Resume]()
+- [LinkedIn - Not Available Yet]
+- [Resume](https://docs.google.com/document/d/1edx17KdNhVRBz4KXTFng2doGFfLVfgpvCH6K6W7I0bw/edit?usp=sharing)
 
 ## About Shiyao
 
