@@ -4,6 +4,9 @@
 
 DreamTune is a company founded in the Music Copyright industry and is dedicated to streamlining the process of music payment. By integrating into our customer's POS system and tracking relevant information, we aim to become the seamless solution for businesses to pay royalties quickly and easily.
 
+## How our Team Works
+We are using issues as the main way to delegate tasks. We are also using the projects tabs and milestones to help organize this information. Communication will happen mainly over our private slack channel. Some of our internal documents will be hosted on Google Drive, but as needed we will convert them to markdown and upload to GitHub. 
+
 Table of Contents
 ---
 
