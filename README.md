@@ -15,11 +15,11 @@ You must [add the following topics](https://help.github.com/en/articles/classify
 
 ----
 
-# Tuney Pay
+# Dream Tune
 
 ![Team Logo](./logo.png)
 
-COMPANY NAME is a company founded in the THEME industry. COMPANY NAME aims to VISION STATEMENT.
+Dream Tune is a company founded in the Music Copyright industry and is dedicated to streamlining the process of music payment. By integrating into the POS system of our clients, we can seamlessly record the music played, the number of people present, as well as other vital information ensuring customers fairly pay artists for music.
 
 Table of Contents
 ---

@@ -1,5 +1,5 @@
-People at COMPANY NAME
+People at Dream Tune
 ---
 
-- [Jane Doe, Engineering](./jane_doe.md)
-- ...
+- [Sarthak Saxena, Computer Science and Math](./sarthak_saxena.md)
+- 
