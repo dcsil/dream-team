@@ -10,7 +10,7 @@
 - [GitHub](https://github.com/ribhav99)
 - [LinkedIn](https://www.linkedin.com/in/ribhav99)
 - [Website](https://www.ribhavkapur.com)
-- [Resume](http://ribhavkapur.com/RibhavResume(14Aug2019).pdf)
+- [Resume](http://ribhavkapur.com/Resume(Jan2020).pdf)
 
 ## About Ribhav
 
