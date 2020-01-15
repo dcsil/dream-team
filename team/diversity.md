@@ -10,18 +10,23 @@ Our team has a varied background. We have 5 people spanning 4 countries and the 
 
 ## Strengths & Weaknesses
 
-Our team has....
+Our team represents various socioeconomic segments and this gives us a clear view about the representation of the world. Our team is 4 coders strong and features a music major giving us a deep understanding of the field as well as how technology can fit into its world. Between us we have at least 10 years of music playing experience giving us an appreciation for what it means to be an artist and why it is important to retrieve the proper royalty payments.
+
+Our biggest weakness is our lack of artists which hinders our ability to create something beautiful. However, as creative individuals we hope to overcome this challenge by following Google Material Design principles and lots of user testing.
 
 ### Subject Matter Experts
 
-Subject matter experts (SMEs) who can help us address our expertise gaps are...
+Subject matter experts (SMEs) who can help us address our expertise gaps are:
+     - Christine Sutcliffe: UofT Music Student
+     - Christerra Marketson: A UI/UX expert working for a small consulting firm
+     - Julian Nadeau: Our amazing TA with lots of industry application coding experience
 
 ## Diversity
 
-Our team has a varied background, but we acknowledge that we do not have people experienced in/who are....
+Our team has a varied background, but we acknowledge that we do not have people experienced in copyright law.
 
 ### How this can impact us
 
-A potential impact of this is...
+Our lack of a specialist in law means our solutions may not release businesses from their complete royalty obligation. We hope to mitigate this by doing thorough research and consulting with SOCAN experts who are very knowledgeable in this field.
 
-People with backgrounds that differ from out own can help us in the THEME industry because...
+People with backgrounds that differ from our own can help us in the Music industry because music is one of the most vibrant industries around. As a result it is important that we reflect their population to ensure our solutions line up with the people we hope to help.
