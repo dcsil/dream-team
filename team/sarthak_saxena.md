@@ -21,10 +21,10 @@ Sarthak was born in India in 1999 but moved to Texas shortly after. Amongst lear
 - Research
 - Explaining Complex Concepts
 - Code Architecture for Modularity
-- Painstaking Attention to Detail
+- Attention to Detail
 
 ## Weaknesses
 
 - Front End Coding
-- Doing "Rough" Work (Neatness Freak)
-- Unable to Lower Expectations
+- Non-Object oriented programming
+- Circuit Creation
