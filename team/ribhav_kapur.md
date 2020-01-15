@@ -27,5 +27,4 @@ Ribhav is currently a student at the University of Toronto specialising in Compu
 ## Weaknesses
 
 - Front end coding
-- Sometimes doesn't comment code 
->>>>>>> origin/assn1-491
+- Sometimes doesn't comment code
