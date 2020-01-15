@@ -15,7 +15,7 @@ You must [add the following topics](https://help.github.com/en/articles/classify
 
 ----
 
-# COMPANY NAME
+# Tuney Pay
 
 ![Team Logo](./logo.png)
 
