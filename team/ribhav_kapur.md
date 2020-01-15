@@ -10,21 +10,22 @@
 - [GitHub](https://github.com/ribhav99)
 - [LinkedIn](https://www.linkedin.com/in/ribhav99)
 - [Website](https://www.ribhavkapur.com)
-- [Resume](http://ribhavkapur.com/RibhavResume(14Aug2019).pdf)
+- [Resume](http://ribhavkapur.com/Resume(Jan2020).pdf)
 
 ## About Ribhav
 
-Sarthak was born in India in 1999 but moved to Texas shortly after. Amongst learning how to ride horses and play football, he also developed a passion for computers at a young age and became widely fascinated by cybersecurity. As he grew up though, he spent lots of time coding applications and fell in love with creation. He is now pursuing a CS specialist at UofT with a focus in AI and Web, as well as a minor in mathematics. In his spare time, Sarthak trains for the UC Dragon boat team and plays the violin.
+Ribhav is currently a student at the University of Toronto specialising in Computer Science, focusing in Artificial Intelligence and Web Development. Before University, Ribhav was really into sports and played basketball at a national level, golf at an international level, swam at a state level and did high jump at a national level. After coming to university, he became a lot more academically focused. During the summer of 2019, he was the CEO and Co-founder of a startup that managed to get an investment offer of a $100k in just over 2 months. In his free time, Ribhav likes to workout, play video games and train MMA.
 
 ## Strengths
 
-- Research
-- Explaining Complex Concepts
-- Code Architecture for Modularity
-- Painstaking Attention to Detail
+- Public Speaking
+- Networking
+- Backend coding
+- Software development
+- Modelling AI algorithms
 
 ## Weaknesses
 
-- Front End Coding
-- Doing "Rough" Work (Neatness Freak)
-- Unable to Lower Expectations
+- Front end coding
+- Sometimes doesn't comment code 
+>>>>>>> origin/assn1-491
