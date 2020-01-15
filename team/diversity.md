@@ -1,13 +1,12 @@
 Diversity
 ---
 
-Diversity is ... Intro Statement
-
+Diversity is the cornerstone of coming up with creative solutions. With a mix of immigrant, exchange, and Canadian students, our team embraces diversity and believes it will help us put our best foot forward.
 
 Team Background
 ---
 
-Our team has a varied background. We have people from multiple continents who speak many languages combined....
+Our team has a varied background. We have 5 people spanning 4 countries and the ability to communicate in 6 different languages! We believe our diverse perspectives help us find unique solutions which reflect our vastly different environments and upbringing. 
 
 ## Strengths & Weaknesses
 
