@@ -16,7 +16,7 @@ Likewise, we each have difference weaknesses that will help each of us to consta
 Subject matter experts who can help us address our expertise gaps are:
 - Christine Sutcliffe: UofT Music Student
 - Christerra Marketson: A UI/UX expert working for a small consulting firm
-- Julian Nadeau: Our amazing TA with lots of industry application coding experience
+- Julian Nadeau: Our amazing Lecturer and Mentor with lots of industry application coding experience
 
 ## Diversity
 
