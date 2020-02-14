@@ -1,8 +1,8 @@
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
-  logging: https://app.logdna.com/b1e9dedef0/logs/view
-  frontend-ci: ../github/workflows/ionic.yml
-  backend-ci: ../github/workflows/nodejs.yml
+  logging: https://app.logdna.com/069caceba9/logs/view
+  frontend-ci: ../github/workflows/<FILL_IN>.yml
+  backend-ci: ../github/workflows/<FILL_IN>.yml
 
 services:
   production: https://dashboard.heroku.com/apps/dreamtune
@@ -13,4 +13,4 @@ docs:
 commands:
   bootstrap: script/bootstrap
   database: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/database
-  server: cd app/server; npm run start:dev
+  server: <EXAMPLE:> cd app/server; npm run start:dev
