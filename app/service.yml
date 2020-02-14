@@ -5,7 +5,7 @@ tools:
   backend-ci: ../github/workflows/nodejs.yml
 
 services:
-  production: https://dashboard.heroku.com/apps/klucth-app
+  production: https://dashboard.heroku.com/apps/dreamtune
 
 docs:
   getting_started: ./README.md
