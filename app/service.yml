@@ -1,5 +1,5 @@
 tools:
-  exceptions: https://sentry.io/organizations/shawneerizqa/issues/?project=1836850
+  exceptions: https://sentry.io/organizations/dreamtune/issues/
   logging: https://app.logdna.com/b1e9dedef0/logs/view
   frontend-ci: ../github/workflows/ionic.yml
   backend-ci: ../github/workflows/nodejs.yml
