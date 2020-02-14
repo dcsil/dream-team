@@ -30,4 +30,4 @@ Ryan grew up in Boston before moving to Toronto for university. Since a young ag
 
 - Unobtrusive
 - Overally ambitious
-- Medium confidence
+- Front-End Programming
