@@ -12,5 +12,5 @@ docs:
 
 commands:
   bootstrap: script/bootstrap
-  database: https://console.firebase.google.com/u/0/project/dcsil-klutch/database
+  database: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/database
   server: cd app/server; npm run start:dev
