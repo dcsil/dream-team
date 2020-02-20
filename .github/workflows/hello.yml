@@ -14,6 +14,6 @@ jobs:
     - name: Run a multi-line script
       working-directory: ./app/server
       run: |
-        python hello.py
+        python /app/server/hello.py
       env:
         CI: true
