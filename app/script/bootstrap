@@ -1,0 +1,2 @@
+echo "assumes python3 installed on computer"
+python3 -m pip install django
