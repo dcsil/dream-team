@@ -14,6 +14,6 @@ jobs:
     - name: Run a multi-line script
       working-directory: ./app
       run: |
-        python hello.py
+        pip install flask & python hello.py
       env:
         CI: true
