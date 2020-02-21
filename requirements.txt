@@ -1,3 +1,4 @@
 gunicorn
 django-heroku
 sentry_sdk
+whitenoise

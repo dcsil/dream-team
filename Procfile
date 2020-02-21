@@ -1,1 +1,1 @@
-web: python ./app/django-web-app/manage.py runserver
+web: gunicorn dreamtune.wsgi --log-file -
