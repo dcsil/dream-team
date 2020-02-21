@@ -9,6 +9,7 @@ services:
 
 docs:
   getting_started: ./README.md
+  app_specific: ./django-web-app/README.md
 
 commands:
   bootstrap: script/bootstrap
