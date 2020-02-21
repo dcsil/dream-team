@@ -1,3 +1,8 @@
 echo "assumes python3 installed on computer"
+if [ "$(uname)" = "Darwin" ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+fi
 python3 -m pip install django
 python3 -m pip install sentry-sdk
