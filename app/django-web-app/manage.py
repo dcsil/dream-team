@@ -3,6 +3,7 @@
 import os
 import sys
 
+ALLOWED_HOSTS = 'https://dreamtune.herokuapp.com/'
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dreamtune.settings')
