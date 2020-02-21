@@ -1,11 +1,11 @@
 x=$(curl http://127.0.0.1:8000/dream_app/)
 
-if [ "$x" = "Hello, world. Welcome to Dream-app 1.0." ]; then
-  exit 1
+if [ "$x" != "Hello, world. Welcome to Dream-app 1.0." ]; then
+  exit 13
 fi
 
 exit 0
 
 
 # Exit Code definitions:
-# 1: Index html response incorrect
+# 13: Index html response incorrect
