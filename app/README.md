@@ -1,4 +1,4 @@
-[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dcsil/dreamtune)
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dcsil/dreamtune)![CI](https://github.com/dcsil/dream-team/workflows/CI/badge.svg)
 
 [Link to Production Web app](http://dreamteam.herokuapp.com/)
 
