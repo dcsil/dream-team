@@ -16,9 +16,9 @@ jobs:
         python3 -m pip install sentry-sdk
         python3 manage.py migrate
     - name: start server
-        working-directory: ./app/django-web-app
-        run: python3 manage.py runserver
-        background: true
+      working-directory: ./app/django-web-app
+      run: python3 manage.py runserver
+      background: true
     - name: Do-Bash-Tests
       working-directory: ./app/django-web-app
       run: ./tests/bash_tests/test_index
