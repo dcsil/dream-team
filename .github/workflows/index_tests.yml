@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Django-Up
+      working-directory: ./app/django-web-app
+      run: |
+        python3 -m pip install django
+        python3 -m pip install sentry-sdk
+        python3 manage.py migrate
+        python3 manage.py runserver
+        ./tests/bash_tests/test_index
+      env:
+        CI: true
