@@ -17,8 +17,7 @@ jobs:
         python3 manage.py migrate
     - name: start server
       working-directory: ./app/django-web-app
-      run: python3 manage.py runserver
-      background: true
+      run: python3 manage.py runserver &
     - name: Do-Bash-Tests
       working-directory: ./app/django-web-app
       run: ./tests/bash_tests/test_index
