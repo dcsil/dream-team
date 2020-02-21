@@ -1,1 +1,1 @@
-web: gunicorn ./app/django-web-app/dreamtune.wsgi --log-file -
+web: sh -c 'cd ./app/django-web-app/ && exec gunicorn dreamtune.wsgi'
