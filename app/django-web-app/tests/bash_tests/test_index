@@ -4,6 +4,7 @@ if [ "$x" != "Hello, world. Welcome to Dream-app 1.0." ]; then
   exit 13
 fi
 
+echo $x
 exit 0
 
 
