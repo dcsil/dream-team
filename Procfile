@@ -1,1 +1,1 @@
-web: gunicorn dreamtune.wsgi --log-file -
+web: gunicorn ./app/django-web-app/dreamtune.wsgi --log-file -
