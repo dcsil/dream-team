@@ -1,0 +1,13 @@
+### **Communication**:
+Team members will mainly communicate using a private slack channel: #dreamteam-491. The purpose of this channel will be to confirm meetings, handle assignment questions and remind people to complete tasks. It will be the responsibility of the person asking the question to tag the people they are asking specifically. General questions can be posed to the group at large. While not strictly necessary, it will be seen as good etiquette to acknowledge important questions and answers by using thumbs up/down reactions to these messages. Expected response time will be at least once a day and no less.
+ 
+In case of emergency, we have the group’s collected phone numbers pinned in a slack channel for texting and calling. This channel of communication is meant only for specific and rare cases.
+
+Our primary goal with these expectations for communications to promote a positive, cohesive, blameless culture within our group. We are all here to support each other. We are a TEAM! Not just a group. 
+ 
+
+### **Meetings**: 
+We will hold regular meetings for our team members. Members are responsible for attending the team meetings – if they are not able to make it, they must let the other attendees know as soon as possible. They must then make a plan to compensate for their absence. This could involve having someone present replace their role in the meeting or deliver an update on their behalf, and would also involves catching up on meeting contents to understand what new tasks they have.
+
+ 
+**Other issues**: We cannot foresee every kind of issue that might arise; however, the team is committed to coming up with a plan to overcome roadblocks of any kind through shared communication on how to handle the issue.  
