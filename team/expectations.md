@@ -3,7 +3,7 @@ Team members will mainly communicate using a private slack channel: #dreamteam-4
  
 In case of emergency, we have the group’s collected phone numbers pinned in a slack channel for texting and calling. This channel of communication is meant only for specific and rare cases.
 
-Our primary goal with these expectations for communications to promote a positive, cohesive, blameless culture within our group. We are all here to support each other. We are a TEAM! Not just a group. 
+Our primary goal with these expectations for communications is to promote a positive, cohesive, blameless culture within our group. We are all here to support each other. We are a TEAM! Not just a group. 
  
 
 ### **Meetings**: 
