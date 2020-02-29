@@ -4,8 +4,6 @@ tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
   logging: https://app.logdna.com/069caceba9/logs/view
   ci: https://github.com/dcsil/dream-team/actions?query=workflow%3ACI
-  # front end CI will contain several workflows for different pages.
-  # collection of testing scripts can be found in /django-web-app/tests
   
 services:
   production: https://dashboard.heroku.com/apps/dreamtune
@@ -17,7 +15,6 @@ docs:
 
 commands:
   bootstrap: script/bootstrap
-  # No database data yet.
   database: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/database
   server: cd app/django-web-app; python3 manage.py runserver
   test: echo "test command here" 
