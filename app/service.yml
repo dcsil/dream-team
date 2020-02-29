@@ -11,6 +11,7 @@ tools:
   
 services:
   production: https://dashboard.heroku.com/apps/dreamtune
+  staging: https://dashboard.heroku.com/apps/dreamtune-stage
 
 docs:
   getting_started: ./README.md
