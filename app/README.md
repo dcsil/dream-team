@@ -2,6 +2,8 @@
 
 [Link to Production Web app](http://dreamteam.herokuapp.com/)
 
+[Link to CodeClimate](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db) - Test Coverage and Maintability
+
 
 NOTES: CI has to pass before heroku deploys the master git branch
 
