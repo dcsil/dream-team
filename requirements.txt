@@ -1,3 +1,4 @@
 gunicorn
 django-heroku
+coverage
 sentry_sdk
