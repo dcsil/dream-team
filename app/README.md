@@ -17,4 +17,6 @@ See Django-web-app folder for app specific information including how to write wo
 
 ### Instructions to run the application locally
 `cd django-web-app`
+
+
 `python3 manage.py runserver`
