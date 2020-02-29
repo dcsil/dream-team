@@ -23,4 +23,4 @@ python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade setuptools
 
 echo "\n==========\nInstalling dependencies in requirements.txt using pip\n==========\n"
-python3 -m pip install -r r2.txt
+python3 -m pip install -r requirements.txt
