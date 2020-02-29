@@ -4,10 +4,12 @@ tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
   logging: https://app.logdna.com/069caceba9/logs/view
   ci: https://github.com/dcsil/dream-team/actions?query=workflow%3ACI
+  production-dashboard: https://dashboard.heroku.com/apps/dreamtune
+  staging-dashboard: https://dashboard.heroku.com/apps/dreamtune-stage
   
 services:
-  production: https://dashboard.heroku.com/apps/dreamtune
-  staging: https://dashboard.heroku.com/apps/dreamtune-stage
+  production: http://dreamtune.herokuapp.com/
+  staging: http://dreamtune-stage.herokuapp.com/
 
 docs:
   getting_started: ./README.md
