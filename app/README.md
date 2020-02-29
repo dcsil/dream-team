@@ -13,3 +13,10 @@ NOTES: CI has to pass before heroku deploys the master git branch
 Get all dependencies by running the bootstrap script. For any new services/API's added, log the result on services.yml
 
 See Django-web-app folder for app specific information including how to write workflow tests.
+
+
+### Instructions to run the application locally
+`cd django-web-app`
+
+
+`python3 manage.py runserver`
