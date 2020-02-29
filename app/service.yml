@@ -3,9 +3,7 @@
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
   logging: https://app.logdna.com/069caceba9/logs/view
-  ci:
-    frontend: ../.github/workflows/index_tests.yml
-    backend: ../.github/workflows/backend.yml
+  ci: https://github.com/dcsil/dream-team/actions?query=workflow%3ACI
   # front end CI will contain several workflows for different pages.
   # collection of testing scripts can be found in /django-web-app/tests
   
