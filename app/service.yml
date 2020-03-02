@@ -1,4 +1,5 @@
 # To help show everything available to run and use in this repo
+# More info: https://dcsil-team-app.herokuapp.com/docs/software/code/service_yml
 
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
