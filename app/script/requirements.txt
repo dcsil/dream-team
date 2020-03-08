@@ -3,3 +3,4 @@ urllib3
 django
 coverage
 sentry_sdk
+numpy
