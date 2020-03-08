@@ -1,15 +1,16 @@
+# To help show everything available to run and use in this repo
+# More info: https://dcsil-team-app.herokuapp.com/docs/software/code/service_yml
+
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
   logging: https://app.logdna.com/069caceba9/logs/view
-  # front end CI will contain several workflows for different pages.
-  # collection of testing scripts can be found in /django-web-app/tests
+  ci: https://github.com/dcsil/dream-team/actions?query=workflow%3ACI
+  production-dashboard: https://dashboard.heroku.com/apps/dreamtune
+  staging-dashboard: https://dashboard.heroku.com/apps/dreamtune-stage
   
-ci:
-  frontend: ../.github/workflows/index_tests.yml
-  backend: ../.github/workflows/backend.yml
-
 services:
-  production: https://dashboard.heroku.com/apps/dreamtune
+  production: http://dreamtune.herokuapp.com/
+  staging: http://dreamtune-stage.herokuapp.com/
 
 docs:
   getting_started: ./README.md
@@ -17,6 +18,6 @@ docs:
 
 commands:
   bootstrap: script/bootstrap
-  # No database data yet.
   database: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/database
   server: cd app/django-web-app; python3 manage.py runserver
+  test: echo "test command here" 
