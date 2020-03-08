@@ -8,15 +8,14 @@ window.addEventListener('click', popImage);
 
 let posts = [];
 
-function makeCard(imageSource, userName, location, description, profilePic, type) {
+function makeCard(imageSource, userName, location, description, type) {
 
-    function makeHead(profilePic, usernsame, location) {
+    function makeHead(usernsame, location) {
         const cardHead = document.createElement('div');
         cardHead.setAttribute('class', 'card-head');
 
-        const DP = document.createElement('img');
+        const DP = document.createElement('div');
         DP.setAttribute('class', 'user-pic');
-        DP.setAttribute('src', profilePic);
 
         cardHead.appendChild(DP);
 
@@ -90,7 +89,7 @@ function makeCard(imageSource, userName, location, description, profilePic, type
     const card = document.createElement('div');
     card.setAttribute('class', 'card');
 
-    const head = makeHead(profilePic, userName, location);
+    const head = makeHead(userName, location);
     const body = makeBody(imageSource, description);
     const actions = makeActions();
 
@@ -105,7 +104,7 @@ function makeCard(imageSource, userName, location, description, profilePic, type
 (function getPictures() {
     // This function will get pictures from instagram later. For now we populate it from downloaded pictures.
     for (let i = 0; i < 20; i++) {
-        makeCard("/../img/random/pic" + i + ".jpg", 'username', 'location', 'description is a description', "/../img/random.jpg");
+        makeCard("/../img/random/pic" + i + ".jpg", 'username', 'location', 'description is a description');
     }
 })();
 
