@@ -105,7 +105,7 @@ function makeCard(imageSource, userName, location, description, profilePic, type
 (function getPictures() {
     // This function will get pictures from instagram later. For now we populate it from downloaded pictures.
     for (let i = 0; i < 20; i++) {
-        makeCard("img/randomPictures/pic" + i + ".jpg", 'username', 'location', 'description is a description', "/../img/random.jpg");
+        makeCard("/../img/random/pic" + i + ".jpg", 'username', 'location', 'description is a description', "/../img/random.jpg");
     }
 })();
 
