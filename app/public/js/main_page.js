@@ -194,112 +194,21 @@ function closeImage(e) {
     }
 }
 
-function getCategory(credentials) {
-    const url = '/getUserCategory';
-    fetch(url)
-        .then((res) => {
-            if (res.status == 404) {
-                log("problem")
-            } else {
-                log("object is", res);
-                return res.json()
-            }
-        }).then((json) => {
-            log("RESPONSE WAS:", json.category);
-            getHashTag(json.category, credentials)
-        }).catch((error) => {
-            log(error)
-        })
-
-}
-
-
-function performConnectivityCheck(res) {
-    if (res.status !== "connected") {
-        window.location.href("/linkinstagram");
-        return
-    }
-    FB.api("me/accounts", getInstagramAccountID)
-}
-
-function getInstagramAccountID(res) {
-    let facebook_id = null;
-    for (let i = 0; i < res.data.length; i++) {
-        if (res.data[i].hasOwnProperty("id")) {
-            facebook_id = res.data[i].id;
-        }
-    }
-    //const facebook_id = res.data[0].id;
-    FB.api(facebook_id + "?fields=instagram_business_account", function (res) {
-        log(res);
-        const instagram_id = res.instagram_business_account.id;
-        getCategory(instagram_id)
-    })
-};
-
-function getHashTag(category, insta_id) {
-    FB.api('/ig_hashtag_search?user_id=' + insta_id + '&q=' + category, function (response) {
-        const category_id = response.data[0].id;
-        getImages(insta_id, category_id)
-    })
-}
-
-function getImages(insta_id, hashtag_id) {
-    FB.api('/' + hashtag_id + '/top_media?user_id=' + insta_id + '&fields=caption,comments_count,id,like_count,media_type,media_url,permalink', function (response) {
-        log(response)
-        for (let i = 0; i < response.data.length; i++) {
-            let source = response.data[i];
-            if (source.hasOwnProperty("media_url")) {
-                getFake(source)
-            }
-        }
-    })
-}
-
-function getFake(source) {
-    const url = source.permalink + "?__a=1"
-    let final = null
-    fetch(url).then((res) => {
-        return res.json()
-    }).then((data) => {
-        const info = data
-        let username = info.graphql.shortcode_media.owner.username
-        let location = info.graphql.shortcode_media.location
-        if (location != null && location.hasOwnProperty("name")) {
-            location = location.name
-        }
-        let profile_pic = info.graphql.shortcode_media.owner.profile_pic_url
-        if (source.caption != undefined || source.caption != null) {
-            let caption = source.caption
-        } else {
-            let caption = ""
-        }
-        if (location != null && location.indexOf(",") != -1) {
-            location = location.slice(0, location.indexOf(","))
-        }
-        makeCard(source.media_url, username, location, source.caption, profile_pic, source.media_type)
-    }).catch((error) => log(error))
-}
-
-function renderOthers() {
-    const url = '/myinfo';
-    fetch(url).then((res) => {
-        return res.json()
-    }).then((data) => {
-        welcomePersonalization(data.name, data.numNotifications);
-    }).catch(() => log("myinfo immediate function"));
-    return
-};
-
-function welcomePersonalization(name, notifs) {
-    const nameElem = document.body.getElementsByClassName("personal-greeting")[0];
-    const notifElem = document.body.getElementsByClassName("center-text notifications")[0];
-    nameElem.innerHTML = "Welcome<br>" + name
-    if (notifs > 999) {
-        notifElem.innerHTML = "<text>You have 999+ new notifications!</text>"
-    } else {
-        notifElem.innerHTML = "<text>You have " + notifs + " new notifications!</text>"
-    }
-}
-
-renderOthers();
+//function getCategory(credentials) {
+//    const url = '/getUserCategory';
+//    fetch(url)
+//        .then((res) => {
+//            if (res.status == 404) {
+//                log("problem")
+//            } else {
+//                log("object is", res);
+//                return res.json()
+//            }
+//        }).then((json) => {
+//            log("RESPONSE WAS:", json.category);
+//            getHashTag(json.category, credentials)
+//        }).catch((error) => {
+//            log(error)
+//        })
+//
+//}
