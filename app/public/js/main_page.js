@@ -104,12 +104,12 @@ function makeCard(imageSource, userName, location, description, profilePic, type
 }
 
 
-// (function getPictures() {
-//     // This function will get pictures from instagram later. For now we populate it from downloaded pictures.
-//     for (let i = 0; i < 20; i++) {
-//         makeCard("img/randomPictures/pic" + i + ".jpg", 'username', 'location', 'description is a description description is a description description is a description description is a description description is a description description is a description description is a description description is a description description is a description description is a description description is a description ', "img/rand.jpg");
-//     }
-// })();
+(function getPictures() {
+    // This function will get pictures from instagram later. For now we populate it from downloaded pictures.
+    for (let i = 0; i < 20; i++) {
+        makeCard("img/randomPictures/pic" + i + ".jpg", 'username', 'location', 'description is a description', "/../img/random.jpg");
+    }
+})();
 
 
 function goToSettings(e) {
@@ -295,9 +295,9 @@ function welcomePersonalization(name, notifs) {
     const nameElem = document.body.getElementsByClassName("personal-greeting")[0];
     const notifElem = document.body.getElementsByClassName("center-text notifications")[0];
     nameElem.innerHTML = "Welcome<br>" + name
-    if (notifs > 999){
+    if (notifs > 999) {
         notifElem.innerHTML = "<text>You have 999+ new notifications!</text>"
-    }else{
+    } else {
         notifElem.innerHTML = "<text>You have " + notifs + " new notifications!</text>"
     }
 }
