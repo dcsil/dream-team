@@ -56,15 +56,6 @@ div {
     text-align: center;
 }
 
-.blue-block {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 40px;
-    width: 300px;
-    overflow: hidden;
-    display: block;
-}
 
 .notifications {
     position: absolute;
