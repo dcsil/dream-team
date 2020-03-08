@@ -1,1 +1,4 @@
 *.DS_Store
+*.pyc
+app/django-web-app/dream_app/__pycache__/*
+app/django-web-app/dreamtune/__pycache__/*
