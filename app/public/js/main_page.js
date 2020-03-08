@@ -1,7 +1,5 @@
 'use strict';
 const log = console.log;
-window.addEventListener('click', goToSettings);
-window.addEventListener('click', goToSuggestions);
 window.addEventListener('click', likePost);
 window.addEventListener('click', savePost);
 window.addEventListener('click', commentPost);
@@ -111,18 +109,6 @@ function makeCard(imageSource, userName, location, description, profilePic, type
     }
 })();
 
-
-function goToSettings(e) {
-    if (e.target.classList.contains("setting-button")) {
-        window.location.href = "/settings";
-    }
-}
-
-function goToSuggestions(e) {
-    if (e.target.classList.contains("button-text")) {
-        window.location.href = "/suggestions"
-    }
-}
 
 function likePost(e) {
     if (e.target.classList.contains('fa-heart')) {
