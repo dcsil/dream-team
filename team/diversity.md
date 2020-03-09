@@ -125,7 +125,7 @@ Our team represents a homogeneous group of physically able individuals.
 *   For us, transportation is easy. We are mobile and overcome physical barriers easily. Not everyone is like this. Because of our narrow perspective on mobility, we may make some mistakes in how we assume people’s travel. For example, we want to implement a system in our licensing lead generation app that will make strategic calculations based on the locations of unlicensed venues to suggest a target region to send a licensing rep. We need to ensure that we are considering travel cost, time, and, importantly, accessibility when proposing solutions. We intend to implement a feature directly into the DreamTune web application that will offer licensing representatives accessibility information.    
 *   Beyond physical accessibility, we must be aware of visual impairments, and other barriers to accessibility. Because this is a web application solution, we can implement technology to increase the accessibility of our product including screen-reading and contrast modes. 
 
-**What We Are Doing To Mitigate This: **
+**What We Are Doing To Mitigate This:**
 
 
 
