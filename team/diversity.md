@@ -26,7 +26,7 @@ _Shiyao: 25_
 *   We have all grown up in a similar time period of culture and technology. Our experience of using certain tools and understanding of what is an “intuitive” user-interface is very narrow. Someone who was born in a different decade is used to using different tools and has different expectations. This can lead us to assume that our customer has knowledge that they may or may not actually have.  
 *   Our worldviews and responsibilities as 20-year olds are very different than our users, who we anticipate being late 20s-30s. As university students, we enjoy the luxury of not having responsibilities such as taking care of a family, meeting performance reviews, among countless others. This can skew our perspective of what value we are providing to our users and how exactly how we are enhancing their work performance. 
 
-**What We Are Doing To Mitigate This: **
+**What We Are Doing To Mitigate This:**
 
 
 
@@ -52,7 +52,7 @@ _Ribhav: Middle Class_
 
 *   Our relatively homogeneous socioeconomic backgrounds means that as a group, we have a narrow understanding of licensing lead reps and even venue owners and how they view value and money. Unlike a first-generation Canadian family or a small shop owner, our group members haven’t had the same amount of financial pressure hanging over our heads. This means that we may have some incorrect assumptions about how our users and venue owners make decisions when it comes to money, such as paying for a tariff. On the other hand, we have also not had immense resources at our disposal, like a licensing VP may have, and miscalculate the value of money to them. For example, we could undervalue our solution when selling it to performing rights organizations. 
 
-**What We Are Doing To Mitigate This: **
+**What We Are Doing To Mitigate This:**
 
 
 
@@ -72,13 +72,13 @@ However, our team lacks knowledge in some areas that are critical to DreamTune�
 *   We acknowledge that we do not have people experienced in lead generation
 *   We acknowledge that we do not have people experience in performing rights management and licensing negotiation
 
-**How This Can Impact Us: **
+**How This Can Impact Us:**
 
 
 
 *   Our lack of a specialist in law means our solutions may not release businesses from their complete royalty obligation. We hope to mitigate this by doing thorough research and consulting with SOCAN experts who are knowledgeable in this field to confirm the assumptions we make.
 
-**How are we mitigating this:  **
+**How are we mitigating this:**
 
 
 
@@ -106,7 +106,7 @@ _Shiyao: Male, Cisgender, Heterosexual_
 *   In several regards, we have a narrowed understanding of the users who may be using our product. This can impact us by creating a bias when we are generating licensing leads. Given the majority of team members are male, there may be an inclination to focus on venues that our team members are interested in pursuing. To mitigate this we must complete calculations to find the most valuable licensing leads.  
 *   We have a predominantly male team and must be conscious of encouraging female leadership and equal voices on the team. In a male-dominated tech landscape, we will work to establish an inclusive space for the female members who are currently on and may join our team. Currently, our team has 1 female-identifying member, from 5. We hope to positively improve this balance when recruiting new team members. 
 
-**What We Are Doing To Mitigate This: **
+**What We Are Doing To Mitigate This:**
 
 
 *   To mitigate our narrowed understanding of the users who may be using our product, we will complete extensive research and user testing throughout the building phases of our product. This way, we can be inclusive and gain valuable feedback from all experiences, especially when they differ from our own. 
@@ -131,7 +131,7 @@ Our team represents a homogeneous group of physically able individuals.
 
 *   We intend to include the perspective of all types of physically able and unable when designing the transportation and travel feature of our application. We will seek to consult a variety of licensing lead reps about how they travel to leads they have identified as valuable venues and what limitations they have. We also will conduct user tests with a variety of individuals, this way we can validate that our application is accessible. For example, we will verify that our application is compatible with screen-reader technology, has sufficient contrast, and inclusive controls. We will also refer to the AODA (Accessibility for Ontarians with Disabilities Act) guidelines on websites and content. 
 
-## **Nationalities **
+## **Nationalities**
 
 
 Finally, our team had a discussion on our backgrounds and nationalities. Our team represents diverse backgrounds that have led to unique lived experiences. Based on our upbringings and nationalities, we speak different languages, and identify with different traditions and cultures. 
@@ -153,7 +153,7 @@ _Shiyao: Singapore_
 *   We are proud of our diverse backgrounds! Diversity here means that each team member has unique values and perspectives. It is important that even in a small team of 5, we have significant diversity. It is reflective of our potential users, customers, and the users and owners of venues we intend to identify. We intend to continue building an inclusive and welcoming environment, to engage diversity with future hires. 
 *   Our diverse backgrounds may also inform future directions for our project and influence our expansion plans. For example, when thinking globally, we may focus on markets in which our group members have experience. We have already explored the potential for licensing lead generation in India, as was presented in our initial team pitch. 
 
-## **Conclusion **
+## **Conclusion**
 
 
 Across the 6 dimensions of diversity we analyzed, we found that we are diverse in areas of subject matter expertise and nationality but are almost entirely homogenous in the areas of age, socioeconomic status, gender, and sexual orientation, and physical ability. During our discussion, we tried to identify how this homogeneity would be a limiting factor and could lead to a worse or misaligned product. 
