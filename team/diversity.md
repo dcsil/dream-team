@@ -96,7 +96,7 @@ _Sarthak: Male, Cisgender, Heterosexual_
 
 _Ribhav: Male, Cisgender, Heterosexual_
 
-_Christine: Female, Cisgender, Heterosexual _
+_Christine: Female, Cisgender, Heterosexual_
 
 _Shiyao: Male, Cisgender, Heterosexual_
 
