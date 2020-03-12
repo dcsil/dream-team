@@ -15,6 +15,10 @@ else
   install_homebrew
 fi
 
+
+echo "\n==========\nInstalling heroku cli using homebrew\n==========\n"
+brew install heroku/brew/heroku
+
 echo "\n==========\nInstalling python3 using homebrew\n==========\n"
 brew install python3
 
