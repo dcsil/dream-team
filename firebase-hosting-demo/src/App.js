@@ -1,10 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home/Home'
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 function App() {
 
   return (
+			<div>
+				<BrowserRouter>
+					<Switch>
+						<Route exact path='/' render={() => (<Home store={ this.state.store } />)}/>
+            <Route exact path='/login.html' render={() => (<Login store={ this.state.store } />)}/>
+					</Switch>
+				</BrowserRouter>
+			</div>
+
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -24,29 +35,30 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <div>
-    <table class="top-right-buttons">
-        <tbody>
-            <tr>
-                <td>
-                    <button class="top-right-button">
-                        <text class="button-text">Login</text>
-                    </button>
-                </td>
-                <td>
-                    <button class="top-right-button">
-                        <text class="button-text">Register</text>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="center">
-        <span class="top">Welcome to</span>
-        <span class="middle">Dreamtune</span>
-        <span class="bottom">Making lead generation so easy, that you can do it in your sleep</span>
-    </div>
-    </div>
+
+    // <div>
+    // <table class="top-right-buttons">
+    //     <tbody>
+    //         <tr>
+    //             <td>
+    //                 <button class="top-right-button">
+    //                     <text class="button-text">Login</text>
+    //                 </button>
+    //             </td>
+    //             <td>
+    //                 <button class="top-right-button">
+    //                     <text class="button-text">Register</text>
+    //                 </button>
+    //             </td>
+    //         </tr>
+    //     </tbody>
+    // </table>
+    // <div class="center">
+    //     <span class="top">Welcome to</span>
+    //     <span class="middle">Dreamtune</span>
+    //     <span class="bottom">Making lead generation so easy, that you can do it in your sleep</span>
+    // </div>
+    // </div>
   );
 }
 
