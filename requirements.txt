@@ -1,4 +1,5 @@
 gunicorn
 django-heroku
 coverage
+Scrapy==2.0.0
 sentry_sdk
