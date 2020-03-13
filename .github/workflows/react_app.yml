@@ -26,7 +26,7 @@ jobs:
       run: echo "The react app successfully builds!"
     - name: Run Jest Tests
       working-directory: ./app
-      run: npm run test
+      run: npm run test -- --coverage --watchAll=false
     - name: "Upload to DCSIL App"
       working-directory: ./app
       env:
