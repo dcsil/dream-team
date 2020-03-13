@@ -27,6 +27,8 @@ To add and edit React components, look at `app/src/components`
 
 if you are missing dependencies and the webserver doesn't start try `npm install` and retry `npm start`
 
+When you are done using the webserver, open terminal and press `CTL+C` at the same time to shutdown the server
+
 
 ### Instructions to deploy the app manually
 
