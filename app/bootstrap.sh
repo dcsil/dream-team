@@ -22,5 +22,8 @@ brew install jq
 echo "\n==========\nInstalling node  using homebrew\n==========\n"
 brew install node
 
-echo "\n==========\nInstalling dependencies using npm\n==========\n"
-npm install
+echo "\n==========\nInstalling yarn  using homebrew\n==========\n"
+brew install yarn
+
+echo "\n==========\nInstalling dependencies using yarn\n==========\n"
+yarn install
