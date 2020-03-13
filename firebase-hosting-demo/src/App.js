@@ -1,20 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Home from './components/Home/Home'
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import Home from './components/Home/Home'
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 function App() {
 
   return (
-			<div>
-				<BrowserRouter>
-					<Switch>
-						<Route exact path='/' render={() => (<Home store={ this.state.store } />)}/>
-            <Route exact path='/login.html' render={() => (<Login store={ this.state.store } />)}/>
-					</Switch>
-				</BrowserRouter>
-			</div>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' render={() => (<Home store={this.state.store} />)} />
+          <Route exact path='/login.html' render={() => (<Login store={this.state.store} />)} />
+          <Route exact path='/register.html' render={() => (<Register store={this.state.store} />)} />
+        </Switch>
+      </BrowserRouter>
+    </div>
 
     // <div className="App">
     //   <header className="App-header">
