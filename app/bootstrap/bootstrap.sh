@@ -15,25 +15,12 @@ else
   install_homebrew
 fi
 
-
-echo "\n==========\nInstalling heroku cli using homebrew\n==========\n"
-brew install heroku/brew/heroku
-
-echo "\n==========\nInstalling python3 using homebrew\n==========\n"
-brew install python3
+echo "\n==========\nInstalling jq using homebrew\n==========\n"
+brew install jq
 
 
-echo "\n==========\nInstalling pipenv using homebrew\n==========\n"
-brew install pipenv
+echo "\n==========\nInstalling node  using homebrew\n==========\n"
+brew install node
 
-pipenv install -r requirements.txt
-
-pipenv shell
-
-#
-#echo "\n==========\nInstalling pip\n==========\n"
-#python3 -m pip install --upgrade pip
-#python3 -m pip install --upgrade setuptools
-
-#echo "\n==========\nInstalling dependencies in requirements.txt using pip\n==========\n"
-#python3 -m pip install -r requirements.txt
+echo "\n==========\nInstalling dependencies using npm\n==========\n"
+npm install
