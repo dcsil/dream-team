@@ -3,6 +3,7 @@ import "./Map.css";
 
 class Map extends React.Component {
   componentDidMount() {
+    let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
     mapboxgl.accessToken =
       "pk.eyJ1Ijoicnlhbm1hcnRlbiIsImEiOiJjazc5aDZ6Zmgwcno0M29zN28zZHQzOXdkIn0.aXAWfSB_yY8MzA2DajzgBQ";
     var places = {
