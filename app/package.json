@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,6 +35,11 @@
   },
   "devDependencies": {
     "firebase-tools": "^7.14.0",
+    "jest": "^25.1.0",
     "nyc": "^15.0.0"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
   }
 }
