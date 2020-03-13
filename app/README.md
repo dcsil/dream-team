@@ -7,14 +7,14 @@
 
 [Link to CodeClimate](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db) - Test Coverage and Maintability
 
-
 ### Instructions to run the application locally
 
 `./bootstrap.sh` (only needs to be run the first time after you clone the repo to install dependencies)
 
 `npm start` (starts the local webserver. if you are missing dependencies, do `npm install` and retry)
 
-### Instructions to deploy the app manually 
+### Instructions to deploy the app manually
+
 This is not necessary with CD configured in the github actions workflow, but here is the code for reference
 
 `npm run build`
