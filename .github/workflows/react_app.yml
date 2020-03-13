@@ -2,7 +2,7 @@ name: ReactAppCI
 on:
   push:
     branches:
-      - firebase-migration
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
