@@ -45,42 +45,7 @@ class Login extends React.Component {
         }
     }
 
-    function authenticateUsers(user, pass, userfield, passwordfield) {
-//        const url = '/login';
-//        let data = {
-//            username: user,
-//            password: pass
-//        };
-//
-//        const request = new Request(url, {
-//            method: 'post',
-//            body: JSON.stringify(data),
-//            headers: {
-//                'Accept': 'application/json, text/plain, */*',
-//                'Content-Type': 'application/json'
-//            },
-//        });
-//
-//        fetch(request).then((res) => {
-//            if (res.status === 401) {
-//                shakeField(passwordfield, "Incorrect Password or Username/Email");
-//                passwordfield.value = "";
-//            } else {
-//                FB.getLoginStatus(function (response) {
-//                    if (response) {
-//                        if (response.status === "connected") {
-//                            window.location.href = res.url;
-//                        } else {
-//                            window.location.href = "linkInstagram";
-//                        }
-//                    } else {
-//                        window.location.href = "linkInstagram";
-//                    }
-//                })
-//            }
-//        }).catch((err) => {
-//            log(err)
-//        });
+    function authenticateUsers(user, pass, userfield, passwordfield) {    
     }
 
     function shakeField(field, message) {
