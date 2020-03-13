@@ -18,7 +18,7 @@ class Register extends React.Component {
     }
   }
 
-handleInputs = (elementsSubmit) => {
+  handleInputs = (elementsSubmit) => {
     let firstName = this.properValue(elementsSubmit[0]);
     let lastName = this.properValue(elementsSubmit[1]);
     let username = this.properValue(elementsSubmit[2]);
@@ -52,7 +52,7 @@ handleInputs = (elementsSubmit) => {
       elShake = elementsSubmit[6];
       informativeMessage =
         "Emails should include an @ sign and should be attached to a domain";
-    } 
+    }
 
     if (informativeMessage != null) {
       this.log(informativeMessage);
@@ -65,7 +65,7 @@ handleInputs = (elementsSubmit) => {
     );
   }
 
-  submitForm = (e) =>{
+  submitForm = (e) => {
     e.preventDefault();
     if (e.type === "submit") {
       const elementsSubmit = document.getElementsByTagName("input");
@@ -73,11 +73,11 @@ handleInputs = (elementsSubmit) => {
     }
   }
 
-  properValue = (element) =>{
+  properValue = (element) => {
     return element.value ? element.value : "";
   }
 
-  createIfUserNameAvailable = (list, element) =>{
+  createIfUserNameAvailable = (list, element) => {
     const url = document.location.pathname;
     const data = {
       list: list
@@ -116,7 +116,7 @@ handleInputs = (elementsSubmit) => {
     field.classList.add("alert-red");
   }
 
-  putMessage = (field, message, happy = false) =>{
+  putMessage = (field, message, happy = false) => {
     if (
       field.parentElement.parentElement.parentElement.childElementCount !== 10
     ) {
@@ -169,101 +169,101 @@ handleInputs = (elementsSubmit) => {
     );
   }
 
-  topbar = <div><text class="imp-text">DreamTune</text>
-  <table class="top-right-buttons">
-	<tbody>
-	  <tr>
-		<td>
-		  <button class="top-right-button">
-			<text class="button-text">Login</text>
-		  </button>
-		</td>
-	  </tr>
-	</tbody>
-  </table>
-  </div> ;
+  topbar = <div><a class="imp-text" href="/">DreamTune</a>
+    <table class="top-right-buttons">
+      <tbody>
+        <tr>
+          <td>
+            <button class="top-right-button">
+              <text class="button-text">Login</text>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>;
 
-  firstname = 
-  <tr>
-  <td>
-	<input
-	  type="text"
-	  name="firstname"
-	  placeholder="First Name"
-	/>
-  </td>
-  </tr>;
+  firstname =
+    <tr>
+      <td>
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+        />
+      </td>
+    </tr>;
 
-  lastname = 
-  <tr>
-  <td>
-	<input type="text" name="lastname" placeholder="Last Name" />
-  </td> 
-  </tr>;
+  lastname =
+    <tr>
+      <td>
+        <input type="text" name="lastname" placeholder="Last Name" />
+      </td>
+    </tr>;
 
-  username = 
-  <tr>
-  <td>
-	<input type="text" name="username" placeholder="Username" />
-  </td>
-  </tr>;
+  username =
+    <tr>
+      <td>
+        <input type="text" name="username" placeholder="Username" />
+      </td>
+    </tr>;
 
-  password = 
-  <div>
-	  <tr>
-		<td>
-		  <input
-			type="password"
-			name="password"
-			placeholder="Enter Password"
-		  />
-		</td>
-	  </tr>
-	  <tr>
-		<td>
-		  <input
-			type="password"
-			name="againpassword"
-			placeholder="Re-Enter Password"
-		  />
-		</td>
-	  </tr>
-  </div>
+  password =
+    <div>
+      <tr>
+        <td>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="password"
+            name="againpassword"
+            placeholder="Re-Enter Password"
+          />
+        </td>
+      </tr>
+    </div>
 
-  email = 
-  <tr>
-		<td>
-		  <input type="text" name="email" placeholder="Email" />
-		</td>
-  </tr>
+  email =
+    <tr>
+      <td>
+        <input type="text" name="email" placeholder="Email" />
+      </td>
+    </tr>
 
   form = <form class="center">
-  <table>
-	<tbody>
-	  <tr>
-		<td>
-		  <text class="imp-text">Register</text>
-		</td>
-	  </tr>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <text class="imp-text">Register</text>
+          </td>
+        </tr>
 
-	  {this.firstname}
-	  {this.lastname}
-	  {this.username}
-	  {this.password}
-	  {this.email}
+        {this.firstname}
+        {this.lastname}
+        {this.username}
+        {this.password}
+        {this.email}
 
-	  <tr>
-		<td>
-		  <button>
-			<text class="button-text" type="submit">
-			  Sign Up
+        <tr>
+          <td>
+            <button>
+              <text class="button-text" type="submit">
+                Sign Up
 			</text>
-		  </button>
-		</td>
-	  </tr>
-	</tbody>
-  </table>
-</form>;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>;
 }
 
 export default Register;
