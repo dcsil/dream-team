@@ -9,10 +9,14 @@
 
 
 ### Instructions to run the application locally
+
 `./bootstrap.sh`
+
 `npm start`
 
 ### Instructions to deploy the app manually 
 This is not necessary with CD configured in the github actions workflow, but here is the code for reference
+
 `firebase login`
+
 `firebase deploy`
