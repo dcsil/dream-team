@@ -38,7 +38,7 @@ First, make sure that the app is passing automated tests using `npm test`, if no
 
 `firebase login` (only need to do the first time you to authorize your computer) 
 
-if you want to try the production build out locally do `firebase serve`
+if you want to try the production build out locally do `firebase serve` and view [localhost:5000](http://localhost:5000)
 
 to deploy to the production website `firebase deploy`
 
