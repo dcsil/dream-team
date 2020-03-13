@@ -42,9 +42,9 @@ if you want to try the production build out locally do `firebase serve` and view
 
 to deploy to the production website `firebase deploy`
 
-see (the production website)[https://dreamtune-cdf8a.web.app/] to view your changes
+see [the production website](https://dreamtune-cdf8a.web.app/) to view your changes
 
-if you need to rollback, you can choose a previous build on the (https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/hosting/main)[Firebase Hosting Console]
+if you need to rollback, you can choose a previous build on the Firebase Hosting Console](https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/hosting/main)
 
 ### How to use git for 454 students
 Edit files
