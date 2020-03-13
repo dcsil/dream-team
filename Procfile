@@ -1,1 +1,0 @@
-web: sh -c 'cd ./app/django-web-app/ && exec gunicorn dreamtune.wsgi'
