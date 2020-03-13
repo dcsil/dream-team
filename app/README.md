@@ -10,12 +10,14 @@
 
 ### Instructions to run the application locally
 
-`./bootstrap.sh`
+`./bootstrap.sh` (only needs to be run the first time after you clone the repo to install dependencies)
 
-`npm start`
+`npm start` (starts the local webserver. if you are missing dependencies, do `npm install` and retry)
 
 ### Instructions to deploy the app manually 
 This is not necessary with CD configured in the github actions workflow, but here is the code for reference
+
+`npm run build`
 
 `firebase login`
 
