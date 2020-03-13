@@ -1,0 +1,149 @@
+::placeholder {
+    color: white;
+}
+
+html {
+    background: linear-gradient(315deg, #923cb5 0%, #000000 74%);
+    width: 100%;
+    height: 100%;
+    /*    min-height: 650px;*/
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.imp-text {
+    text-align: center;
+    font-family: Futura;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 45px;
+    color: white;
+}
+
+.warning-message {
+    text-align: center;
+    font-family: Futura;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: red;
+    opacity: 1;
+}
+
+.happy-message {
+    text-align: center;
+    font-family: Futura;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: green;
+    opacity: 1;
+}
+
+.top-right-buttons {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+button {
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.2));
+    width: 130px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #DA70D6;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-text {
+    text-align: center;
+    font-family: Futura;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    color: white;
+}
+
+td {
+    text-align: center;
+    padding-bottom: 20px;
+    background: transparent;
+}
+
+input {
+    background: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    border: 0.5px black solid;
+    padding-left: 10px;
+    color: white;
+}
+
+.alert-red {
+    color: red;
+    border-color: red;
+}
+
+@keyframes shake {
+
+    /*    Taken From W3 schools*/
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.apply-shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes fade {
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.apply-fade {
+    animation: fade 5s;
+}
+
+#category {
+    background: transparent;
+    color: white;
+    border: solid;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 1px;
+    width: 210px;
+    height: 40px;
+}
