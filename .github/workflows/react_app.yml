@@ -1,0 +1,15 @@
+name: ReactAppCI
+on:
+  push:
+    branches:
+      - firebase-migration
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Packages
+      run: npm install
+    - name: Build the Website
+      run: npm run build
+    - name: Updating Domain
+      run: echo "Update domain"
