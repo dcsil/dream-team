@@ -11,7 +11,7 @@ services:
   production: https://dreamtune-cdf8a.web.app/
 
 docs:
-  getting_started: ./README.md
+  getting_started: https://github.com/dcsil/dream-team/blob/master/app/README.md
 
 commands:
   bootstrap: ./bootstrap/bootstrap.sh
