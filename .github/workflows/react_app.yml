@@ -1,0 +1,51 @@
+name: ReactAppCI
+on:
+  push:
+    branches:
+      - firebase-migration
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      working-directory: ./app
+      run: npm install
+    - name: Build the Website
+      working-directory: ./app
+      run: npm run build
+    - name: Done!
+      working-directory: ./app
+      run: echo "The react app successfully builds!"
+    - name: Run Jest Tests
+      working-directory: ./app
+      run: npm run test
+    - name: "Upload to DCSIL App"
+      working-directory: ./app
+      env:
+        DCSIL_TOKEN: ${{ secrets.DCSIL_TOKEN }}
+      run: |
+        # Send the command to the DCSIL App
+        # resp=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: token $DCSIL_TOKEN" -H "X-App-Type: JavaScript" -d @coverage/coverage-final.json https://dcsil-team-app.herokuapp.com/api/v1/repos/18/code_coverage)
+        # Output the response from the DCSIL App
+        # echo $resp
+         # Exit 1 if the response was an error, or if it did not meet requirements (currently a min 65.0%)
+        # exit $(echo $resp | jq 'if .success == false then 1 elif .meets_requirements == false then 1 else 0 end')
+        echo "the api is broken"
+    - name: "Upload to CodeClimate"
+      working-directory: ./app
+      env:
+        CC_TEST_REPORTER_ID: 1ef6e8adcbf2a45f28e983b08c21a7a64ea73d1451feeae95ce8dc266b7dd2b6
+      run: |
+              export GIT_BRANCH="${GITHUB_REF##*/}" # Not set on GitHub Actions
+              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+              chmod +x ./cc-test-reporter
+              ./cc-test-reporter format-coverage -t lcov # See https://docs.codeclimate.com/docs/configuring-test-coverage for more help
+              ./cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
