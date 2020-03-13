@@ -12,9 +12,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' render={() => (<Home store={this.state.store} />)} />
-          <Route exact path='/login.html' render={() => (<Login store={this.state.store} />)} />
-          <Route exact path='/register.html' render={() => (<Register store={this.state.store} />)} />
+          <Route exact path='/' render={() => (<Home />)} />
+          <Route exact path='/login.html' render={() => (<Login />)} />
+          <Route exact path='/register.html' render={() => (<Register />)} />
         </Switch>
       </BrowserRouter>
     </div>
