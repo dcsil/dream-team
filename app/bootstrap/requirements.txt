@@ -1,6 +1,0 @@
-gunicorn
-urllib3
-django
-Scrapy
-coverage
-sentry_sdk
