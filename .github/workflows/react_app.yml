@@ -15,7 +15,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    steps:
     - name: Install Packages
       working-directory: ./app
       run: npm install
