@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install Packages
+      working-directory: ./app
       run: npm install
     - name: Build the Website
+      working-directory: ./app
       run: npm run build
-    - name: Updating Domain
-      run: echo "Update domain"
+    - name: Done!
+      working-directory: ./app
+      run: echo "The react app successfully builds!"
