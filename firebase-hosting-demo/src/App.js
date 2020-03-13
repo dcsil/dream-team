@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' render={() => (<Home />)} />
-          <Route exact path='/login.html' render={() => (<Login />)} />
-          <Route exact path='/register.html' render={() => (<Register />)} />
+          <Route exact path='/login' render={() => (<Login />)} />
+          <Route exact path='/register' render={() => (<Register />)} />
         </Switch>
       </BrowserRouter>
     </div>
