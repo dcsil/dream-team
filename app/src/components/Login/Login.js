@@ -96,7 +96,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <text class="imp-text">Dreamtune</text>
+        <a class="imp-text" href="/">DreamTune</a>
         <table class="top-right-buttons">
           <tbody>
             <tr>

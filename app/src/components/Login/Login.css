@@ -23,6 +23,8 @@ html {
     font-weight: normal;
     font-size: 45px;
     color: white;
+    background: none;
+    text-decoration: none;
 }
 
 .warning-message {
