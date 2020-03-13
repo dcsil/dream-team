@@ -47,6 +47,9 @@ see [the production website](https://dreamtune-cdf8a.web.app/) to view your chan
 if you need to rollback, you can choose a previous build on the [Firebase Hosting Console](https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/hosting/main)
 
 ### How to use git for 454 students
+Configure your credentials `git config --global user.name "<FIRST> <LAST>"`
+`git config --global user.email "<EMAIL USED WITH GITHUB>"`
+
 Edit files
 
 Stage your changes `git add .`
