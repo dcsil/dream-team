@@ -9,7 +9,7 @@
 
 
 ### Instructions to run the application locally
-`./bootstrap/bootstrap.sh`
+`./bootstrap.sh`
 `npm start`
 
 ### Instructions to deploy the app manually 

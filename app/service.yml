@@ -14,7 +14,7 @@ docs:
   getting_started: https://github.com/dcsil/dream-team/blob/master/app/README.md
 
 commands:
-  bootstrap: ./bootstrap/bootstrap.sh
+  bootstrap: ./bootstrap.sh
   database: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/database
   server: npm start
   test: npm test 
