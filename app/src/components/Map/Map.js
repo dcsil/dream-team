@@ -2,95 +2,83 @@ import React from "react";
 import "./Map.css";
 
 class Map extends React.Component {
-  componentDidMount() {
-    let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-    mapboxgl.accessToken =
-      "pk.eyJ1Ijoicnlhbm1hcnRlbiIsImEiOiJjazc5aDZ6Zmgwcno0M29zN28zZHQzOXdkIn0.aXAWfSB_yY8MzA2DajzgBQ";
-    var places = {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {
-            icon: "theatre"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.038659, 38.931567]
-          }
+  places = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        properties: {
+          icon: "theatre"
         },
-        {
-          type: "Feature",
-          properties: {
-            icon: "theatre"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.003168, 38.894651]
-          }
-        },
-        {
-          type: "Feature",
-          properties: {
-            icon: "bar"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.090372, 38.881189]
-          }
-        },
-        {
-          type: "Feature",
-          properties: {
-            icon: "bicycle"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.052477, 38.943951]
-          }
-        },
-        {
-          type: "Feature",
-          properties: {
-            icon: "music"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.031706, 38.914581]
-          }
-        },
-        {
-          type: "Feature",
-          properties: {
-            icon: "music"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.020945, 38.878241]
-          }
-        },
-        {
-          type: "Feature",
-          properties: {
-            icon: "music"
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [-77.007481, 38.876516]
-          }
+        geometry: {
+          type: "Point",
+          coordinates: [-77.038659, 38.931567]
         }
-      ]
-    };
+      },
+      {
+        type: "Feature",
+        properties: {
+          icon: "theatre"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [-77.003168, 38.894651]
+        }
+      },
+      {
+        type: "Feature",
+        properties: {
+          icon: "bar"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [-77.090372, 38.881189]
+        }
+      },
+      {
+        type: "Feature",
+        properties: {
+          icon: "bicycle"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [-77.052477, 38.943951]
+        }
+      },
+      {
+        type: "Feature",
+        properties: {
+          icon: "music"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [-77.031706, 38.914581]
+        }
+      },
+      {
+        type: "Feature",
+        properties: {
+          icon: "music"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [-77.020945, 38.878241]
+        }
+      },
+      {
+        type: "Feature",
+        properties: {
+          icon: "music"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [-77.007481, 38.876516]
+        }
+      }
+    ]
+  };
 
-    var layerIDs = []; // Will contain a list used to filter against.
-    var filterInput = document.getElementById("filter-input");
-    var map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/light-v10",
-      center: [-77.04, 38.907],
-      zoom: 11.15
-    });
-
+  loadFeatures = (map, filterInput, layerIDs, places) => {
     map.on("load", function() {
       // Add a GeoJSON source containing place coordinates and information.
       map.addSource("places", {
@@ -98,7 +86,7 @@ class Map extends React.Component {
         data: places
       });
 
-      places.features.forEach(function(feature) {
+	  places.features.forEach(function(feature) {
         var symbol = feature.properties["icon"];
         var layerID = "poi-" + symbol;
 
@@ -145,6 +133,23 @@ class Map extends React.Component {
     });
 
     map.scrollZoom.disable();
+  }
+
+  componentDidMount() {
+    let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+    mapboxgl.accessToken =
+      "pk.eyJ1Ijoicnlhbm1hcnRlbiIsImEiOiJjazc5aDZ6Zmgwcno0M29zN28zZHQzOXdkIn0.aXAWfSB_yY8MzA2DajzgBQ";
+
+    var layerIDs = []; // Will contain a list used to filter against.
+    var filterInput = document.getElementById("filter-input");
+    var map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/light-v10",
+      center: [-77.04, 38.907],
+      zoom: 11.15
+    });
+
+    this.loadFeatures(map, filterInput, layerIDs, this.places);
   }
 
   render() {
