@@ -4,7 +4,7 @@
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
   logging: https://app.logdna.com/069caceba9/logs/view
-  ci: https://github.com/dcsil/dream-team/actions?query=workflow%3AReactAppCI
+  ci: https://github.com/dcsil/dream-team/actions
   firebase_console: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/overview
   
 services:
