@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "firebase-tools": "^7.14.0",
-    "jest": "^25.1.0",
+    "jest": "24.9.0",
     "nyc": "^15.0.0"
   },
   "jest": {
