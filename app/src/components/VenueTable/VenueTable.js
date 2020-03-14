@@ -51,13 +51,17 @@ class VenueTable extends React.Component {
     render() {
         return (
             <div>
-                <table id="venues">
-
-                    <tr>
+                <table>
+                    <thead>
+                        <tr>
                         <th>Location</th>
                         <th>Leads</th>
                         <th>Estimated Value</th>
                     </tr>
+                    </thead>
+            
+                    <tbody id="venues">
+                    </tbody>
                 </table>
             </div>
         );
