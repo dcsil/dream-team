@@ -46,11 +46,12 @@ jobs:
               chmod +x ./cc-test-reporter
               ./cc-test-reporter format-coverage -t lcov # See https://docs.codeclimate.com/docs/configuring-test-coverage for more help
               ./cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
-    - name: GitHub Action for Firebase
-      uses: w9jds/firebase-action@v1.3.0
-      with:
-        args: deploy -m "$SHA"
-        working-directory: app
+    - name: Install Firebase Tools
+      run: npm install firebase-tools
+      working-directory: app
+    - name: Deploy to firebase
+      run: firebase deploy --token $FIREBASE_TOKEN -m $SHA
+      working-directory: app
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         SHA: ${{ github.sha}}
