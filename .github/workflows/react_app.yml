@@ -53,4 +53,4 @@ jobs:
           working-directory: app
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-		  SHA: ${{ github.sha}}
+          SHA: ${{ github.sha}}
