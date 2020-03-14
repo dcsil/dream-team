@@ -2,7 +2,7 @@ name: ReactAppCI
 on:
   push:
     branches:
-      - ci_cd_updates
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
