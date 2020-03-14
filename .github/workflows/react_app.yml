@@ -47,11 +47,11 @@ jobs:
               ./cc-test-reporter format-coverage -t lcov # See https://docs.codeclimate.com/docs/configuring-test-coverage for more help
               ./cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
     - name: Install Firebase Tools
-      run: npm install firebase-tools
+      run: npm install -g firebase-tools
       working-directory: app
     - name: Deploy to firebase
-      run: firebase deploy --token $FIREBASE_TOKEN -m $SHA
       working-directory: app
+      run: firebase deploy --token $FIREBASE_TOKEN -m $SHA
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         SHA: ${{ github.sha}}
