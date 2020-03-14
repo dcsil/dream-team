@@ -47,6 +47,9 @@ jobs:
               ./cc-test-reporter format-coverage -t lcov # See https://docs.codeclimate.com/docs/configuring-test-coverage for more help
               ./cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
     - name: Deploy to Firebase
-      working-directory: app
-      run: alias firebase="`npm config get prefix`/bin/firebase"
-      run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} -m "${{ github.sha}}"
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy -m "${{ github.sha}}"
+          working-directory: app
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
