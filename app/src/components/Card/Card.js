@@ -5,9 +5,6 @@ import venues from "../../data/sampleData.json"
 class Home extends React.Component {
 
   createCards = () => {
-    var infographic = document.createElement("img")
-    infographic.setAttribute("src", "https://img.icons8.com/android/48/000000/info.png");
-    infographic.setAttribute("alt", "https://img.icons8.com/android/48/000000/info.png");
     var cards_containter = document.getElementById("card_container");
     for (var venue of venues) {
       var card = document.createElement("div");
@@ -26,6 +23,10 @@ class Home extends React.Component {
       revenue.setAttribute("class", "revenue");
       revenue.innerHTML = venue.estimatedValue;
       container.append(revenue);
+
+      var infographic = document.createElement("img")
+      infographic.setAttribute("src", "https://img.icons8.com/android/48/000000/info.png");
+      infographic.setAttribute("alt", "https://img.icons8.com/android/48/000000/info.png");
 
       container.append(infographic);
       card.append(container);
