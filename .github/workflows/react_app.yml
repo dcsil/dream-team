@@ -15,17 +15,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Cache Node.js modules
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-                ${{ runner.OS }}-node-
-                ${{ runner.OS }}-
-    - name: Install Dependencies
+    - name: NPM or Yarn install with caching
+      uses: bahmutov/npm-install@v1.1.0
       working-directory: ./app
-      run: npm ci
+      run: yarn install --frozen-lockfile
     - name: Build the Website
       working-directory: ./app
       run: npm run build
