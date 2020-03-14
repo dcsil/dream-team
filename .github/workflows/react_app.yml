@@ -19,16 +19,16 @@ jobs:
       with:
           working-directory: app
     - name: Build the Website
-      working-directory: ./app
+      working-directory: app
       run: npm run build
     - name: Done!
-      working-directory: ./app
+      working-directory: app
       run: echo "The react app successfully builds!"
     - name: Run Jest Tests
-      working-directory: ./app
+      working-directory: app
       run: npm run test -- --coverage --watchAll=false
     - name: "Upload to DCSIL App"
-      working-directory: ./app
+      working-directory: app
       env:
         DCSIL_TOKEN: ${{ secrets.DCSIL_TOKEN }}
       run: |
@@ -40,7 +40,7 @@ jobs:
         # exit $(echo $resp | jq 'if .success == false then 1 elif .meets_requirements == false then 1 else 0 end')
         echo "the api is broken"
     - name: "Upload to CodeClimate"
-      working-directory: ./app
+      working-directory: app
       env:
         CC_TEST_REPORTER_ID: 1ef6e8adcbf2a45f28e983b08c21a7a64ea73d1451feeae95ce8dc266b7dd2b6
       run: |
@@ -50,4 +50,5 @@ jobs:
               ./cc-test-reporter format-coverage -t lcov # See https://docs.codeclimate.com/docs/configuring-test-coverage for more help
               ./cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
     - name: Deploy to Firebase
-      run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} -m "${{ github.sha}}" 
+      working-directory: app
+      run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} -m "${{ github.sha}}"
