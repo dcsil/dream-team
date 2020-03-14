@@ -4,4 +4,5 @@ name: String,
 phone: String,
 location: String,
 address: String,
-estimatedValue: integer
+estimatedValue: integer,
+acquired: boolean
