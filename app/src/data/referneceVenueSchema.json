@@ -1,0 +1,8 @@
+REFERENCE SCHEMA:
+
+name: String,
+phone: String,
+location: String,
+address: String,
+estimatedValue: integer,
+acquired: boolean
