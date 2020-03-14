@@ -7,12 +7,49 @@
         "estimatedValue": 1000,
         "acquired": false
     },
+    
     {
         "name": "Figs and Olives",
         "phone": "476-095-1820",
         "location": "Downtown",
         "address": "420 Bay Street, Toronto, Ontario, M6H92L",
         "estimatedValue": 4590,
+        "acquired": false
+    },
+    
+    {
+        "name": "Chowmein",
+        "phone": "516-675-1391",
+        "location": "Downtown",
+        "address": "925 Bay Street, Toronto, Ontario, M4DFL0",
+        "estimatedValue": 489,
+        "acquired": false
+    },
+    
+    {
+        "name": "Ganja",
+        "phone": "420-696-4202",
+        "location": "Missisuaga",
+        "address": "88 Missi Street, Missisuaga, Ontario, M4GHIT",
+        "estimatedValue": 4200,
+        "acquired": false
+    },
+    
+    {
+        "name": "Another One",
+        "phone": "653-356-2456",
+        "location": "Scarborough",
+        "address": "Them Bluffs, Scarborough, Ontario, MDH48D",
+        "estimatedValue": 963,
+        "acquired": false
+    },
+    
+    {
+        "name": "DJ Khaled",
+        "phone": "435-346-4920",
+        "location": "Scarborough",
+        "address": "Muder Street, Scarborough, Ontario, MDH48D",
+        "estimatedValue": 48829,
         "acquired": false
     }
 ]
