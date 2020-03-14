@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Map from "./components/Map/Map";
+import Card from "./components/Card/Card"
 import VenueTable from "./components/VenueTable/VenueTable";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/register" render={() => <Register />} />
           <Route exact path="/map" render={() => <Map />} />
+          <Route exact path="/cards" render={() => <Card />} />
           <Route exact path="/VenueTable" render={() => <VenueTable />} />
         </Switch>
       </BrowserRouter>
