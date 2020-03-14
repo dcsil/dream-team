@@ -1,0 +1,13 @@
+[
+    {'name':'Red Lobster', 
+     'phone': '416-495-1930',
+     'location': 'Downtown',
+     'address': '1045 King Street, Toronto, Ontario, M5S6K9',
+     'estimatedValue': 1000},
+
+    {'name':'Figs and Olives', 
+     'phone': '476-095-1820',
+     'location': 'Downtown',
+     'address': '420 Bay Street, Toronto, Ontario, M6H92L',
+     'estimatedValue': 4590},
+]
