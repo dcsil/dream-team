@@ -52,12 +52,12 @@ jobs:
     - name: Install Firebase Tools
       run: npm install -g firebase-tools
       working-directory: app
-    - name: get commit message
+    - name: Get Git Commit Message
       run: |
         echo ::set-env name=COMMIT_MSG::$(git log --format=%B -n 1 ${{ github.sha }})
     - name: Deploy to firebase
       working-directory: app
-      run: firebase deploy --token $FIREBASE_TOKEN -m ${SHA::8} $COMMIT_MSG
+      run: firebase deploy --token $FIREBASE_TOKEN -m "${SHA::8} $COMMIT_MSG"
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         SHA: ${{ github.sha }}
