@@ -17,6 +17,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: NPM or Yarn install with caching
       uses: bahmutov/npm-install@v1.1.0
+    - name: Yarn install dependencies
       working-directory: ./app
       run: yarn install --frozen-lockfile
     - name: Build the Website
