@@ -50,7 +50,7 @@ class VenueTable extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class="VenueTable">
                 <table>
                     <thead>
                         <tr>
