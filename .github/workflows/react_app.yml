@@ -36,9 +36,9 @@ jobs:
         resp=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: token $DCSIL_TOKEN" -H "X-App-Type: JavaScript" -d @coverage/coverage-summary.json https://dcsil-team-app.herokuapp.com/api/v1/repos/18/code_coverage)
         # Output the response from the DCSIL App
         echo $resp
-        # Exit 1 if the response was an error, or if it did not meet requirements (currently a min 65.0%)
-        exit $(echo $resp | jq 'if .success == false then 1 elif .meets_requirements == false then 1 else 0 end')
-        echo "the api is broken"
+        # Exit 1 if the response was an error, or if it did not meet requirements (currently a min 65.0%) - CURRENTLY OFF
+        # exit $(echo $resp | jq 'if .success == false then 1 elif .meets_requirements == false then 1 else 0 end')
+        # echo "the api is broken"
     - name: "Upload to CodeClimate"
       working-directory: app
       env:
