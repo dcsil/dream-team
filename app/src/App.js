@@ -10,6 +10,7 @@ import Card from "./components/Card/Card"
 import VenueTable from "./components/VenueTable/VenueTable";
 
 function App() {
+
   return (
     <div>
       <BrowserRouter>
