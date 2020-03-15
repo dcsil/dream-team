@@ -3,7 +3,9 @@
 
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
-  logging: https://app.logdna.com/069caceba9/logs/view
+  logging: 
+    frontend: https://app.logdna.com/069caceba9/logs/view
+    backend: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/functions/logs
   ci: https://github.com/dcsil/dream-team/actions
   firebase_console: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/overview
 
@@ -17,4 +19,4 @@ commands:
   bootstrap: ./bootstrap.sh
   database: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/database
   server: npm start
-  test: npm test
+  test: npm run test-once
