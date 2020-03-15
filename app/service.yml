@@ -3,9 +3,7 @@
 
 tools:
   exceptions: https://sentry.io/organizations/dreamtune/issues/
-  logging: 
-    frontend: https://app.logdna.com/069caceba9/logs/view
-    backend: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/functions/logs
+  logging: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/functions/logs
   ci: https://github.com/dcsil/dream-team/actions
   firebase_console: https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/overview
 
