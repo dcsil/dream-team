@@ -1,9 +1,11 @@
 import React from "react";
 import "./Firestore.css";
+import Loader from "../Loader/Loader"
 
 class Firestore extends React.Component {
   state = {
-    venues: []
+    venues: [], 
+    hasVenues: false
   };
 
   getFirestoreDatabase() {
@@ -40,34 +42,74 @@ class Firestore extends React.Component {
       });
   };
 
+  addFigsandOlives = db => {
+    db.collection("venues")
+      .add({
+        name: "Figs and Olives",
+        phone: "476-095-1820",
+        location: "Downtown",
+        address: "420 Bay Street, Toronto, Ontario, M6H92L",
+        estimatedValue: 4590,
+        acquired: true
+      })
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  };
+
+  addDJ= db => {
+    db.collection("venues")
+      .add({
+          name: "DJ Khaled",
+          phone: "435-346-4920",
+          location: "Scarborough",
+          address: "Muder Street, Scarborough, Ontario, MDH48D",
+          estimatedValue: 48829,
+          acquired: false
+      })
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  };
+
   readVenues = db => {
     db.collection("venues")
       .get()
       .then(querySnapshot => {
         let venues = [];
-        let id = 0;
         querySnapshot.forEach(doc => {
           console.log(`${doc.id} => ${doc.data()}`);
           console.log(doc.data());
+          let data = doc.data();
           venues.push({
-            acquired: doc.acquired,
-            address: doc.address,
-            estimatedValue: doc.estimatedValue,
-            location: doc.location,
-            name: doc.name,
-            phone: doc.phone,
-            id: id
+            acquired: data.acquired,
+            address: data.address,
+            estimatedValue: data.estimatedValue,
+            location: data.location,
+            name: data.name,
+            phone: data.phone,
+            id: doc.id
           });
-          id += 1;
         });
 
         this.setState({ venues: venues });
+        this.setState({ hasVenues: true});
+        console.log(venues);
+        
       });
   };
 
   componentDidMount() {
     let db = this.getFirestoreDatabase();
     //this.addRedLobster(db);
+    //this.addFigsandOlives(db);
+    //this.addDJ(db);
     this.readVenues(db);
   }
 
@@ -76,16 +118,18 @@ class Firestore extends React.Component {
       <div>
         <div className="title">Firestore</div>
         <div id="results">
-          {/* {this.state.venues.map((venue) => (
+          { this.state.hasVenues ? '' : <Loader /> }
+          { this.state.venues.map((venue) => (
             <div key={venue.id}>
-              <b> {venue.name} </b>
-              <i> Address: {venue.address} </i>
-              <i> Location: {venue.location} </i>
-              <i> Phone: {venue.phone} </i>
-              <i> Acquired: {venue.acquired} </i>
-              <i> Estimated Venue: {venue.estimatedValue} </i>
+              <p><b> {venue.name} </b></p>
+              <p><i> Address: </i> {venue.address} </p>
+              <p><i> Location: </i> {venue.location} </p>
+              <p><i> Phone: </i> {venue.phone} </p>
+              <p><i> Acquired: </i> {venue.acquired ? <span role="img" aria-label="true">✅</span> : <span role="img" aria-label="false">❌</span>} </p>
+              <p><i> Estimated Venue: </i> {venue.estimatedValue} </p>
+              <p>----------------</p>
             </div>
-          ))} */}
+          )) }
         </div>
         <div className="filter-ctrl">
           <input

@@ -115,6 +115,8 @@ body {
   border-radius: 30px;
   background-color: #fff;
   padding: 1.5rem;
+  padding-left: 2.5rem;
+  overflow-y: scroll;
 }
 
 .filter-ctrl {
