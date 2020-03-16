@@ -165,8 +165,6 @@ class Map extends React.Component {
             placeholder="Filter by name"
           />
         </div>
-
-        <script></script>
       </div>
     );
   }
