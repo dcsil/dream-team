@@ -8,6 +8,33 @@ class Firestore extends React.Component {
     hasVenues: false
   };
 
+  example_venues = [
+    {
+    name: "DJ Khaled",
+    phone: "435-346-4920",
+    location: "Scarborough",
+    address: "Muder Street, Scarborough, Ontario, MDH48D",
+    estimatedValue: 48829,
+    acquired: false
+    },
+    {
+    name: "Red Lobster",
+    phone: "416-495-1930",
+    location: "Downtown",
+    address: "1045 King Street, Toronto, Ontario, M5S6K9",
+    estimatedValue: 1000,
+    acquired: false
+    },
+    {
+    name: "Figs and Olives",
+    phone: "476-095-1820",
+    location: "Downtown",
+    address: "420 Bay Street, Toronto, Ontario, M6H92L",
+    estimatedValue: 4590,
+    acquired: true
+    }
+  ];
+
   getFirestoreDatabase() {
     const firebase = require("firebase");
     // Required for side-effects
@@ -24,59 +51,16 @@ class Firestore extends React.Component {
     return db;
   }
 
-  addRedLobster = db => {
+  addVenue = (db, venue) => {
     db.collection("venues")
-      .add({
-        name: "Red Lobster",
-        phone: "416-495-1930",
-        location: "Downtown",
-        address: "1045 King Street, Toronto, Ontario, M5S6K9",
-        estimatedValue: 1000,
-        acquired: false
-      })
+      .add(venue)
       .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
       })
       .catch(function(error) {
         console.error("Error adding document: ", error);
       });
-  };
-
-  addFigsandOlives = db => {
-    db.collection("venues")
-      .add({
-        name: "Figs and Olives",
-        phone: "476-095-1820",
-        location: "Downtown",
-        address: "420 Bay Street, Toronto, Ontario, M6H92L",
-        estimatedValue: 4590,
-        acquired: true
-      })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-  };
-
-  addDJ= db => {
-    db.collection("venues")
-      .add({
-          name: "DJ Khaled",
-          phone: "435-346-4920",
-          location: "Scarborough",
-          address: "Muder Street, Scarborough, Ontario, MDH48D",
-          estimatedValue: 48829,
-          acquired: false
-      })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-  };
+  }
 
   readVenues = db => {
     db.collection("venues")
@@ -107,10 +91,22 @@ class Firestore extends React.Component {
 
   componentDidMount() {
     let db = this.getFirestoreDatabase();
-    //this.addRedLobster(db);
-    //this.addFigsandOlives(db);
-    //this.addDJ(db);
+    //this.addVenue(this.example_venues[0]);
     this.readVenues(db);
+  }
+
+  mappingFunction(venue){
+    return(
+        <div key={venue.id}>
+          <p><b> {venue.name} </b></p>
+          <p><i> Address: </i> {venue.address} </p>
+          <p><i> Location: </i> {venue.location} </p>
+          <p><i> Phone: </i> {venue.phone} </p>
+          <p><i> Acquired: </i> {venue.acquired ? <span role="img" aria-label="true">✅</span> : <span role="img" aria-label="false">❌</span>} </p>
+          <p><i> Estimated Venue: </i> {venue.estimatedValue} </p>
+          <p>----------------</p>
+        </div>
+    )
   }
 
   render() {
@@ -119,25 +115,7 @@ class Firestore extends React.Component {
         <div className="title">Firestore</div>
         <div id="results">
           { this.state.hasVenues ? '' : <Loader /> }
-          { this.state.venues.map((venue) => (
-            <div key={venue.id}>
-              <p><b> {venue.name} </b></p>
-              <p><i> Address: </i> {venue.address} </p>
-              <p><i> Location: </i> {venue.location} </p>
-              <p><i> Phone: </i> {venue.phone} </p>
-              <p><i> Acquired: </i> {venue.acquired ? <span role="img" aria-label="true">✅</span> : <span role="img" aria-label="false">❌</span>} </p>
-              <p><i> Estimated Venue: </i> {venue.estimatedValue} </p>
-              <p>----------------</p>
-            </div>
-          )) }
-        </div>
-        <div className="filter-ctrl">
-          <input
-            id="filter-input"
-            type="text"
-            name="filter"
-            placeholder="Filter by name"
-          />
+          { this.state.venues.map((venue) => this.mappingFunction(venue)) }
         </div>
       </div>
     );
