@@ -49,6 +49,7 @@ see [the production website](https://dreamtune-cdf8a.web.app/) to view your chan
 if you need to rollback, you can choose a previous build on the [Firebase Hosting Console](https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/hosting/main)
 
 ### Testing
+> **As you add components and functionality, please add tests for the new code**
 
 We have been following the [Create React App documentation](https://create-react-app.dev/docs/running-tests/) for testing. For more information about the Jest framework we are using, check out the [online docs](https://jestjs.io/en/).
 
@@ -60,7 +61,7 @@ Tests are in app/src next to the components that they are testing. For example, 
 
 **Mocking Firestore with Jest**
 
-Read [this article](https://medium.com/stories-from-upstatement/jest-mocks-roasting-on-an-open-firestore-36fa55b76953)and take a look at the README from package we are using called [firestore-jest-mock](https://github.com/Upstatement/firestore-jest-mock).
+Read [this article](https://medium.com/stories-from-upstatement/jest-mocks-roasting-on-an-open-firestore-36fa55b76953) and take a look at the README from package we are using called [firestore-jest-mock](https://github.com/Upstatement/firestore-jest-mock).
 
 ### How to use git for 454 students
 Configure your credentials 
