@@ -3,20 +3,6 @@ import "./Home.css";
 
 class Home extends React.Component {
   componentDidMount() {
-    
-    window.addEventListener("click", clickButton);
-
-    function clickButton(e) {
-      if (
-        e.target.classList.contains("top-right-button") ||
-        (e.target.parentElement &&
-          e.target.parentElement.classList.contains("top-right-button"))
-      ) {
-        if (e.target.textContent.trim() === "Login") {
-          window.location.href = "/login";
-        }
-      }
-    }
   }
 
   render() {
@@ -27,7 +13,7 @@ class Home extends React.Component {
             <tr>
               <td>
                 <button className="top-right-button">
-                  <div className="button-text">Login</div>
+                  <div id="button" className="button-text">Button</div>
                 </button>
               </td>
             </tr>
