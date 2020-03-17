@@ -4,7 +4,7 @@ import Map from "./Map";
 
 global.URL.createObjectURL = jest.fn();
 
-it('renders without crashing', () => {
+it('Map renders without crashing', () => {
   const div = document.createElement('div');
   if (typeof window.URL.createObjectURL === 'undefined') { 
     Object.defineProperty(window.URL, 'createObjectURL', { value: 'results'})
