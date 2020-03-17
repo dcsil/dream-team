@@ -3,9 +3,9 @@ import { render } from "@testing-library/react";
 import ReactDOM from 'react-dom';
 import App from "./App";
 
-test("App renders login button on Home", () => {
+test("App renders dreamtune title on Home", () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Login/i);
+  const linkElement = getByText(/Dreamtune/i);
   expect(linkElement).toBeInTheDocument();
 });
 

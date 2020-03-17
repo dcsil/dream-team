@@ -3,28 +3,6 @@ import "./Home.css";
 
 class Home extends React.Component {
   componentDidMount() {
-    "use strict";
-    const log = console.log;
-
-    const buttonTextSize = 25;
-    const topBottomTextSize = 35;
-    const middleTextSize = 200;
-
-    window.addEventListener("click", clickButton);
-
-    function clickButton(e) {
-      if (
-        e.target.classList.contains("top-right-button") ||
-        (e.target.parentElement &&
-          e.target.parentElement.classList.contains("top-right-button"))
-      ) {
-        if (e.target.textContent.trim() === "Login") {
-          window.location.href = "/login";
-        } else {
-          window.location.href = "/register";
-        }
-      }
-    }
   }
 
   render() {
@@ -35,12 +13,7 @@ class Home extends React.Component {
             <tr>
               <td>
                 <button className="top-right-button">
-                  <div className="button-text">Login</div>
-                </button>
-              </td>
-              <td>
-                <button className="top-right-button">
-                  <div className="button-text">Register</div>
+                  <div id="button" className="button-text">Button</div>
                 </button>
               </td>
             </tr>
