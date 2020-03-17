@@ -8,18 +8,6 @@ class Login extends React.Component {
     topBottomTextSize = 35;
     middleTextSize = 200;
 
-	clickButton = (e) => {
-    if (
-      e.target.classList.contains("top-right-button") ||
-      (e.target.parentElement &&
-        e.target.parentElement.classList.contains("top-right-button"))
-    ) {
-      if (e.target.textContent.trim() === "Register") {
-        window.location.href = "/register";
-      }
-    }
-  }
-
    removeAnimations = (e) => {
 	const field = e.target;
 	if (field.classList.contains("apply-fade")) {
@@ -97,17 +85,6 @@ class Login extends React.Component {
     return (
       <div>
         <a className="imp-text" href="/">DreamTune</a>
-        <table className="top-right-buttons">
-          <tbody>
-            <tr>
-              <td>
-                <button className="top-right-button">
-                  <div className="button-text">Login</div>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
         <form className="center">
           <table>
             <tbody>
