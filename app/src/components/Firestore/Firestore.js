@@ -2,39 +2,13 @@ import React from "react";
 import "./Firestore.css";
 import Loader from "../Loader/Loader"
 import { uid } from "react-uid";
+import example_venues from "../../data/sampleData.json";
 
 class Firestore extends React.Component {
   state = {
     venues: [], 
     hasVenues: false
   };
-
-  example_venues = [
-    {
-    name: "DJ Khaled",
-    phone: "435-346-4920",
-    location: "Scarborough",
-    address: "Muder Street, Scarborough, Ontario, MDH48D",
-    estimatedValue: 48829,
-    acquired: false
-    },
-    {
-    name: "Red Lobster",
-    phone: "416-495-1930",
-    location: "Downtown",
-    address: "1045 King Street, Toronto, Ontario, M5S6K9",
-    estimatedValue: 1000,
-    acquired: false
-    },
-    {
-    name: "Figs and Olives",
-    phone: "476-095-1820",
-    location: "Downtown",
-    address: "420 Bay Street, Toronto, Ontario, M6H92L",
-    estimatedValue: 4590,
-    acquired: true
-    }
-  ];
 
   getFirestoreDatabase() {
     const firebase = require("firebase");
