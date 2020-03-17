@@ -8,11 +8,13 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.10.0",
+    "firebase-admin": "^8.10.0",
     "mapbox-gl": "^1.8.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0"
+    "react-scripts": "^3.4.0",
+    "react-uid": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,11 +39,13 @@
     ]
   },
   "devDependencies": {
-    "firebase-tools": "^7.15.0"
+    "firebase-tools": "^7.15.0",
+    "firestore-jest-mock": "^0.3.0"
   },
   "jest": {
     "coverageReporters": [
       "lcov",
+      "text",
       "json-summary"
     ]
   }
