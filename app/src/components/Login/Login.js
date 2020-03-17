@@ -14,7 +14,7 @@ class Login extends React.Component {
       (e.target.parentElement &&
         e.target.parentElement.classList.contains("top-right-button"))
     ) {
-      if (e.target.textContent.trim() !== "Login") {
+      if (e.target.textContent.trim() === "Register") {
         window.location.href = "/register";
       }
     }
@@ -102,7 +102,7 @@ class Login extends React.Component {
             <tr>
               <td>
                 <button className="top-right-button">
-                  <div className="button-text">Register</div>
+                  <div className="button-text">Login</div>
                 </button>
               </td>
             </tr>

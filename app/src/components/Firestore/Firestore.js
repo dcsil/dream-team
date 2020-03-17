@@ -101,7 +101,7 @@ class Firestore extends React.Component {
           <p><i> Address: </i> {venue.address} </p>
           <p><i> Location: </i> {venue.location} </p>
           <p><i> Phone: </i> {venue.phone} </p>
-          <p><i> Acquired: </i> {venue.acquired ? <span role="img" aria-label="true">✅</span> : <span role="img" aria-label="false">❌</span>} </p>
+          <p><i> Acquired: </i> {venue.acquired ? <span role="img" aria-label="checkmark">✅</span> : <span role="img" aria-label="xmark">❌</span>} </p>
           <p><i> Estimated Venue: </i> {venue.estimatedValue} </p>
           <p>----------------</p>
         </div>

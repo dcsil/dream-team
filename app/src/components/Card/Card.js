@@ -1,4 +1,4 @@
-import React, { createElement } from "react";
+import React from "react";
 import "./Card.css";
 import venues from "../../data/sampleData.json"
 
