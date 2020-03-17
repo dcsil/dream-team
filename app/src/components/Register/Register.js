@@ -169,13 +169,13 @@ class Register extends React.Component {
     );
   }
 
-  topbar = <div><a class="imp-text" href="/">DreamTune</a>
-    <table class="top-right-buttons">
+  topbar = <div><a className="imp-text" href="/">DreamTune</a>
+    <table className="top-right-buttons">
       <tbody>
         <tr>
           <td>
-            <button class="top-right-button">
-              <text class="button-text">Login</text>
+            <button className="top-right-button">
+              <div className="button-text">Login</div>
             </button>
           </td>
         </tr>
@@ -209,7 +209,6 @@ class Register extends React.Component {
     </tr>;
 
   password =
-    <div>
       <tr>
         <td>
           <input
@@ -219,6 +218,7 @@ class Register extends React.Component {
           />
         </td>
       </tr>
+  passwordAgain = 
       <tr>
         <td>
           <input
@@ -228,7 +228,6 @@ class Register extends React.Component {
           />
         </td>
       </tr>
-    </div>
 
   email =
     <tr>
@@ -237,12 +236,12 @@ class Register extends React.Component {
       </td>
     </tr>
 
-  form = <form class="center">
+  form = <form className="center">
     <table>
       <tbody>
         <tr>
           <td>
-            <text class="imp-text">Register</text>
+            <div className="imp-text">Register</div>
           </td>
         </tr>
 
@@ -250,14 +249,15 @@ class Register extends React.Component {
         {this.lastname}
         {this.username}
         {this.password}
+        {this.passwordAgain}
         {this.email}
 
         <tr>
           <td>
             <button>
-              <text class="button-text" type="submit">
+              <div className="button-text" type="submit">
                 Sign Up
-			</text>
+			        </div>
             </button>
           </td>
         </tr>

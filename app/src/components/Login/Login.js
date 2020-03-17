@@ -96,24 +96,24 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <a class="imp-text" href="/">DreamTune</a>
-        <table class="top-right-buttons">
+        <a className="imp-text" href="/">DreamTune</a>
+        <table className="top-right-buttons">
           <tbody>
             <tr>
               <td>
-                <button class="top-right-button">
-                  <text class="button-text">Register</text>
+                <button className="top-right-button">
+                  <div className="button-text">Register</div>
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
-        <form class="center">
+        <form className="center">
           <table>
             <tbody>
               <tr>
                 <td>
-                  <text class="imp-text">Login</text>
+                  <div className="imp-text">Login</div>
                 </td>
               </tr>
               <tr>
@@ -137,9 +137,9 @@ class Login extends React.Component {
               <tr>
                 <td>
                   <button>
-                    <text class="button-text" type="submit">
+                    <div className="button-text" type="submit">
                       Login
-                    </text>
+                    </div>
                   </button>
                 </td>
               </tr>

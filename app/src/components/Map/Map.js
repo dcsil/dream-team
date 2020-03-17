@@ -142,6 +142,9 @@ class Map extends React.Component {
 
     var layerIDs = []; // Will contain a list used to filter against.
     var filterInput = document.getElementById("filter-input");
+    if (!filterInput){
+      return
+    }
     var map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/light-v10",
@@ -155,9 +158,9 @@ class Map extends React.Component {
   render() {
     return (
       <div>
-        <div class="title">Dreamtune Map</div>
+        <div className="title">Dreamtune Map</div>
         <div id="map"></div>
-        <div class="filter-ctrl">
+        <div className="filter-ctrl">
           <input
             id="filter-input"
             type="text"
