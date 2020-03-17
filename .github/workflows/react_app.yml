@@ -26,9 +26,7 @@ jobs:
       run: npm run build
     - name: Run Jest Tests
       working-directory: app
-      run: |
-        # npm run test -- --coverage --watchAll=false
-        # echo This test is running forever and needs to be fixed 
+      run: npm run test -- --coverage --watchAll=false
     - name: "Upload to DCSIL App"
       working-directory: app
       env:
