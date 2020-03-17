@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import Login from "./Login";
+import {commonRenderTest} from "../../App.test"
 
-it('Login renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Login />, div);
-});
+commonRenderTest.bind(this)(Login)

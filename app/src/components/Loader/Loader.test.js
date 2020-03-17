@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import Loader from "./Loader";
+import {commonRenderTest} from "../../App.test"
 
-it('Loader renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Loader />, div);
-});
+commonRenderTest.bind(this)(Loader)

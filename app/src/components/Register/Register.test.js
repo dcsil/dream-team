@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import Register from "./Register";
+import {commonRenderTest} from "../../App.test"
 
-it('Register renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Register />, div);
-});
+commonRenderTest.bind(this)(Register)
