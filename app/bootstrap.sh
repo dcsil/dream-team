@@ -16,8 +16,12 @@ else
 fi
 
 echo "\n==========\nInstalling jq using homebrew\n==========\n"
+echo "\n==========\nNeeded for DSCIL Code Coverage Upload \n==========\n"
 brew install jq
 
+echo "\n==========\nInstalling watchman using homebrew\n==========\n"
+echo "\n==========\nNeeded for Jest watchmode: npm test\n==========\n"
+brew install watchman
 
 echo "\n==========\nInstalling node  using homebrew\n==========\n"
 brew install node
