@@ -1,6 +1,7 @@
 import React from "react";
 import "./Firestore.css";
 import Loader from "../Loader/Loader"
+import { uid } from "react-uid";
 
 class Firestore extends React.Component {
   state = {
@@ -78,14 +79,12 @@ class Firestore extends React.Component {
             location: data.location,
             name: data.name,
             phone: data.phone,
-            id: doc.id
+            id: uid(doc.id)
           });
         });
 
         this.setState({ venues: venues });
         this.setState({ hasVenues: true});
-        console.log(venues);
-        
       });
   };
 

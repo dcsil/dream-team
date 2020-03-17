@@ -9,6 +9,11 @@ class VenueTable extends React.Component {
 
     loadData() {
         let table = document.getElementById("venues")
+
+        if (!table){
+            return
+        }
+
         for(let i = 0; i < data.length; i++){
             let add = true
             for (let j = 0; j < table.rows.length; j++){
@@ -50,7 +55,7 @@ class VenueTable extends React.Component {
 
     render() {
         return (
-            <div class="VenueTable">
+            <div className="VenueTable">
                 <table>
                     <thead>
                         <tr>

@@ -6,6 +6,10 @@ class Home extends React.Component {
 
   createCards = () => {
     var cards_containter = document.getElementById("card_container");
+    if (!cards_containter){
+      return
+    }
+
     for (var venue of venues) {
       var card = document.createElement("div");
       card.setAttribute("class", "card");
@@ -40,7 +44,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div id="card_container" class="cardsContainer">
+      <div id="card_container" className="cardsContainer">
       </div>
     );
   }

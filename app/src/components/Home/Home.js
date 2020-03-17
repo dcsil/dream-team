@@ -30,26 +30,26 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <table class="top-right-buttons">
+        <table className="top-right-buttons">
           <tbody>
             <tr>
               <td>
-                <button class="top-right-button">
-                  <text class="button-text">Login</text>
+                <button className="top-right-button">
+                  <div className="button-text">Login</div>
                 </button>
               </td>
               <td>
-                <button class="top-right-button">
-                  <text class="button-text">Register</text>
+                <button className="top-right-button">
+                  <div className="button-text">Register</div>
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
-        <div class="center">
-          <span class="top">Welcome to</span>
-          <span class="middle">Dreamtune</span>
-          <span class="bottom">
+        <div className="center">
+          <span className="top">Welcome to</span>
+          <span className="middle">Dreamtune</span>
+          <span className="bottom">
             Making lead generation so easy, that you can do it in your sleep
           </span>
         </div>
