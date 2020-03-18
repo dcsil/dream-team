@@ -2,7 +2,7 @@ import React from "react";
 import "./Firestore.css";
 import Loader from "../Loader/Loader"
 import { uid } from "react-uid";
-import example_venues from "../../data/sampleData.json";
+//import example_venues from "../../data/sampleData.json";
 
 class Firestore extends React.Component {
   state = {
@@ -26,16 +26,16 @@ class Firestore extends React.Component {
     return db;
   }
 
-  addVenue = (db, venue) => {
-    db.collection("venues")
-      .add(venue)
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-  }
+  // addVenue = (db, venue) => {
+  //   db.collection("venues")
+  //     .add(venue)
+  //     .then(function(docRef) {
+  //       console.log("Document written with ID: ", docRef.id);
+  //     })
+  //     .catch(function(error) {
+  //       console.error("Error adding document: ", error);
+  //     });
+  // }
 
   readVenues = db => {
     db.collection("venues")
