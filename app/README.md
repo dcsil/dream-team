@@ -1,3 +1,6 @@
+# Dreamtune
+> Liscensing lead generation so easy, you can do it in your sleep
+
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dcsil/dreamtune)
 ![CI](https://github.com/dcsil/dream-team/workflows/ReactAppCI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7f87a22ae67adec9e7aa/maintainability)](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db/maintainability)
@@ -21,7 +24,9 @@ Go to the [local website](http://localhost:3000/) (should open automatically)
 
 ### Continued developement workflow
 
-To add and edit React components, look at `app/src/components`
+`cd dream-team/app` 
+
+To add and edit React components, see the files in `app/src/components`
 
 `npm start` (starts the local webserver that automatically loads your changes to local files)
 
