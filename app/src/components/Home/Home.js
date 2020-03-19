@@ -3,12 +3,6 @@ import "./Home.css";
 
 class Home extends React.Component {
   componentDidMount() {
-    "use strict";
-    const log = console.log;
-
-    const buttonTextSize = 25;
-    const topBottomTextSize = 35;
-    const middleTextSize = 200;
 
     window.addEventListener("click", clickButton);
 
