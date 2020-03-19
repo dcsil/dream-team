@@ -34,7 +34,7 @@ When you are done using the webserver, open terminal and press `CTL+C` at the sa
 
 The app is already being deployed automatically using Github actions whenever updates are pushed to `master`, but here is how to do it manually. 
 
-First, make sure that the app is passing automated tests using `npm test`, if not, you should not manually deploy. 
+First, make sure that the app is passing automated tests using `npm run test-once`, if not, you should not manually deploy. 
 
 `npm run build`
 
@@ -47,6 +47,21 @@ to deploy to the production website `firebase deploy`
 see [the production website](https://dreamtune-cdf8a.web.app/) to view your changes
 
 if you need to rollback, you can choose a previous build on the [Firebase Hosting Console](https://console.firebase.google.com/u/0/project/dreamtune-cdf8a/hosting/main)
+
+### Testing
+> **As you add components and functionality, please add tests for the new code**
+
+We have been following the [Create React App documentation](https://create-react-app.dev/docs/running-tests/) for testing. For more information about the Jest framework we are using, check out the [online docs](https://jestjs.io/en/).
+
+`npm test`: run tests in watch mode, where changes are automatically detected and tested as you develop run
+
+`npm run test-once`: runs the test suite only once and creates a coverage report
+
+Tests are in app/src next to the components that they are testing. For example, `App.js` is tested using the `App.test.js` file. Jest automatically looks for these files and runs the tests. 
+
+**Mocking Firestore with Jest**
+
+Read [this article](https://medium.com/stories-from-upstatement/jest-mocks-roasting-on-an-open-firestore-36fa55b76953) and take a look at the README from package we are using called [firestore-jest-mock](https://github.com/Upstatement/firestore-jest-mock).
 
 ### How to use git for 454 students
 Configure your credentials 
