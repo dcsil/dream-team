@@ -20,8 +20,8 @@ class Card extends React.Component {
       <div className="card" key={uid(venue.name)}>
         <div className="container">
           <p className="venue">{venue.name}</p>
-          <p className="revenue">{venue.estimatedValue}</p>
-          <img src="https://img.icons8.com/android/48/000000/info.png" alt="info" />
+          <p className="revenue">${venue.estimatedValue}</p>
+          <img src="https://www.visitsarasota.com/sites/default/files/styles/listing_node_full/public/mmg_lfef_images/img-academy-156-7bf7c657c51ac80d21a5275f96b4d2c5.png?itok=dySWOkbf" alt="info" />
         </div>
       </div>
     )
