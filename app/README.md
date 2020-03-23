@@ -18,7 +18,7 @@ Open your terminal (CMD + Space and type terminal)
 
 `./bootstrap.sh` (only needs to be run the first time after you clone the repo to install dependencies)
 
-`npm start` (starts the local webserver)
+`yarn start` (starts the local webserver)
 
 Go to the [local website](http://localhost:3000/) (should open automatically) 
 
@@ -28,9 +28,9 @@ Go to the [local website](http://localhost:3000/) (should open automatically)
 
 To add and edit React components, see the files in `app/src/components`
 
-`npm start` (starts the local webserver that automatically loads your changes to local files)
+`yarn start` (starts the local webserver that automatically loads your changes to local files)
 
-if you are missing dependencies and the webserver doesn't start try `npm install` and retry `npm start`
+if you are missing dependencies and the webserver doesn't start try `yarn install` and retry `yarn start`
 
 When you are done using the webserver, open terminal and press `CTL+C` at the same time to shutdown the server
 
@@ -41,7 +41,7 @@ The app is already being deployed automatically using Github actions whenever up
 
 First, make sure that the app is passing automated tests using `npm run test-once`, if not, you should not manually deploy. 
 
-`npm run build`
+`yarn build`
 
 `firebase login` (only need to do the first time you to authorize your computer) 
 
@@ -58,9 +58,9 @@ if you need to rollback, you can choose a previous build on the [Firebase Hostin
 
 We have been following the [Create React App documentation](https://create-react-app.dev/docs/running-tests/) for testing. For more information about the Jest framework we are using, check out the [online docs](https://jestjs.io/en/).
 
-`npm test`: run tests in watch mode, where changes are automatically detected and tested as you develop run
+`yarn test`: run tests in watch mode, where changes are automatically detected and tested as you develop run
 
-`npm run test-once`: runs the test suite only once and creates a coverage report
+`yarn test-once`: runs the test suite only once and creates a coverage report
 
 Tests are in app/src next to the components that they are testing. For example, `App.js` is tested using the `App.test.js` file. Jest automatically looks for these files and runs the tests. 
 
