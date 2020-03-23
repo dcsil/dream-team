@@ -15,49 +15,17 @@
     background-color: white;
     cursor: pointer;
     margin-bottom: 5px;
-    width: 350px;
-    height: 125px;
-    border-radius: 25px;
   }
 
   .card .venue{
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    overflow: hidden;
-    width: 175px;
-    white-space: nowrap;
-    line-height: 38px;
-    margin-top: -7px;
-    text-align: left;
-    font-family: Futura;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    color: rgba(0,0,0,1);
-    letter-spacing: 0.3125px;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .card .revenue{
-    white-space: nowrap;
-    text-align: left;
-    font-family: Futura;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px;
-    top: 50px;
-    color: rgba(61,43,66,1);
-    letter-spacing: 0.3125px;
-    position: absolute;
-  }
-
-  .card img{
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    width: 105px;
-    height: 95px;
-    border-radius: 25px;
+    font-size: 25px;
+    display: inline;
   }
 
   .card:hover {
@@ -67,4 +35,9 @@
   /* Add some padding inside the card container */
   .container {
     padding: 2px 16px;
+  }
+
+  .container img{
+    float: right;
+    width: 24px;
   }
