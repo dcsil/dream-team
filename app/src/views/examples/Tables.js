@@ -91,32 +91,39 @@ class Tables extends React.Component {
       progress: "100"
   }]
 
+  tables = [{
+    dark: false, 
+    footer: true, 
+    columns: this.columns,
+    rows: this.rows
+  },{
+    dark: true, 
+    footer: false, 
+    columns: this.columns,
+    rows: this.rows
+  }]
+
   render() {
     return (
       <>
-        <Header />
-        {/* Page content */}
+       {/* Stats Header */}
+      <Header />
+
+        {/* Light and Dark Tables */}
         <Container className="mt--7" fluid>
-          {/* Light Table with Footer */}
-          <Row>
-          <div className="col">
-            <DashboardTable 
-            dark={false} 
-            footer={true}
-            columns={this.columns}
-            rows={this.rows} />
-          </div>
-          </Row>
-          {/* Dark table with no Footer */}
-          <Row className="mt-5">
-          <div className="col">
-            <DashboardTable 
-              dark={true} 
-              footer={false}
-              columns={this.columns}
-              rows={this.rows} />
-          </div>
-          </Row>
+          {this.tables.map((table) => {
+            return(
+              <Row>
+              <div className="col">
+                <DashboardTable 
+                dark={table.dark}
+                footer={table.footer}
+                columns={table.columns}
+                rows={table.rows} />
+              </div>
+              </Row>
+            )
+          })}
           </Container>
       </>
     );
