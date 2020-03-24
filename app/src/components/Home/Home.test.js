@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from '@testing-library/react';
 import Home from "./Home";
-import {commonRenderTest} from "App.test"
+import {commonRenderTest} from "CommonRenderTest"
 
 commonRenderTest.bind(this)(Home)
