@@ -1,5 +1,6 @@
 import React from "react";
 import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 // import ReactDOM from 'react-dom';
 // export const commonRenderTest = function(Component) {
@@ -28,5 +29,15 @@ import { shallow } from 'enzyme';
       });
   };
 
-
-
+  export const commonMountTest = function(Component) {
+      describe('MyComponent', () => {
+        it('should be possible to activate button with Spacebar', () => {
+          const component = mount(<Component />);
+          // component
+          //   .find('button#my-button-one')
+          //   .simulate('keydown', { keyCode: 32 });
+          // expect(component).toMatchSnapshot();
+          component.unmount();
+        });
+      });
+  };
