@@ -279,7 +279,7 @@ class Tables extends React.Component {
   </nav>
 </CardFooter>
 
-  table(dark, useFooter){
+  getTable(dark, useFooter, columns){
     return(
       <div className="col">
       <Card className={dark ? "bg-default shadow" : "shadow"}>
@@ -291,11 +291,11 @@ class Tables extends React.Component {
           responsive>
           <thead className={dark ? "thead-dark" : "thead-light"}>
             <tr>
-              <th scope="col">Project</th>
-              <th scope="col">Budget</th>
-              <th scope="col">Status</th>
-              <th scope="col">Users</th>
-              <th scope="col">Completion</th>
+              {columns.map((title) => {
+                return (
+                  <th scope="col">{title}</th>
+                )
+              })}
               <th scope="col" />
             </tr>
           </thead>
@@ -309,6 +309,8 @@ class Tables extends React.Component {
     )
   }
 
+  columnTitles = ["Project", "Budget", "Status", "Users", "Completion"]
+
   render() {
     return (
       <>
@@ -317,11 +319,11 @@ class Tables extends React.Component {
         <Container className="mt--7" fluid>
           {/* Light Table with Footer */}
           <Row>
-            {this.table(false, true)}
+            {this.getTable(false, true, this.columnTitles)}
           </Row>
           {/* Dark table with no Footer */}
           <Row className="mt-5">
-            {this.table(true, false)}
+            {this.getTable(true, false, this.columnTitles)}
           </Row>
           </Container>
       </>
