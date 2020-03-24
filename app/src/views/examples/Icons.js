@@ -63,31 +63,16 @@ class Icons extends React.Component {
   mappingFunction(icon) {
     return (
       <Col lg="3" md="6">
-      <CopyToClipboard
-        text={icon}
-        onCopy={() =>
-          this.setState({ copiedText: {icon} })
-        }
-      >
-        <button
-          className="btn-icon-clipboard"
-          id={icon}
-          type="button"
-        >
+      <CopyToClipboard text={icon} onCopy={() => this.setState({ copiedText: {icon} })}>
+        <button className="btn-icon-clipboard" id={icon} type="button">
           <div>
             <i className={"ni ni-" + icon} />
             <span>{icon}</span>
           </div>
         </button>
       </CopyToClipboard>
-      <UncontrolledTooltip
-        delay={0}
-        trigger="hover focus"
-        target={icon}
-      >
-        {this.state.copiedText === {icon}
-          ? "Copied"
-          : "Copy To Clipboard"}
+      <UncontrolledTooltip delay={0} trigger="hover focus" target={icon}>
+        {this.state.copiedText === {icon} ? "Copied" : "Copy To Clipboard"}
       </UncontrolledTooltip>
     </Col>
     )

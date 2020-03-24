@@ -144,7 +144,6 @@ class Profile extends React.Component {
     return (
       <>
         <UserHeader />
-        {/* Page content */}
         <Container className="mt--7" fluid>
           <Row>
             {this.profileCard}
