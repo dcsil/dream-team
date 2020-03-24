@@ -42,3 +42,17 @@ import { mount } from 'enzyme';
     });
 };
 
+export const commonHoverTest = function(Component) {
+  describe('MyComponent', () => {
+    it('should be possible to click all the buttons', () => {
+      const component = mount(<Component/>);
+      component
+        .find('div').forEach(div => {
+          div.simulate('mouseenter');
+          div.simulate('mouseleave');
+        })
+      component.unmount();
+    });
+  });
+};
+
