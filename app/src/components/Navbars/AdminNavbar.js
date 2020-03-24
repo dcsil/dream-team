@@ -36,6 +36,36 @@ import {
 } from "reactstrap";
 
 class AdminNavbar extends React.Component {
+
+  state = {dropdownItems: [{
+    name: "My profile",
+    icon: "ni ni-single-02",
+    destination: "/admin/user-profile"
+  },{
+    name: "Settings",
+    icon: "ni ni-settings-gear-65",
+    destination: "/admin/user-profile"
+  },{
+    name: "Activity",
+    icon: "ni ni-calendar-grid-58",
+    destination: "/admin/user-profile"
+  },{
+    name: "Support",
+    icon: "ni ni-support-16",
+    destination: "/admin/user-profile"
+  }
+
+  ]}
+
+  dropdownItemMap = (item) => {
+    return(
+      <DropdownItem to={item.destination} tag={Link}>
+        <i className={item.icon} />
+        <span>{item.name}</span>
+      </DropdownItem>
+    )
+  }
+
   render() {
     return (
       <>
@@ -77,24 +107,9 @@ class AdminNavbar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-menu-arrow" right>
                   <DropdownItem className="noti-title" header tag="div">
-                    <h6 className="text-overflow m-0">Welcome!</h6>
+                  <h6 className="text-overflow m-0">Welcome!</h6>
                   </DropdownItem>
-                  <DropdownItem to="/admin/user-profile" tag={Link}>
-                    <i className="ni ni-single-02" />
-                    <span>My profile</span>
-                  </DropdownItem>
-                  <DropdownItem to="/admin/user-profile" tag={Link}>
-                    <i className="ni ni-settings-gear-65" />
-                    <span>Settings</span>
-                  </DropdownItem>
-                  <DropdownItem to="/admin/user-profile" tag={Link}>
-                    <i className="ni ni-calendar-grid-58" />
-                    <span>Activity</span>
-                  </DropdownItem>
-                  <DropdownItem to="/admin/user-profile" tag={Link}>
-                    <i className="ni ni-support-16" />
-                    <span>Support</span>
-                  </DropdownItem>
+                {this.state.dropdownItems.map((item) => this.dropdownItemMap(item))}
                   <DropdownItem divider />
                   <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
                     <i className="ni ni-user-run" />
