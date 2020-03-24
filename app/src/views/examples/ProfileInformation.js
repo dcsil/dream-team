@@ -1,17 +1,12 @@
 import React from "react";
 
 // reactstrap components
-import {
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Col
-} from "reactstrap";
+import { FormGroup, Form, Input, Row, Col } from "reactstrap";
 
 class ProfileInformation extends React.Component {
-  profileInformation = (
-    <Form>
+
+  userInformation = (
+    <>
       <h6 className="heading-small text-muted mb-4">User information</h6>
       <div className="pl-lg-4">
         <Row>
@@ -74,8 +69,11 @@ class ProfileInformation extends React.Component {
           </Col>
         </Row>
       </div>
-      <hr className="my-4" />
-      {/* Address */}
+    </>
+  );
+
+  contactInformation = (
+    <>
       <h6 className="heading-small text-muted mb-4">Contact information</h6>
       <div className="pl-lg-4">
         <Row>
@@ -138,22 +136,34 @@ class ProfileInformation extends React.Component {
           </Col>
         </Row>
       </div>
+    </>
+  );
+
+  aboutMe = 
+  <>
+    <h6 className="heading-small text-muted mb-4">About me</h6>
+    <div className="pl-lg-4">
+    <FormGroup>
+        <label>About Me</label>
+        <Input
+        className="form-control-alternative"
+        placeholder="A few words about you ..."
+        rows="4"
+        defaultValue="A beautiful Dashboard for Bootstrap 4. It is Free and
+        Open Source."
+        type="textarea"
+        />
+    </FormGroup>
+    </div>
+  </>
+
+  profileInformation = (
+    <Form>
+      {this.userInformation}
       <hr className="my-4" />
-      {/* Description */}
-      <h6 className="heading-small text-muted mb-4">About me</h6>
-      <div className="pl-lg-4">
-        <FormGroup>
-          <label>About Me</label>
-          <Input
-            className="form-control-alternative"
-            placeholder="A few words about you ..."
-            rows="4"
-            defaultValue="A beautiful Dashboard for Bootstrap 4. It is Free and
-            Open Source."
-            type="textarea"
-          />
-        </FormGroup>
-      </div>
+      {this.contactInformation}
+      <hr className="my-4" />
+      {this.aboutMe}
     </Form>
   );
 
