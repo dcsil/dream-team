@@ -6,6 +6,8 @@ import Register from "./Register";
 import Tables from "./Tables";
 
 import {commonRenderTest} from "CommonRenderTest"
+import ProfileInformation from "./ProfileInformation";
+import { commonButtonTest } from "CommonRenderTest";
 
 commonRenderTest.bind(this)(Icons)
 
@@ -19,3 +21,10 @@ commonRenderTest.bind(this)(Register)
 
 commonRenderTest.bind(this)(Tables)
 
+commonRenderTest.bind(this)(ProfileInformation)
+
+commonButtonTest.bind(this)(Profile)
+
+commonButtonTest.bind(this)(Login)
+
+commonButtonTest.bind(this)(Register)
