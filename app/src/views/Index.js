@@ -51,14 +51,16 @@ import Header from "components/Headers/Header.js";
 class Index extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      activeNav: 1,
-      chartExample1Data: "data1"
-    };
     if (window.Chart) {
       parseOptions(Chart, chartOptions());
     }
   }
+
+  state = {
+    activeNav: 1,
+    chartExample1Data: "data1"
+  };
+
   toggleNavs = (e, index) => {
     e.preventDefault();
     this.setState({
