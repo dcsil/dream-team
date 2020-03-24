@@ -8,6 +8,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import TableCardHeader from "./TableCardHeader";
 
 class PageVisitsTable extends React.Component {
   pageVisitsData = [
@@ -65,23 +66,7 @@ class PageVisitsTable extends React.Component {
     return (
       <Col className="mb-5 mb-xl-0" xl="8">
         <Card className="shadow">
-          <CardHeader className="border-0">
-            <Row className="align-items-center">
-              <div className="col">
-                <h3 className="mb-0">Page visits</h3>
-              </div>
-              <div className="col text-right">
-                <Button
-                  color="primary"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                  size="sm"
-                >
-                  See all
-                </Button>
-              </div>
-            </Row>
-          </CardHeader>
+            <TableCardHeader name="Page visits"/>
           <Table className="align-items-center table-flush" responsive>
             <thead className="thead-light">
               <tr>

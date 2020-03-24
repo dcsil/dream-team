@@ -9,6 +9,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import TableCardHeader from "./TableCardHeader";
 
 class SocialTrafficTable extends React.Component {
   socialTrafficData = [
@@ -65,31 +66,11 @@ class SocialTrafficTable extends React.Component {
     );
   }
 
-  cardHeader = (
-    <CardHeader className="border-0">
-      <Row className="align-items-center">
-        <div className="col">
-          <h3 className="mb-0">Social traffic</h3>
-        </div>
-        <div className="col text-right">
-          <Button
-            color="primary"
-            href="#pablo"
-            onClick={e => e.preventDefault()}
-            size="sm"
-          >
-            See all
-          </Button>
-        </div>
-      </Row>
-    </CardHeader>
-  );
-
   render() {
     return (
       <Col xl="4">
         <Card className="shadow">
-          {this.cardHeader}
+          <TableCardHeader name="Social traffic"/>
           <Table className="align-items-center table-flush" responsive>
             <thead className="thead-light">
               <tr>
