@@ -89,51 +89,62 @@ class DashboardTable extends React.Component {
             </DropdownMenu>
   </UncontrolledDropdown>
 
+  rowStatus(row){
+    return(
+        <Badge color="" className="badge-dot mr-4">
+        <i className={this.getStatusBadge(row.status)} />
+        {row.status}
+        </Badge>
+    )
+  }
+
+  rowTitle(row){
+      return(
+        <Media className="align-items-center">
+        <a className="avatar rounded-circle mr-3" href="#pablo" onClick={e => e.preventDefault()}>
+          <img alt="..." src={row.img}/>
+        </a>
+        <Media><span className="mb-0 text-sm">{row.name}</span></Media>
+      </Media>
+      )
+  }
+
+  rowProfiles(row){
+      return(
+        <div className="avatar-group">
+        {row.profiles.map((profile) => this.profileMappingFunction(profile))}
+        </div>
+      )
+  }
+
+  rowProgress(row){
+      return(
+        <div className="d-flex align-items-center">
+        <span className="mr-2">{row.progress}%</span>
+        <div>
+          <Progress max="100" value={row.progress} barClassName={this.getProgressBar(row.progress)}/>
+        </div>
+        </div>
+      )
+  }
+
   rowMappingFunction(row) {
     return (
       <tr>
         <th scope="row">
-          <Media className="align-items-center">
-            <a
-              className="avatar rounded-circle mr-3"
-              href="#pablo"
-              onClick={e => e.preventDefault()}
-            >
-              <img
-                alt="..."
-                src={row.img}
-              />
-            </a>
-            <Media>
-              <span className="mb-0 text-sm">
-                {row.name}
-              </span>
-            </Media>
-          </Media>
+            {this.rowTitle(row)}
         </th>
-        <td>{row.value}</td>
         <td>
-          <Badge color="" className="badge-dot mr-4">
-            <i className={this.getStatusBadge(row.status)} />
-            {row.status}
-          </Badge>
+            {row.value}
         </td>
         <td>
-          <div className="avatar-group">
-          {row.profiles.map((profile) => this.profileMappingFunction(profile))}
-          </div>
+            {this.rowStatus(row)}
         </td>
         <td>
-          <div className="d-flex align-items-center">
-            <span className="mr-2">{row.progress}%</span>
-            <div>
-              <Progress
-                max="100"
-                value={row.progress}
-                barClassName={this.getProgressBar(row.progress)}
-              />
-            </div>
-          </div>
+            {this.rowProfiles(row)}
+        </td>
+        <td>
+            {this.rowProgress(row)}
         </td>
         <td className="text-right">
           {this.dropdownMenu}
