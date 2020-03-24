@@ -55,7 +55,41 @@ class DashboardTable extends React.Component {
     )
   }
 
-  mappingFunction(row) {
+  dropdownMenu =
+  <UncontrolledDropdown>
+            <DropdownToggle
+              className="btn-icon-only text-light"
+              href="#pablo"
+              role="button"
+              size="sm"
+              color=""
+              onClick={e => e.preventDefault()}
+            >
+              <i className="fas fa-ellipsis-v" />
+            </DropdownToggle>
+            <DropdownMenu className="dropdown-menu-arrow" right>
+              <DropdownItem
+                href="#pablo"
+                onClick={e => e.preventDefault()}
+              >
+                Action
+              </DropdownItem>
+              <DropdownItem
+                href="#pablo"
+                onClick={e => e.preventDefault()}
+              >
+                Another action
+              </DropdownItem>
+              <DropdownItem
+                href="#pablo"
+                onClick={e => e.preventDefault()}
+              >
+                Something else here
+              </DropdownItem>
+            </DropdownMenu>
+  </UncontrolledDropdown>
+
+  rowMappingFunction(row) {
     return (
       <tr>
         <th scope="row">
@@ -102,38 +136,7 @@ class DashboardTable extends React.Component {
           </div>
         </td>
         <td className="text-right">
-          <UncontrolledDropdown>
-            <DropdownToggle
-              className="btn-icon-only text-light"
-              href="#pablo"
-              role="button"
-              size="sm"
-              color=""
-              onClick={e => e.preventDefault()}
-            >
-              <i className="fas fa-ellipsis-v" />
-            </DropdownToggle>
-            <DropdownMenu className="dropdown-menu-arrow" right>
-              <DropdownItem
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Action
-              </DropdownItem>
-              <DropdownItem
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Another action
-              </DropdownItem>
-              <DropdownItem
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Something else here
-              </DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
+          {this.dropdownMenu}
         </td>
     </tr>
     )
@@ -199,33 +202,22 @@ class DashboardTable extends React.Component {
     const rows = this.props.rows;
 
     return(
-      <div className="col">
       <Card className={dark ? "bg-default shadow" : "shadow"}>
         <CardHeader className={dark ? "bg-transparent border-0" : "border-0"}>
           <h3 className={dark ? "text-white mb-0" : "mb-0"}>Card tables</h3>
         </CardHeader>
-        <Table
-          className={dark ? "align-items-center table-dark table-flush" : "align-items-center table-flush"}
-          responsive>
+        <Table className={dark ? "align-items-center table-dark table-flush" : "align-items-center table-flush"} responsive>
           <thead className={dark ? "thead-dark" : "thead-light"}>
             <tr>
-              {columns.map((title) => {
-                return (
-                  <th scope="col">{title}</th>
-                )
-              })}
+              {columns.map((title) => {return (<th scope="col">{title}</th>)})}
               <th scope="col" />
             </tr>
           </thead>
-          <tbody>
-            {rows.map((row) => this.mappingFunction(row))}
-          </tbody>
+          <tbody> {rows.map((row) => this.rowMappingFunction(row))} </tbody>
         </Table>
         {footer ? this.footer : <></>}
       </Card>
-    </div>
-    )
-  }
+    )}
 }
 
 export default DashboardTable;

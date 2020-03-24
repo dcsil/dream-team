@@ -99,19 +99,23 @@ class Tables extends React.Component {
         <Container className="mt--7" fluid>
           {/* Light Table with Footer */}
           <Row>
+          <div className="col">
             <DashboardTable 
             dark={false} 
             footer={true}
             columns={this.columns}
             rows={this.rows} />
+          </div>
           </Row>
           {/* Dark table with no Footer */}
           <Row className="mt-5">
-          <DashboardTable 
-            dark={true} 
-            footer={false}
-            columns={this.columns}
-            rows={this.rows} />
+          <div className="col">
+            <DashboardTable 
+              dark={true} 
+              footer={false}
+              columns={this.columns}
+              rows={this.rows} />
+          </div>
           </Row>
           </Container>
       </>
