@@ -35,8 +35,8 @@ class Profile extends React.Component {
           </Col>
           <Col className="text-right" xs="4">
             <Button
-              color="primary"
-              href="#pablo"
+              color="default"
+              href="#myaccount"
               onClick={e => e.preventDefault()}
               size="sm"
             >
