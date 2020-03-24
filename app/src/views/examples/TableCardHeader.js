@@ -19,7 +19,7 @@ class TableCardHeader extends React.Component {
                 <div className="col text-right">
                 <Button
                     color="primary"
-                    href="#pablo"
+                    href="#somwhereelse"
                     onClick={e => e.preventDefault()}
                     size="sm"
                 >
