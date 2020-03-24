@@ -9,6 +9,4 @@ test("App renders dreamtune title on Home", () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-
-
 commonRenderTest.bind(this)(App)
