@@ -1,15 +1,15 @@
 exclude_patterns:
  - "tests/"
- - config/
- - db/
- - dist/
- - **/node_modules/
- - script/
- - **/spec/
- - **/test/
- - **/tests/
- - Tests/
- - **/vendor/
- - **/*_test.go
- - **/*.d.ts
- - **/*.test.js
+ - "config/"
+ - "db/"
+ - "dist/"
+ - "**/node_modules/"
+ - "script/"
+ - "**/spec/"
+ - "**/test/"
+ - "**/tests/"
+ - "Tests/"
+ - "**/vendor/"
+ - "**/*_test.go"
+ - "**/*.d.ts"
+ - "**/*.test.js"
