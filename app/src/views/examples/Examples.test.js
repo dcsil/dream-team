@@ -11,7 +11,6 @@ import ProfileInformation from "./ProfileInformation";
 import SocialTrafficTable from "./SocialTrafficTable";
 import PageVisitsTable from "./PageVisitsTable";
 import TableCardHeader from "./TableCardHeader";
-import DashboardTable from "./DashboardTable";
 
 //Render Test
 commonRenderTest.bind(this)(Icons)
@@ -24,7 +23,6 @@ commonRenderTest.bind(this)(ProfileInformation)
 commonRenderTest.bind(this)(PageVisitsTable)
 commonRenderTest.bind(this)(SocialTrafficTable)
 commonRenderTest.bind(this)(TableCardHeader)
-commonRenderTest.bind(this)(DashboardTable)
 
 
 //Button Tests
