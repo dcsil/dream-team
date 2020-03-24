@@ -1,8 +1,8 @@
 import React from "react";
 import "./Firestore.css";
-import Loader from "../Loader/Loader"
+import Loader from "components//Loader/Loader"
 import { uid } from "react-uid";
-//import example_venues from "../../data/sampleData.json";
+//import example_venues from "data/sampleData.json";
 
 class Firestore extends React.Component {
   state = {

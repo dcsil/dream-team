@@ -6,16 +6,25 @@ import Map from "./components/Map/Map";
 import Card from "./components/Card/Card"
 import Firestore from "./components/Firestore/Firestore";
 
+import "assets/plugins/nucleo/css/nucleo.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "assets/scss/argon-dashboard-react.scss";
+
+import AdminLayout from "layouts/Admin.js";
+import AuthLayout from "layouts/Auth.js";
+
 function App() {
 
   return (
     <div>
       <BrowserRouter>
-        <Switch>
+        <Switch>  
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/firestore" render={() => <Firestore />} />
           <Route exact path="/map" render={() => <Map />} />
           <Route exact path="/card" render={() => <Card />} />
+          <Route path="/admin" render={props => <AdminLayout {...props} />} />
+          <Route path="/auth" render={props => <AuthLayout {...props} />} />
         </Switch>
       </BrowserRouter>
     </div>

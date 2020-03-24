@@ -1,6 +1,6 @@
 import React from "react";
 import "./Map.css";
-import places from "../../data/sampleLocations.json";
+import places from "data/sampleLocations.json";
 
 class Map extends React.Component {
 
