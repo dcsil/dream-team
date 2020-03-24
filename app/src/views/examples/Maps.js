@@ -91,7 +91,6 @@ class Maps extends React.Component {
     return (
       <>
         <Header />
-        {/* Page content */}
         <Container className="mt--7" fluid>
           <Row>
             <div className="col">
@@ -99,16 +98,8 @@ class Maps extends React.Component {
                 <MapWrapper
                   googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"
                   loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={
-                    <div
-                      style={{ height: `600px` }}
-                      className="map-canvas"
-                      id="map-canvas"
-                    />
-                  }
-                  mapElement={
-                    <div style={{ height: `100%`, borderRadius: "inherit" }} />
-                  }
+                  containerElement={<div style={{ height: `600px` }} className="map-canvas" id="map-canvas"/>}
+                  mapElement={<div style={{ height: `100%`, borderRadius: "inherit" }} />}
                 />
               </Card>
             </div>

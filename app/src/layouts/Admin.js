@@ -59,30 +59,36 @@ class Admin extends React.Component {
     }
     return "Brand";
   };
+
+  adminFooter =
+  <Container fluid>
+  <AdminFooter />
+  </Container>
+
+  adminSidebar = 
+  <Sidebar
+  {...this.props}
+  routes={routes}
+  logo={{
+    innerLink: "/admin/index",
+    imgSrc: require("assets/img/brand/argon-react.png"),
+    imgAlt: "..."
+  }}
+  />
+
   render() {
     return (
       <>
-        <Sidebar
-          {...this.props}
-          routes={routes}
-          logo={{
-            innerLink: "/admin/index",
-            imgSrc: require("assets/img/brand/argon-react.png"),
-            imgAlt: "..."
-          }}
-        />
+        {this.adminSidebar}
         <div className="main-content" ref="mainContent">
           <AdminNavbar
-            {...this.props}
-            brandText={this.getBrandText(this.props.location.pathname)}
+            {...this.props} brandText={this.getBrandText(this.props.location.pathname)}
           />
           <Switch>
             {this.getRoutes(routes)}
             <Redirect from="*" to="/admin/index" />
           </Switch>
-          <Container fluid>
-            <AdminFooter />
-          </Container>
+          {this.adminFooter}
         </div>
       </>
     );
