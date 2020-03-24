@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-import venues from "../../data/sampleData.json";
+import venues from "data/sampleData.json";
 import { uid } from "react-uid";
 
 class Card extends React.Component {
