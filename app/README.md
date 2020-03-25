@@ -18,7 +18,7 @@ Open your terminal (CMD + Space and type terminal)
 
 `./bootstrap.sh` (only needs to be run the first time after you clone the repo to install dependencies)
 
-`yarn start` (starts the local webserver)
+`npm start` (starts the local webserver)
 
 Go to the [local website](http://localhost:3000/) (should open automatically) 
 
@@ -28,9 +28,9 @@ Go to the [local website](http://localhost:3000/) (should open automatically)
 
 To add and edit React components, see the files in `app/src/components`
 
-`yarn start` (starts the local webserver that automatically loads your changes to local files)
+`npm start` (starts the local webserver that automatically loads your changes to local files)
 
-if you are missing dependencies and the webserver doesn't start try `yarn install` and retry `yarn start`
+if you are missing dependencies and the webserver doesn't start try `npm install` and retry `npm start`
 
 When you are done using the webserver, open terminal and press `CTL+C` at the same time to shutdown the server
 
@@ -41,7 +41,7 @@ The app is already being deployed automatically using Github actions whenever up
 
 First, make sure that the app is passing automated tests using `npm run test-once`, if not, you should not manually deploy. 
 
-`yarn build`
+`npm run build`
 
 `firebase login` (only need to do the first time you to authorize your computer) 
 
@@ -58,11 +58,20 @@ if you need to rollback, you can choose a previous build on the [Firebase Hostin
 
 We have been following the [Create React App documentation](https://create-react-app.dev/docs/running-tests/) for testing. For more information about the Jest framework we are using, check out the [online docs](https://jestjs.io/en/).
 
-`yarn test`: run tests in watch mode, where changes are automatically detected and tested as you develop run
+`npm test`: run tests in watch mode, where changes are automatically detected and tested as you develop run
 
-`yarn test-once`: runs the test suite only once and creates a coverage report
+`npm run test-once`: runs the test suite only once and creates a coverage report
 
 Tests are in app/src next to the components that they are testing. For example, `App.js` is tested using the `App.test.js` file. Jest automatically looks for these files and runs the tests. 
+
+**Improving Test Coverage**
+View the coverage report created by `npm run test-once` to see which files have a low percentage of test coverage. Generate tests for these files. There are three common tests provided in `CommonRenderTest`:
+- `commonRenderTest` shallow renders a component (doesn't render any children components) 
+- `commonMountTest` renders a component fully in the DOM
+- `commonHoverTest` simulates a mouse entering and leaving
+- `commonButtonTest` simulates a button click
+
+You can also see files that have a poor test coverage in [Code Climate](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db/code?sort=test_coverage).
 
 **Mocking Firestore with Jest**
 
