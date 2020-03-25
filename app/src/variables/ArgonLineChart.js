@@ -1,6 +1,6 @@
 import React from "react";
 
-import { chartOptions, parseOptions } from "variables/charts.js";
+import { chartOptions, parseOptions } from "../assets/charts.js";
 
 import { Line } from "react-chartjs-2";
 

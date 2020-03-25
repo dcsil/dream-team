@@ -156,7 +156,6 @@ class LoginRegister extends React.Component {
 
   render() {
     return (
-      <>
         <Col
           lg={this.props.register ? "6" : "5"}
           md={this.props.register ? "8" : "7"}
@@ -180,7 +179,6 @@ class LoginRegister extends React.Component {
           </Card>
           {this.props.register ? "" : this.bottomOptions}
         </Col>
-      </>
     );
   }
 }
