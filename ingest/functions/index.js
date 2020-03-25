@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 var request = require('request');
 var cheerio = require('cheerio');
 var URL = require('url-parse');
-const yelp = require('yelp-fusion');
+// const yelp = require('yelp-fusion');
 // const client = yelp.client('YOUR_API_KEY');
 
 
