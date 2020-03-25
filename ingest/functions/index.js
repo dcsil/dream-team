@@ -12,8 +12,15 @@ const rp = require('request-promise');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 function scrapeBBBjs(type) {
-    let response = request.get('https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1');
-    return response;
+    //let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
+    rp('https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States')
+        .then((html) => {
+            return html;
+        })
+        .catch((err) => {
+            console.log(err);
+            return;
+        })
 }
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
@@ -21,17 +28,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
-    //res.send(scrapeBBBjs('restaurant'));
-    let type = 'restaurant';
-    rp('https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1')
-        .then((html) => {
-            res.send(html);
-            console.log(html);
-            return
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    res.send(scrapeBBBjs('restaurant'));
+    //rp('https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1')
 });
 
 //testing for alias
