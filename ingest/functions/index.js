@@ -16,13 +16,13 @@ function scrapeBBBjs(type) {
     //rp('https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States')
     rp(url)
         .then((html) => {
-            console.log(html);
-            console.log("reached here");
-            return html;
+            const $ = cheerio.load(html);
+            console.log($('.MuiTypography-root Name-sc-1srnbh5-0 iyPLkp MuiTypography-h4 MuiTypography-gutterBottom').text());
+            console.log(typeof (html));
+            return $('.MuiTypography-root Name-sc-1srnbh5-0 iyPLkp MuiTypography-h4 MuiTypography-gutterBottom').text();
         })
         .catch((err) => {
             console.log(err);
-            console.log("NOPE");
             return;
         })
 }
@@ -33,7 +33,4 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
     res.send(scrapeBBBjs('restaurant'));
-    //rp('https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1')
 });
-
-//testing for alias
