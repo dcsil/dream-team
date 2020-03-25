@@ -1,10 +1,11 @@
 /* istanbul ignore file */
 
 const Chart = require("chart.js");
-//
+
+// ----------------------------------------------------
 // Chart extension for making the bars rounded
 // Code from: https://codepen.io/jedtrow/full/ygRYgo
-//
+// vvvv
 
 Chart.elements.Rectangle.prototype.draw = function() {
   var ctx = this._chart.ctx;
@@ -127,13 +128,19 @@ Chart.elements.Rectangle.prototype.draw = function() {
   }
 };
 
+// ^^^
+// Chart extension for making the bars rounded
+// Code from: https://codepen.io/jedtrow/full/ygRYgo
+//----------------------------------------------------------
+
+
 var mode = "light"; //(themeMode) ? themeMode : 'light';
 var fonts = {
   base: "Open Sans"
 };
 
 // Colors
-var colors = {
+export const chartColors = {
   gray: {
     100: "#f6f9fc",
     200: "#e9ecef",
@@ -162,15 +169,15 @@ var colors = {
 // Methods
 
 // Chart.js global options
-function chartOptions() {
+export const chartOptions = () => {
   // Options
   var options = {
     defaults: {
       global: {
         responsive: true,
         maintainAspectRatio: false,
-        defaultColor: mode === "dark" ? colors.gray[700] : colors.gray[600],
-        defaultFontColor: mode === "dark" ? colors.gray[700] : colors.gray[600],
+        defaultColor: mode === "dark" ? chartColors.gray[700] : chartColors.gray[600],
+        defaultFontColor: mode === "dark" ? chartColors.gray[700] : chartColors.gray[600],
         defaultFontFamily: fonts.base,
         defaultFontSize: 13,
         layout: {
@@ -187,21 +194,21 @@ function chartOptions() {
         elements: {
           point: {
             radius: 0,
-            backgroundColor: colors.theme["primary"]
+            backgroundColor: chartColors.theme["primary"]
           },
           line: {
             tension: 0.4,
             borderWidth: 4,
-            borderColor: colors.theme["primary"],
-            backgroundColor: colors.transparent,
+            borderColor: chartColors.theme["primary"],
+            backgroundColor: chartColors.transparent,
             borderCapStyle: "rounded"
           },
           rectangle: {
-            backgroundColor: colors.theme["warning"]
+            backgroundColor: chartColors.theme["warning"]
           },
           arc: {
-            backgroundColor: colors.theme["primary"],
-            borderColor: mode === "dark" ? colors.gray[800] : colors.white,
+            backgroundColor: chartColors.theme["primary"],
+            borderColor: mode === "dark" ? chartColors.gray[800] : chartColors.white,
             borderWidth: 4
           }
         },
@@ -240,12 +247,12 @@ function chartOptions() {
     gridLines: {
       borderDash: [2],
       borderDashOffset: [2],
-      color: mode === "dark" ? colors.gray[900] : colors.gray[300],
+      color: mode === "dark" ? chartColors.gray[900] : chartColors.gray[300],
       drawBorder: false,
       drawTicks: false,
       lineWidth: 0,
       zeroLineWidth: 0,
-      zeroLineColor: mode === "dark" ? colors.gray[900] : colors.gray[300],
+      zeroLineColor: mode === "dark" ? chartColors.gray[900] : chartColors.gray[300],
       zeroLineBorderDash: [2],
       zeroLineBorderDashOffset: [2]
     },
@@ -276,7 +283,7 @@ function chartOptions() {
 }
 
 // Parse global options
-function parseOptions(parent, options) {
+export const parseOptions = (parent, options) => {
   for (var item in options) {
     if (typeof options[item] !== "object") {
       parent[item] = options[item];
@@ -285,115 +292,3 @@ function parseOptions(parent, options) {
     }
   }
 }
-
-// Example 1 of Chart inside src/views/Index.js (Sales value - Card)
-let chartExample1 = {
-  options: {
-    scales: {
-      yAxes: [
-        {
-          gridLines: {
-            color: colors.gray[900],
-            zeroLineColor: colors.gray[900]
-          },
-          ticks: {
-            callback: function(value) {
-              if (!(value % 10)) {
-                return "$" + value + "k";
-              }
-            }
-          }
-        }
-      ]
-    },
-    tooltips: {
-      callbacks: {
-        label: function(item, data) {
-          var label = data.datasets[item.datasetIndex].label || "";
-          var yLabel = item.yLabel;
-          var content = "";
-
-          if (data.datasets.length > 1) {
-            content += label;
-          }
-
-          content += "$" + yLabel + "k";
-          return content;
-        }
-      }
-    }
-  },
-  data1: canvas => {
-    return {
-      labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      datasets: [
-        {
-          label: "Performance",
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
-        }
-      ]
-    };
-  },
-  data2: canvas => {
-    return {
-      labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      datasets: [
-        {
-          label: "Performance",
-          data: [0, 20, 5, 25, 10, 30, 15, 40, 40]
-        }
-      ]
-    };
-  }
-};
-
-// Example 2 of Chart inside src/views/Index.js (Total orders - Card)
-let chartExample2 = {
-  options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            callback: function(value) {
-              if (!(value % 10)) {
-                //return '$' + value + 'k'
-                return value;
-              }
-            }
-          }
-        }
-      ]
-    },
-    tooltips: {
-      callbacks: {
-        label: function(item, data) {
-          var label = data.datasets[item.datasetIndex].label || "";
-          var yLabel = item.yLabel;
-          var content = "";
-          if (data.datasets.length > 1) {
-            content += label;
-          }
-          content += yLabel;
-          return content;
-        }
-      }
-    }
-  },
-  data: {
-    labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [
-      {
-        label: "Sales",
-        data: [25, 20, 30, 22, 17, 29],
-        maxBarThickness: 10
-      }
-    ]
-  }
-};
-
-module.exports = {
-  chartOptions, // used inside src/views/Index.js
-  parseOptions, // used inside src/views/Index.js
-  chartExample1, // used inside src/views/Index.js
-  chartExample2 // used inside src/views/Index.js
-};
