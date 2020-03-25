@@ -17,6 +17,7 @@ function scrapeBBBjs(type) {
     rp(url)
         .then((html) => {
             console.log(html);
+            console.log("reached here");
             return html;
         })
         .catch((err) => {
