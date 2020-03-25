@@ -21,5 +21,3 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
     res.send(scrapeBBBjs('restaurant'));
 });
-
-//testing for alias
