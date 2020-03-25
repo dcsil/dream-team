@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
@@ -36,70 +19,59 @@ import {
 
 class Register extends React.Component {
 
-  githubButton = 
-  <Button
-  className="btn-neutral btn-icon mr-4"
-  color="default"
-  href="#pablo"
-  onClick={e => e.preventDefault()}
-  >
-  <span className="btn-inner--icon">
-    <img
-      alt="..."
-      src={require("assets/img/icons/common/github.svg")}
-    />
-  </span>
-  <span className="btn-inner--text">Github</span>
-  </Button>
+  getButton= (name) => {
+      return(
+        <Button
+        className="btn-neutral btn-icon mr-4"
+        color="default"
+        href="#pablo"
+        onClick={e => e.preventDefault()}
+        >
+        <span className="btn-inner--icon">
+          <img
+            alt="..."
+            src={require(`assets/img/icons/common/${name}.svg`)}
+          />
+        </span>
+        <span className="btn-inner--text">{name}</span>
+        </Button>
+      )
+  } 
 
-  googleButton = 
-  <Button
-  className="btn-neutral btn-icon"
-  color="default"
-  href="#pablo"
-  onClick={e => e.preventDefault()}
-  >
-  <span className="btn-inner--icon">
-    <img
-      alt="..."
-      src={require("assets/img/icons/common/google.svg")}
-    />
-  </span>
-  <span className="btn-inner--text">Google</span>
-  </Button>
+  signUpFormData = [
+    {
+      icon: "ni ni-hat-3",
+      placeholder: "Name",
+      type: "text",
+    },{
+      icon: "ni ni-email-83",
+      placeholder: "Email",
+      type: "email",
+    },{
+      icon: "ni ni-lock-circle-open",
+      placeholder: "Password",
+      type: "password",
+    }
+  ]
+
+  signUpFormMap = (data) => {
+    return(
+      <FormGroup>
+      <InputGroup className="input-group-alternative mb-3">
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>
+            <i className={data.icon} />
+          </InputGroupText>
+        </InputGroupAddon>
+        <Input placeholder={data.placeholder} type={data.type} />
+      </InputGroup>
+    </FormGroup>
+    )
+  }
 
   signUpForm = 
   <Form role="form">
-    <FormGroup>
-      <InputGroup className="input-group-alternative mb-3">
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>
-            <i className="ni ni-hat-3" />
-          </InputGroupText>
-        </InputGroupAddon>
-        <Input placeholder="Name" type="text" />
-      </InputGroup>
-    </FormGroup>
-    <FormGroup>
-      <InputGroup className="input-group-alternative mb-3">
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>
-            <i className="ni ni-email-83" />
-          </InputGroupText>
-        </InputGroupAddon>
-        <Input placeholder="Email" type="email" autoComplete="new-email"/>
-      </InputGroup>
-    </FormGroup>
-    <FormGroup>
-      <InputGroup className="input-group-alternative">
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>
-            <i className="ni ni-lock-circle-open" />
-          </InputGroupText>
-        </InputGroupAddon>
-        <Input placeholder="Password" type="password" autoComplete="new-password"/>
-      </InputGroup>
-    </FormGroup>
+    {this.signUpFormData.map((data) => this.signUpFormMap(data))}
     <div className="text-muted font-italic">
       <small>
         password strength:{" "}
@@ -138,15 +110,15 @@ class Register extends React.Component {
   render() {
     return (
       <>
-        <Col lg="6" md="8">
+        <Col lg="6" md="8"> 
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-5">
               <div className="text-muted text-center mt-2 mb-4">
                 <small>Sign up with</small>
               </div>
               <div className="text-center">
-                {this.githubButton}
-                {this.googleButton}
+                {this.getButton("Github")}
+                {this.getButton("Google")}
               </div>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-5">
