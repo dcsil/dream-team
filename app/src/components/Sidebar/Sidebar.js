@@ -1,21 +1,3 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-/*eslint-disable*/
 import React from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
 // nodejs library to set properties for components
@@ -23,36 +5,21 @@ import { PropTypes } from "prop-types";
 
 // reactstrap components
 import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
   Collapse,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  FormGroup,
   Form,
   Input,
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Media,
   NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
   Nav,
-  Progress,
-  Table,
   Container,
   Row,
   Col
 } from "reactstrap";
-
-var ps;
 
 class Sidebar extends React.Component {
   state = {
@@ -96,20 +63,118 @@ class Sidebar extends React.Component {
       );
     });
   };
-  render() {
-    const { bgColor, routes, logo } = this.props;
+
+  docData = [
+    {
+      link:
+        "https://github.com/dcsil/dream-team/blob/master/Getting-Started.md",
+      name: "Getting started",
+      icon: "ni ni-spaceship"
+    },
+    {
+      link: "https://github.com/dcsil/dream-team/blob/master/app/README.md",
+      name: "Front End",
+      icon: "ni ni-palette"
+    },
+    {
+      link:
+        "https://github.com/dcsil/dream-team/blob/firebase_functions/ingest/README.md",
+      name: "Back End",
+      icon: "ni ni-ui-04"
+    }
+  ];
+
+  docMap = doc => {
+    return (
+      <NavItem>
+        <NavLink href={doc.link}>
+          <i className={doc.icon} />
+          {doc.name}
+        </NavLink>
+      </NavItem>
+    );
+  };
+
+  collapseHeader = (
+    <div className="navbar-collapse-header d-md-none">
+      <Row>
+        {this.props.logo ? (
+          <Col className="collapse-brand" xs="6">
+            {this.props.logo.innerLink ? (
+              <Link to={this.props.logo.innerLink}>
+                <img
+                  alt={this.props.logo.imgAlt}
+                  src={this.props.logo.imgSrc}
+                />
+              </Link>
+            ) : (
+              <a href={this.props.logo.outterLink}>
+                <img
+                  alt={this.props.logo.imgAlt}
+                  src={this.props.logo.imgSrc}
+                />
+              </a>
+            )}
+          </Col>
+        ) : null}
+        <Col className="collapse-close" xs="6">
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={this.toggleCollapse}
+          >
+            <span />
+            <span />
+          </button>
+        </Col>
+      </Row>
+    </div>
+  );
+
+  collapseSearch = (
+    <Form className="mt-4 mb-3 d-md-none">
+      <InputGroup className="input-group-rounded input-group-merge">
+        <Input
+          aria-label="Search"
+          className="form-control-rounded form-control-prepended"
+          placeholder="Search"
+          type="search"
+        />
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>
+            <span className="fa fa-search" />
+          </InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+    </Form>
+  );
+
+  logoImage = () => {
     let navbarBrandProps;
-    if (logo && logo.innerLink) {
+    if (this.props.logo && this.props.logo.innerLink) {
       navbarBrandProps = {
-        to: logo.innerLink,
+        to: this.props.logo.innerLink,
         tag: Link
       };
-    } else if (logo && logo.outterLink) {
+    } else if (this.props.logo && this.props.logo.outterLink) {
       navbarBrandProps = {
-        href: logo.outterLink,
+        href: this.props.logo.outterLink,
         target: "_blank"
       };
     }
+
+    return (
+      <NavbarBrand className="pt-0" {...navbarBrandProps}>
+        <img
+          alt={this.props.logo.imgAlt}
+          className="navbar-brand-img"
+          src={this.props.logo.imgSrc}
+        />
+      </NavbarBrand>
+    );
+  };
+
+  render() {
     return (
       <Navbar
         className="navbar-vertical fixed-left navbar-light bg-white"
@@ -117,7 +182,6 @@ class Sidebar extends React.Component {
         id="sidenav-main"
       >
         <Container fluid>
-          {/* Toggler */}
           <button
             className="navbar-toggler"
             type="button"
@@ -125,96 +189,15 @@ class Sidebar extends React.Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          {/* Brand */}
-          {logo ? (
-            <NavbarBrand className="pt-0" {...navbarBrandProps}>
-              <img
-                alt={logo.imgAlt}
-                className="navbar-brand-img"
-                src={logo.imgSrc}
-              />
-            </NavbarBrand>
-          ) : null}
-          {/* Collapse */}
+          {this.props.logo ? this.logoImage() : null}
           <Collapse navbar isOpen={this.state.collapseOpen}>
-            {/* Collapse header */}
-            <div className="navbar-collapse-header d-md-none">
-              <Row>
-                {logo ? (
-                  <Col className="collapse-brand" xs="6">
-                    {logo.innerLink ? (
-                      <Link to={logo.innerLink}>
-                        <img alt={logo.imgAlt} src={logo.imgSrc} />
-                      </Link>
-                    ) : (
-                      <a href={logo.outterLink}>
-                        <img alt={logo.imgAlt} src={logo.imgSrc} />
-                      </a>
-                    )}
-                  </Col>
-                ) : null}
-                <Col className="collapse-close" xs="6">
-                  <button
-                    className="navbar-toggler"
-                    type="button"
-                    onClick={this.toggleCollapse}
-                  >
-                    <span />
-                    <span />
-                  </button>
-                </Col>
-              </Row>
-            </div>
-            {/* Form */}
-            <Form className="mt-4 mb-3 d-md-none">
-              <InputGroup className="input-group-rounded input-group-merge">
-                <Input
-                  aria-label="Search"
-                  className="form-control-rounded form-control-prepended"
-                  placeholder="Search"
-                  type="search"
-                />
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <span className="fa fa-search" />
-                  </InputGroupText>
-                </InputGroupAddon>
-              </InputGroup>
-            </Form>
-            {/* Navigation */}
-            <Nav navbar>{this.createLinks(routes)}</Nav>
-            {/* Divider */}
+            {this.collapseHeader}
+            {this.collapseSearch}
+            <Nav navbar>{this.createLinks(this.props.routes)}</Nav>
             <hr className="my-3" />
-            {/* Heading */}
             <h6 className="navbar-heading text-muted">Documentation</h6>
-            {/* Navigation */}
             <Nav className="mb-md-3" navbar>
-              <NavItem>
-                <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/overview?ref=adr-admin-sidebar">
-                  <i className="ni ni-spaceship" />
-                  Getting started
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/colors?ref=adr-admin-sidebar">
-                  <i className="ni ni-palette" />
-                  Foundation
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://demos.creative-tim.com/argon-dashboard-react/#/documentation/alerts?ref=adr-admin-sidebar">
-                  <i className="ni ni-ui-04" />
-                  Components
-                </NavLink>
-              </NavItem>
-            </Nav>
-            <Nav className="mb-md-3" navbar>
-              <NavItem className="active-pro active">
-                <NavLink href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adr-admin-sidebar">
-                  <i className="ni ni-spaceship" />
-                  Upgrade to PRO
-                </NavLink>
-              </NavItem>
+              {this.docData.map(doc => this.docMap(doc))}
             </Nav>
           </Collapse>
         </Container>
