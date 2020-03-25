@@ -3,7 +3,7 @@ import React from "react";
 import {
     chartOptions,
     parseOptions,
-  } from "variables/charts.js";
+  } from "../assets/charts.js";
 
 import { Bar } from "react-chartjs-2";
 

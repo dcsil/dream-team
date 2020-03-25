@@ -1,4 +1,4 @@
-import {chartColors} from "./charts.js";
+import {chartColors} from "../assets/charts.js";
 
 // Example 1 of Chart inside src/views/Index.js (Sales value - Card)
 export const chartExample1 = {

@@ -12,6 +12,7 @@ import "assets/scss/argon-dashboard-react.scss";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
+import LoginRegister from "views/examples/LoginRegister";
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
           <Route exact path="/firestore" render={() => <Firestore />} />
           <Route exact path="/map" render={() => <Map />} />
           <Route exact path="/card" render={() => <Card />} />
+          <Route exact path="/login" render={() => <LoginRegister />} />
+          <Route exact path="/register" render={() => <LoginRegister register />} />
           <Route path="/admin" render={props => <AdminLayout {...props} />} />
           <Route path="/auth" render={props => <AuthLayout {...props} />} />
         </Switch>
