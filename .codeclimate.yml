@@ -13,3 +13,4 @@ exclude_patterns:
  - "**/*_test.go"
  - "**/*.d.ts"
  - "**/*.test.js"
+ - "**/assets/"
