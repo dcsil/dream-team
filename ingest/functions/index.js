@@ -12,13 +12,16 @@ const rp = require('request-promise');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 function scrapeBBBjs(type) {
-    //let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
-    rp('https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States')
+    let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
+    //rp('https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States')
+    rp(url)
         .then((html) => {
+            console.log(html);
             return html;
         })
         .catch((err) => {
             console.log(err);
+            console.log("NOPE");
             return;
         })
 }
