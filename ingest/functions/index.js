@@ -24,11 +24,12 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
     //res.send(scrapeBBBjs('restaurant'));
     let type = 'restaurant';
     rp('https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1')
-        .then(function (html) {
+        .then((html) => {
             res.send(html);
             console.log(html);
+            return
         })
-        .catch(function (err) {
+        .catch((err) => {
             console.log(err);
         })
 });
