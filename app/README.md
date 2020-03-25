@@ -68,6 +68,13 @@ Tests are in app/src next to the components that they are testing. For example, 
 
 Read [this article](https://medium.com/stories-from-upstatement/jest-mocks-roasting-on-an-open-firestore-36fa55b76953) and take a look at the README from package we are using called [firestore-jest-mock](https://github.com/Upstatement/firestore-jest-mock).
 
+### Maintainability
+See the [CodeClimate overview](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db) for our resposity for details on the master branch. 
+
+**Please do not merge changes into master if they create significant maintainability issues.** If you create a pull request on Github, CodeClimate will automatically run checks on the pull request. You can see the results by clicking on "issues" if it does not pass. 
+
+**To improve maintability on the master branch** go to the [code tab of CodeClimate](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db/code?sort=maintainability) and sort by worst to best. Create a new branch and try to fix the issues listed in the files that have recieved a poor score. (Click on the file name to see all the issues for that given file). 
+
 ### How to use git for 454 students
 Configure your credentials 
 
