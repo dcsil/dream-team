@@ -28,15 +28,15 @@ class Login extends React.Component {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="https://github.com/dcsil/dream-team"
+                      href="https://github.com/creativetimofficial/argon-dashboard"
                       target="_blank"
                     >
-                      Blog
+                      Argon
                     </NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="https://github.com/dcsil/dream-team"
+                      href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md?ref=adr-admin-footer"
                       target="_blank"
                     >
                       MIT License

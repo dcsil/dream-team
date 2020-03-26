@@ -25,33 +25,33 @@ class Header extends React.Component {
 
   state = {
     stats: [{
-      name: "Traffic",
-      value: "350,897",
+      name: "New Leads",
+      value: "12,350",
       change: "0.348",
       since: "last month",
-      icon: "fas fa-chart-bar",
-      color: "bg-danger"  // can use bg-gradient red for a little more snazzy
+      icon: "fas fa-binoculars", //fa-eye 
+      color: "gradient-bomb"  // can use bg-gradient red for a little more snazzy //bg-danger
     }, {
-      name: "New users",
-      value: "2,356",
-      change: "-0.348",
+      name: "Tariffs Sold",
+      value: "$1,255",
+      change: "-0.185",
       since: "last week",
-      icon: "fas fa-chart-pie",
-      color: "bg-warning"
+      icon: "fas fa-dollar-sign", //fa-file-invoice-dollar
+      color: "gradient-bomb"
     }, {
-      name: "Sales",
-      value: "924",
+      name: "Venues Contacted",
+      value: "123",
       change: "0.154",
       since: "yesterday",
-      icon: "fas fa-users",
-      color: "bg-yellow"
+      icon: "fas fa-paper-plane",
+      color: "gradient-bomb"
     }, {
-      name: "Performance",
+      name: "Infringment Evidence",
       value: "49.65%",
       change: "0.12",
       since: "last month",
-      icon: "fas fa-percent",
-      color: "bg-info"
+      icon: "fas fa-fingerprint",
+      color: "gradient-bomb"
     }
   ]
   }
