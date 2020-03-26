@@ -18,6 +18,28 @@ function scrapeBBBjs(type) {
         .then((html) => {
             const $ = cheerio.load(html);
             console.log($('.jXAMsJ').text());
+            let json = {
+                "name": "",
+                "phone": "",
+                "location": "",
+                "address": "",
+                "distance": "",
+                "estimatedValue": 0,
+                "acquired": false
+            };
+
+            $('.jXAMsJ').each((index, element) => {
+                json.name = $(element).children("h3").text();
+                json.phone = $(element).children("p").children("span").text();
+                json.address = $(element).children("p").children("strong").text();
+                json.distance = $(element).children("p").children("i").text()
+                console.log(json);
+            })
+
+            // for (let i = 0; i < $('.jXAMsJ').size(); i++){
+
+            // }
+
             return $('.jXAMsJ').text();
         })
         .catch((err) => {
