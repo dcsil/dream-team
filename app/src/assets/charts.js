@@ -159,7 +159,9 @@ export const chartColors = {
     info: "#11cdef",
     success: "#2dce89",
     danger: "#f5365c",
-    warning: "#fb6340"
+    warning: "#fb6340",
+    dreamBlue: "#5700ff",
+    dreamAccent: "#a200ff"
   },
   black: "#12263F",
   white: "#FFFFFF",
@@ -204,7 +206,7 @@ export const chartOptions = () => {
             borderCapStyle: "rounded"
           },
           rectangle: {
-            backgroundColor: chartColors.theme["warning"]
+            backgroundColor: chartColors.theme["dreamAccent"]
           },
           arc: {
             backgroundColor: chartColors.theme["primary"],

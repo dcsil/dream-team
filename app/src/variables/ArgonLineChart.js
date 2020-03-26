@@ -3,6 +3,7 @@ import React from "react";
 import { chartOptions, parseOptions } from "../assets/charts.js";
 
 import { Line } from "react-chartjs-2";
+import "Common.css";
 
 import {
   Card,
@@ -19,7 +20,6 @@ import classnames from "classnames";
 const Chart = require("chart.js");
 
 class ArgonLineChart extends React.Component {
-
   constructor(props) {
     super(props);
     if (window.Chart) {
@@ -57,9 +57,12 @@ class ArgonLineChart extends React.Component {
               <Nav className="justify-content-end" pills>
                 <NavItem>
                   <NavLink
-                    className={classnames("py-2 px-3", {
-                      active: this.state.activeNav === 1
-                    })}
+                    className={classnames(
+                      "py-2 px-3",
+                      {
+                        active: this.state.activeNav === 1
+                      },
+                    )}
                     href="#pablo"
                     onClick={e => this.toggleNavs(e, 1)}
                   >
@@ -69,9 +72,12 @@ class ArgonLineChart extends React.Component {
                 </NavItem>
                 <NavItem>
                   <NavLink
-                    className={classnames("py-2 px-3", {
-                      active: this.state.activeNav === 2
-                    })}
+                    className={classnames(
+                      "py-2 px-3",
+                      {
+                        active: this.state.activeNav === 2
+                      },
+                    )}
                     data-toggle="tab"
                     href="#pablo"
                     onClick={e => this.toggleNavs(e, 2)}
