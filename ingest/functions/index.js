@@ -30,7 +30,7 @@ function scrapeBBBjs(type) {
 
             $('.jXAMsJ').each((index, element) => {
                 json.name = $(element).children("h3").text();
-                json.phone = $(element).children("p").children("span").text();
+                json.phone = $(element).children("p").children("a").text();
                 json.address = $(element).children("p").children("strong").text();
                 json.distance = $(element).children("p").children("i").text()
                 console.log(json);
