@@ -66,9 +66,13 @@ class AuthNavbar extends React.Component {
   };
 
   logo = (
-    <NavbarBrand to="/admin" tag={Link}>
-      <img alt="..." src={require("assets/img/brand/argon-react-white.png")} />
-    </NavbarBrand>
+    <NavbarBrand className="pt-0" to="/admin">
+    <img
+      alt={"logo"}
+      className="navbar-brand-img"
+      src={require("assets/img/brand/white.png")}
+    />
+  </NavbarBrand>
   );
 
   collapsableMenu = (
@@ -79,7 +83,7 @@ class AuthNavbar extends React.Component {
             <Link to="/">
               <img
                 alt="..."
-                src={require("assets/img/brand/argon-react.png")}
+                src={require("assets/img/brand/color.png")}
               />
             </Link>
           </Col>
@@ -104,7 +108,7 @@ class AuthNavbar extends React.Component {
           className="navbar-top navbar-horizontal navbar-dark"
           expand="md"
         >
-          <Container className="px-4">
+          <Container fluid className="px-4">
             {this.logo}
             <button className="navbar-toggler" id="navbar-collapse-main">
               <span className="navbar-toggler-icon" />
