@@ -56,11 +56,10 @@ class Auth extends React.Component {
   <Container>
   <div className="header-body text-center mb-7">
     <Row className="justify-content-center">
-      <Col lg="5" md="6">
+      <Col lg="8" md="6">
         <h1 className="text-white dreamText">Welcome!</h1>
         <p className="text-lead text-light font-weight-bold">
-          Use these awesome forms to login or create new account in
-          your project for free.
+          We make music licensing lead generation so easy, you can do it in your sleep
         </p>
       </Col>
     </Row>

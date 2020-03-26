@@ -13,24 +13,25 @@ import {
   InputGroupText,
   InputGroup,
   Row,
-  Col
+  Col,
 } from "reactstrap";
+
+import { Link } from "react-router-dom";
 
 class LoginRegister extends React.Component {
 
   getButton = name => {
     return (
+      <Link to="/admin">            
       <Button
-        className="btn-neutral btn-icon mr-4"
-        color="default"
-        href="#pablo"
-        onClick={e => e.preventDefault()}
+        className="btn-neutral text-muted btn-icon mr-4"
       >
         <span className="btn-inner--icon">
           <img alt="..." src={require(`assets/img/icons/common/${name}.svg`)} />
         </span>
-        <span className="btn-inner--text">{name}</span>
+        {name}
       </Button>
+      </Link>
     );
   };
 
@@ -85,9 +86,11 @@ class LoginRegister extends React.Component {
         </label>
       </div>
       <div className="text-center">
+      <Link to="/admin">            
         <Button className="my-4 dreamButton" color="primary" type="button">
           Sign in
         </Button>
+        </Link>
       </div>
     </Form>
   );
