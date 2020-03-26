@@ -26,6 +26,8 @@ import AuthFooter from "components/Footers/AuthFooter.js";
 
 import routes from "routes.js";
 
+import "Common.css";
+
 class Auth extends React.Component {
   componentDidMount() {
     document.body.classList.add("bg-default");
@@ -55,8 +57,8 @@ class Auth extends React.Component {
   <div className="header-body text-center mb-7">
     <Row className="justify-content-center">
       <Col lg="5" md="6">
-        <h1 className="text-white">Welcome!</h1>
-        <p className="text-lead text-light">
+        <h1 className="text-white dreamText">Welcome!</h1>
+        <p className="text-lead text-light font-weight-bold">
           Use these awesome forms to login or create new account in
           your project for free.
         </p>
@@ -83,7 +85,7 @@ class Auth extends React.Component {
 </div>
 
 pageContent =
-<Container className="mt--8 pb-5">
+<Container className="mt--9 pb-5">
 <Row className="justify-content-center">
   <Switch>
     {this.getRoutes(routes)}
@@ -97,7 +99,7 @@ pageContent =
       <>
         <div className="main-content">
           <AuthNavbar />
-          <div className="header bg-gradient-info py-7 py-lg-8">
+          <div className="header gradient-bomb py-7 py-lg-8">
           {this.topContent}
           {this.seperator}
           </div>

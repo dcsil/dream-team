@@ -85,7 +85,7 @@ class LoginRegister extends React.Component {
         </label>
       </div>
       <div className="text-center">
-        <Button className="my-4" color="primary" type="button">
+        <Button className="my-4 dreamButton" color="primary" type="button">
           Sign in
         </Button>
       </div>

@@ -1,0 +1,33 @@
+.gradient-test {
+    background: linear-gradient(to right, #c33764, #1d2671);
+}
+
+.gradient-bomb {
+    background: linear-gradient(to right, #5700ff, #a200ff);
+}
+
+.gradient-two {
+    background: linear-gradient(to right, #5700ff, #1d2671);
+}
+
+.dreamBlue {
+    background: #5700ff;
+}
+
+.dreamAccent {
+    background: #a200ff;
+}
+
+.dreamText {
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.dreamButton {
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    background: #5700ff;
+    font-size: 1rem;
+}
