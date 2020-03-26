@@ -155,7 +155,7 @@ export const chartColors = {
   theme: {
     default: "#172b4d",
     //primary: "#5e72e4",
-    primary: "#a200ff",
+    primary: "#5700ff",
     secondary: "#f4f5f7",
     info: "#11cdef",
     success: "#2dce89",
