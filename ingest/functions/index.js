@@ -36,9 +36,7 @@ function scrapeBBBjs(type) {
                 console.log(json);
             })
 
-            // for (let i = 0; i < $('.jXAMsJ').size(); i++){
-
-            // }
+            // url for next page $(".Next-btcjpv-0").attr("href")
 
             return $('.jXAMsJ').text();
         })
@@ -53,5 +51,5 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
-    res.send(scrapeBBBjs('restaurant'));
+    res.send(scrapeBBBjs('gym'));
 });
