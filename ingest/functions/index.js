@@ -37,6 +37,7 @@ function scrapeBBBjs(type) {
             })
 
             // url for next page $(".Next-btcjpv-0").attr("href")
+            // let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
 
             return $('.jXAMsJ').text();
         })
