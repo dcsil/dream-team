@@ -12,11 +12,12 @@ const rp = require('request-promise');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 function scrapeBBBjs(type, n) {
+    // url for next page $(".Next-btcjpv-0").attr("href")
     let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=' + n;
     rp(url)
         .then((html) => {
             const $ = cheerio.load(html);
-            console.log($('.jXAMsJ').text());
+
             let json = {
                 "name": "",
                 "phone": "",
@@ -27,17 +28,19 @@ function scrapeBBBjs(type, n) {
                 "acquired": false
             };
 
+            let venues = [];
+
             $('.jXAMsJ').each((index, element) => {
                 json.name = $(element).children("h3").text();
                 json.phone = $(element).children("p").children("a").text();
                 json.address = $(element).children("p").children("strong").text();
                 json.distance = $(element).children("p").children("i").text()
-                console.log(json);
+                venues.push(json);
             })
 
-            // url for next page $(".Next-btcjpv-0").attr("href")
+            //console.log(venues); //THIS HAS VALUE
 
-            return $('.jXAMsJ').text();
+            return venues;
         })
         .catch((err) => {
             console.log(err);
@@ -51,6 +54,7 @@ function getNumberOfPages(type) {
         .then((html) => {
             const $ = cheerio.load(html);
             let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
+            // console.log(numberOfPages); //THIS HAS VALUE
             return numberOfPages;
         })
         .catch((err) => {
@@ -64,7 +68,22 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
-    for (let i = 1; i < getNumberOfPages("gym") + 1; i++) {
-        res.send(scrapeBBBjs('gym', i));
-    }
+    // let venues = []
+    // for (let i = 1; i < getNumberOfPages("restaurant") + 1; i++) {
+    //     let currentPageVenues = scrapeBBBjs("restaurant", i);
+    //     for (let j = 0; j < currentPageVenues.length; j++) {
+    //         venues.push(currentPageVenues[j]);
+    //     }
+    // }
+    // console.log(venues);
+    // res.send(venues);
+
+    //console.log(scrapeBBBjs("restaurant", 1));
+    //console.log(getNumberOfPages("restaurant"));
+
+    let x = scrapeBBBjs("restaurant", 1);
+    let y = getNumberOfPages("restaurant");
+    console.log(x); // X HAS NO VALUE
+    console.log("This is y: " + y); //Y HAS NO VALUE
+    res.send("nothing");
 });
