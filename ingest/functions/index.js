@@ -11,9 +11,8 @@ const rp = require('request-promise');
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-function scrapeBBBjs(type) {
-    let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
-    // let url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States'
+function scrapeBBBjs(type, n) {
+    let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=' + n;
     rp(url)
         .then((html) => {
             const $ = cheerio.load(html);
@@ -37,9 +36,22 @@ function scrapeBBBjs(type) {
             })
 
             // url for next page $(".Next-btcjpv-0").attr("href")
-            // let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
 
             return $('.jXAMsJ').text();
+        })
+        .catch((err) => {
+            console.log(err);
+            return;
+        })
+}
+
+function getNumberOfPages(type) {
+    let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
+    rp(url)
+        .then((html) => {
+            const $ = cheerio.load(html);
+            let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
+            return numberOfPages;
         })
         .catch((err) => {
             console.log(err);
@@ -52,5 +64,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
-    res.send(scrapeBBBjs('gym'));
+    for (let i = 1; i < getNumberOfPages("gym") + 1; i++) {
+        res.send(scrapeBBBjs('gym', i));
+    }
 });
