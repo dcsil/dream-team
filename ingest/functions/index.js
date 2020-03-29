@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const admin = require('firebase-admin');
 const request = require('request');
 const cheerio = require('cheerio');
 const URL = require('url-parse');
@@ -72,11 +73,11 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
     response.send("Hello from Firebase test 2!");
 });
 
-exports.scrapeBBB = functions.https.onRequest((req, res) => {
+exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
     let type = "restaurant"
-    getNumberOfPages(type)
+    await getNumberOfPages(type)
         .then((n) => {
             for (let i = 1; i < n + 1; i++) {
                 allPromises.push(scrapeBBBjs(type, i))
@@ -89,8 +90,8 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
     Promise.all(allPromises).then((values) => {
         for (let j = 0; j < values.length; j++) {
             venues.push(values[j]);
+            console.log("running" + j);
         }
-        console.log(venues);
         res.send(venues);
     });
 });
