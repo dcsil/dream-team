@@ -97,12 +97,4 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
         console.log(venues);
         res.send(venues);
     });
-
-
-    // let x = scrapeBBBjs("restaurant", 1);
-
-    // console.log(x); // X HAS NO VALUE
-    // console.log("This is y: " + y); //Y HAS NO VALUE
-    // res.send("nothing");
-
 });
