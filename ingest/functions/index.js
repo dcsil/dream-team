@@ -16,31 +16,35 @@ function scrapeBBBjs(type, n) {
     let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=' + n;
     rp(url)
         .then((html) => {
-            const $ = cheerio.load(html);
+            return new Promise((resolve, reject) => {
+                const $ = cheerio.load(html);
 
-            let json = {
-                "name": "",
-                "phone": "",
-                "location": "",
-                "address": "",
-                "distance": "",
-                "estimatedValue": 0,
-                "acquired": false
-            };
+                let json = {
+                    "name": "",
+                    "phone": "",
+                    "location": "",
+                    "address": "",
+                    "distance": "",
+                    "estimatedValue": 0,
+                    "acquired": false
+                };
 
-            let venues = [];
+                let venues = [];
 
-            $('.jXAMsJ').each((index, element) => {
-                json.name = $(element).children("h3").text();
-                json.phone = $(element).children("p").children("a").text();
-                json.address = $(element).children("p").children("strong").text();
-                json.distance = $(element).children("p").children("i").text()
-                venues.push(json);
+                $('.jXAMsJ').each((index, element) => {
+                    json.name = $(element).children("h3").text();
+                    json.phone = $(element).children("p").children("a").text();
+                    json.address = $(element).children("p").children("strong").text();
+                    json.distance = $(element).children("p").children("i").text()
+                    venues.push(json);
+                })
+
+                if (venues) {
+                    resolve(venues);
+                } else {
+                    reject(Error("No venues found"));
+                }
             })
-
-            //console.log(venues); //THIS HAS VALUE
-
-            return venues;
         })
         .catch((err) => {
             console.log(err);
@@ -52,10 +56,15 @@ function getNumberOfPages(type) {
     let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
     rp(url)
         .then((html) => {
-            const $ = cheerio.load(html);
-            let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
-            // console.log(numberOfPages); //THIS HAS VALUE
-            return numberOfPages;
+            return new Promise((resolve, reject) => {
+                const $ = cheerio.load(html);
+                let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
+                if (numberOfPages) {
+                    resolve(numberOfPages);
+                } else {
+                    reject(Error("Unknown number of pages"));
+                }
+            });
         })
         .catch((err) => {
             console.log(err);
@@ -78,12 +87,22 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
     // console.log(venues);
     // res.send(venues);
 
-    //console.log(scrapeBBBjs("restaurant", 1));
-    //console.log(getNumberOfPages("restaurant"));
 
-    let x = scrapeBBBjs("restaurant", 1);
-    let y = getNumberOfPages("restaurant");
-    console.log(x); // X HAS NO VALUE
-    console.log("This is y: " + y); //Y HAS NO VALUE
-    res.send("nothing");
+
+    let venues = []
+    getNumberOfPages("restaurant")
+        .then((n) => {
+            console.log(n);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
+
+    // let x = scrapeBBBjs("restaurant", 1);
+
+    // console.log(x); // X HAS NO VALUE
+    // console.log("This is y: " + y); //Y HAS NO VALUE
+    // res.send("nothing");
+
 });
