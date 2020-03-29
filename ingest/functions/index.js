@@ -13,10 +13,10 @@ const rp = require('request-promise');
 
 function scrapeBBBjs(type, n) {
     // url for next page $(".Next-btcjpv-0").attr("href")
-    let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=' + n;
-    rp(url)
-        .then((html) => {
-            return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=' + n;
+        rp(url)
+            .then((html) => {
                 const $ = cheerio.load(html);
 
                 let json = {
@@ -45,18 +45,18 @@ function scrapeBBBjs(type, n) {
                     reject(Error("No venues found"));
                 }
             })
-        })
-        .catch((err) => {
-            console.log(err);
-            return;
-        })
+            .catch((err) => {
+                console.log(err);
+                return;
+            })
+    })
 }
 
 function getNumberOfPages(type) {
-    let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
-    rp(url)
-        .then((html) => {
-            return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=1';
+        rp(url)
+            .then((html) => {
                 const $ = cheerio.load(html);
                 let numberOfPages = parseInt($(".bbb__hideAt-smUp").text().split("/")[1]);
                 if (numberOfPages) {
@@ -64,12 +64,12 @@ function getNumberOfPages(type) {
                 } else {
                     reject(Error("Unknown number of pages"));
                 }
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-            return;
-        })
+            })
+            .catch((err) => {
+                console.log(err);
+                return;
+            })
+    })
 }
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
@@ -90,13 +90,25 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
 
 
     let venues = []
-    getNumberOfPages("restaurant")
+    let type = "restaurant"
+    getNumberOfPages(type)
         .then((n) => {
-            console.log(n);
+            for (let i = 1; i < n + 1; i++) {
+                scrapeBBBjs(type, i)
+                    .then((currentVenues) => {
+                        for (let j = 0; j < currentVenues.length; j++) {
+                            venues.push(currentVenues[j])
+                        }
+                        return;
+                    })
+            }
+            return;
         })
         .catch((err) => {
             console.log(err);
         })
+    console.log(venues);
+    res.send(venues);
 
 
     // let x = scrapeBBBjs("restaurant", 1);
