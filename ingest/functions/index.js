@@ -4,10 +4,6 @@ const cheerio = require('cheerio');
 const URL = require('url-parse');
 const rp = require('request-promise');
 
-// const yelp = require('yelp-fusion');
-// const client = yelp.client('YOUR_API_KEY');
-
-
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
