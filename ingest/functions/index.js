@@ -93,22 +93,30 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
     let type = "restaurant"
     getNumberOfPages(type)
         .then((n) => {
-            for (let i = 1; i < n + 1; i++) {
-                scrapeBBBjs(type, i)
-                    .then((currentVenues) => {
-                        for (let j = 0; j < currentVenues.length; j++) {
-                            venues.push(currentVenues[j])
-                        }
-                        return;
-                    })
-            }
-            return;
+            return new Promise((res, rej) => {
+                for (let i = 1; i < n + 1; i++) {
+                    scrapeBBBjs(type, i)
+                        .then((currentVenues) => {
+                            for (let j = 0; j < currentVenues.length; j++) {
+                                venues.push(currentVenues[j])
+                            }
+                            return venues;
+                        })
+                }
+                if (venues) {
+                    res(venues);
+                } else {
+                    rej(Error("No venues found"));
+                }
+            })
+        })
+        .then((final) => {
+            console.log(final);
+            res.send(final);
         })
         .catch((err) => {
             console.log(err);
         })
-    console.log(venues);
-    res.send(venues);
 
 
     // let x = scrapeBBBjs("restaurant", 1);
