@@ -77,18 +77,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 });
 
 exports.scrapeBBB = functions.https.onRequest((req, res) => {
-    // let venues = []
-    // for (let i = 1; i < getNumberOfPages("restaurant") + 1; i++) {
-    //     let currentPageVenues = scrapeBBBjs("restaurant", i);
-    //     for (let j = 0; j < currentPageVenues.length; j++) {
-    //         venues.push(currentPageVenues[j]);
-    //     }
-    // }
-    // console.log(venues);
-    // res.send(venues);
-
-
-
     let venues = []
     let allPromises = []
     let type = "restaurant"
@@ -107,8 +95,8 @@ exports.scrapeBBB = functions.https.onRequest((req, res) => {
             venues.push(values[j]);
         }
         console.log(venues);
+        res.send(venues);
     });
-    res.send(venues);
 
 
     // let x = scrapeBBBjs("restaurant", 1);
