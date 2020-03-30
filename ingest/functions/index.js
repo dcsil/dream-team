@@ -92,6 +92,6 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
             venues.push(values[j]);
             console.log("running" + j);
         }
-        res.send(venues);
-    });
+    })
+    res.send(venues);
 });
