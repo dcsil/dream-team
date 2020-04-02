@@ -4,8 +4,6 @@ import { chartExample1, chartExample2 } from "variables/chartExamples.js";
 
 import { Container, Row, Col } from "reactstrap";
 
-import SocialTrafficTable from "./examples/SocialTrafficTable";
-import PageVisitsTable from "./examples/PageVisitsTable";
 import Header from "components/Headers/Header.js";
 import ArgonLineChart from "variables/ArgonLineChart";
 import ArgonBarChart from "variables/ArgonBarChart";
@@ -33,10 +31,6 @@ class Index extends React.Component {
                 options={chartExample2.options}
               />
             </Col>
-          </Row>
-          <Row className="mt-5">
-            <PageVisitsTable />
-            <SocialTrafficTable />
           </Row>
         </Container>
       </>
