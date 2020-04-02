@@ -16,8 +16,6 @@ import {
   Col,
 } from "reactstrap";
 
-import { Link } from "react-router-dom";
-
 class LoginRegister extends React.Component {
 
   getButton = name => {
