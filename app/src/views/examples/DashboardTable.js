@@ -2,6 +2,7 @@ import React from "react";
 
 // reactstrap components
 import {Badge, Card, CardHeader, CardFooter, DropdownMenu, DropdownItem, UncontrolledDropdown, DropdownToggle, Media, Pagination, PaginationItem, PaginationLink, Progress, Table, UncontrolledTooltip} from "reactstrap";
+import { uid } from "react-uid";
 
 class DashboardTable extends React.Component {
 
@@ -130,7 +131,7 @@ class DashboardTable extends React.Component {
 
   rowMappingFunction(row) {
     return (
-      <tr>
+      <tr key={uid(row.value)}>
         <th scope="row">
             {this.rowTitle(row)}
         </th>

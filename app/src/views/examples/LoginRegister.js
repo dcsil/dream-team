@@ -22,7 +22,7 @@ class LoginRegister extends React.Component {
 
   getButton = name => {
     return (
-      <Link to="/admin">            
+      <a href="/admin">            
       <Button
         className="btn-neutral text-muted btn-icon mr-4"
       >
@@ -31,7 +31,7 @@ class LoginRegister extends React.Component {
         </span>
         {name}
       </Button>
-      </Link>
+      </a>
     );
   };
 
@@ -86,11 +86,11 @@ class LoginRegister extends React.Component {
         </label>
       </div>
       <div className="text-center">
-      <Link to="/admin">            
+      <a href="/admin">          
         <Button className="my-4 dreamButton" color="primary" type="button">
           Sign in
         </Button>
-        </Link>
+        </a>
       </div>
     </Form>
   );
