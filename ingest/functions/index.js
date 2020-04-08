@@ -76,27 +76,22 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
     let type = "restaurant"
-    // await getNumberOfPages(type)
-    //     .then((n) => {
-    //         for (let i = 1; i < n + 1; i++) {
-    //             allPromises.push(scrapeBBBjs(type, i))
-    //         }
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
+    await getNumberOfPages(type)
+        .then((n) => {
+            for (let i = 1; i < n + 1; i++) {
+                allPromises.push(scrapeBBBjs(type, i))
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 
-    // Promise.all(allPromises).then((values) => {
-    //     for (let j = 0; j < values.length; j++) {
-    //         venues.push(values[j]);
-    //         console.log("running" + j);
-    //     }
-    //     res.send(venues);
-    //     console.log(venues);
-    // })
-
-    scrapeBBBjs(type, 1).then((result) => {
-        console.log(result);
-        res.send(result);
-    });
+    await Promise.all(allPromises).then((values) => {
+        for (let j = 0; j < values.length; j++) {
+            venues.push(values[j]);
+            console.log("running" + j);
+        }
+    })
+    res.send(venues);
+    console.log(venues);
 });
