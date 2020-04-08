@@ -28,7 +28,7 @@ function scrapeBBBjs(type, n) {
 
                 let venues = [];
 
-                $('.jXAMsJ').each((index, element) => {
+                $('.Details-sc-1vh1927-0').each((index, element) => {
                     json.name = $(element).children("h3").text();
                     json.phone = $(element).children("p").children("a").text();
                     json.address = $(element).children("p").children("strong").text();
@@ -77,22 +77,27 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
     let type = "restaurant"
-    await getNumberOfPages(type)
-        .then((n) => {
-            for (let i = 1; i < n + 1; i++) {
-                allPromises.push(scrapeBBBjs(type, i))
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    // await getNumberOfPages(type)
+    //     .then((n) => {
+    //         for (let i = 1; i < n + 1; i++) {
+    //             allPromises.push(scrapeBBBjs(type, i))
+    //         }
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     })
 
-    Promise.all(allPromises).then((values) => {
-        for (let j = 0; j < values.length; j++) {
-            venues.push(values[j]);
-            console.log("running" + j);
-        }
-        res.send(venues);
-        console.log(venues);
-    })
+    // Promise.all(allPromises).then((values) => {
+    //     for (let j = 0; j < values.length; j++) {
+    //         venues.push(values[j]);
+    //         console.log("running" + j);
+    //     }
+    //     res.send(venues);
+    //     console.log(venues);
+    // })
+
+    scrapeBBBjs(type, 1).then((result) => {
+        console.log(result);
+        res.send(result);
+    });
 });
