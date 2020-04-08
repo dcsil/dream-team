@@ -109,8 +109,10 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     }
     allVenues = unrollArray(venues);
     for (let i = 0; i < allVenues.length; i++) {
-        for (let j = 0; j < allVenues[i].value.length; j++) {
-            final.push(allVenues[i].value[j]);
+        if (allVenues[i].status == 'fulfilled') {
+            for (let j = 0; j < allVenues[i].value.length; j++) {
+                final.push(allVenues[i].value[j]);
+            }
         }
     }
     res.send(final);
