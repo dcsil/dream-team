@@ -76,6 +76,7 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
     let type = "restaurant"
+    let final = []
     await getNumberOfPages(type)
         .then((n) => {
             for (let i = 1; i < n + 1; i++) {
@@ -86,7 +87,7 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
             console.log(err);
         })
 
-    await Promise.all(allPromises).then((values) => {
+    await Promise.allSettled(allPromises).then((values) => {
         for (let j = 0; j < values.length; j++) {
             venues.push(values[j]);
             //console.log("running" + j);
@@ -109,6 +110,11 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
         return result;
     }
     allVenues = unrollArray(venues);
-    res.send(allVenues);
-    console.log(allVenues);
+    for (let i = 0; i < allVenues.length; i++) {
+        for (let j = 0; j < allVenues[i].value.length; j++) {
+            final.push(allVenues[i].value[j]);
+        }
+    }
+    res.send(final);
+    console.log(final);
 });
