@@ -89,9 +89,26 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     await Promise.all(allPromises).then((values) => {
         for (let j = 0; j < values.length; j++) {
             venues.push(values[j]);
-            console.log("running" + j);
+            //console.log("running" + j);
         }
     })
-    res.send(venues);
-    console.log(venues);
+
+    function unrollArray(x) {
+        let result = [];
+        let func = function (arr) {
+            if (Array.isArray(arr)) {
+                let len = arr.length;
+                for (let i = 0; i < arr.length; ++i) {
+                    func(arr[i]); // do this recursively
+                }
+            } else {
+                result.push(arr); // put the single element to result
+            }
+        }
+        func(x);
+        return result;
+    }
+    allVenues = unrollArray(venues);
+    res.send(allVenues);
+    console.log(allVenues);
 });
