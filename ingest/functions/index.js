@@ -16,19 +16,18 @@ function scrapeBBBjs(type, n) {
             .then((html) => {
                 const $ = cheerio.load(html);
 
-                let json = {
-                    "name": "",
-                    "phone": "",
-                    "location": "",
-                    "address": "",
-                    "distance": "",
-                    "estimatedValue": 0,
-                    "acquired": false
-                };
-
                 let venues = [];
 
                 $('.Details-sc-1vh1927-0').each((index, element) => {
+                    let json = {
+                        "name": "",
+                        "phone": "",
+                        "location": "",
+                        "address": "",
+                        "distance": "",
+                        "estimatedValue": 0,
+                        "acquired": false
+                    };
                     json.name = $(element).children("h3").text();
                     json.phone = $(element).children("p").children("a").text();
                     json.address = $(element).children("p").children("strong").text();
