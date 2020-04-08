@@ -87,21 +87,12 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
             console.log(err);
         })
 
-        (async () => {
-            await Promise.all(allPromises).then((values) => {
-                for (let j = 0; j < values.length; j++) {
-                    venues.push(values[j]);
-                }
-            });
-            console.log(venues);
-            res.send(venues);
-        })();
-    // Promise.all(allPromises).then((values) => {
-    //     for (let j = 0; j < values.length; j++) {
-    //         venues.push(values[j]);
-    //         //console.log("running" + j);
-    //     }
-    //     res.send(venues);
-    //     console.log(venues);
-    // })
+    Promise.all(allPromises).then((values) => {
+        for (let j = 0; j < values.length; j++) {
+            venues.push(values[j]);
+            console.log("running" + j);
+        }
+        res.send(venues);
+        console.log(venues);
+    })
 });
