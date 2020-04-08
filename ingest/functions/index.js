@@ -1,8 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const request = require('request');
 const cheerio = require('cheerio');
-const URL = require('url-parse');
 const rp = require('request-promise');
 
 // Create and Deploy Your First Cloud Functions
