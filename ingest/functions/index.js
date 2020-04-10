@@ -2,9 +2,25 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const cheerio = require('cheerio');
 const rp = require('request-promise');
+const firebase = require("firebase/app");
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
+
+var firebaseConfig = {
+    apiKey: "AIzaSyD7CyGm8hPzSSTI54quyhEcwrS8_xRi1tQ",
+    authDomain: "dreamtune-cdf8a.firebaseapp.com",
+    databaseURL: "https://dreamtune-cdf8a.firebaseio.com",
+    projectId: "dreamtune-cdf8a",
+    storageBucket: "dreamtune-cdf8a.appspot.com",
+    messagingSenderId: "342835886078",
+    appId: "1:342835886078:web:3d9381525d1aea0332b2af",
+    measurementId: "G-KM6586Z5PP"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+var database = firebase.database();
 
 function scrapeBBBjs(type, n) {
     return new Promise((resolve, reject) => {
