@@ -14,20 +14,14 @@ function scrapeBBBjs(type, n) {
                 const $ = cheerio.load(html);
                 let venues = [];
                 $('.Details-sc-1vh1927-0').each((index, element) => {
-                    let json = {
-                        "name": "", "phone": "", "location": "", "address": "", "distance": "", "estimatedValue": 0, "acquired": false
-                    };
+                    let json = { "name": "", "phone": "", "location": "", "address": "", "distance": "", "estimatedValue": 0, "acquired": false };
                     json.name = $(element).children("h3").text();
                     json.phone = $(element).children("p").children("a").text();
                     json.address = $(element).children("p").children("strong").text();
                     json.distance = $(element).children("p").children("i").text()
                     venues.push(json);
                 })
-                if (venues) {
-                    resolve(venues);
-                } else {
-                    reject(Error("No venues found"));
-                }
+                resolve(venues);
             })
             .catch((err) => {
                 console.log(err);
