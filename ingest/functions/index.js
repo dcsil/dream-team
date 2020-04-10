@@ -82,11 +82,22 @@ function unrollArray(x) {
     return result;
 }
 
+function sortVenues(allVenues) {
+    final = []
+    for (let i = 0; i < allVenues.length; i++) {
+        if (allVenues[i].status == 'fulfilled') {
+            for (let j = 0; j < allVenues[i].value.length; j++) {
+                final.push(allVenues[i].value[j]);
+            }
+        }
+    }
+    return final;
+}
+
 exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
     let type = "restaurant"
-    let final = []
     await getNumberOfPages(type)
         .then((n) => {
             for (let i = 1; i < n + 1; i++) {
@@ -104,13 +115,7 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     })
 
     allVenues = unrollArray(venues);
-    for (let i = 0; i < allVenues.length; i++) {
-        if (allVenues[i].status == 'fulfilled') {
-            for (let j = 0; j < allVenues[i].value.length; j++) {
-                final.push(allVenues[i].value[j]);
-            }
-        }
-    }
+    final = sortVenues(allVenues);
     res.send(final);
     console.log(final);
 });
