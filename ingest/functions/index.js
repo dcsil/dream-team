@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const cheerio = require('cheerio');
 const rp = require('request-promise');
-const firebase = require("firebase/app");
+const firebase = require("firebase");
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
