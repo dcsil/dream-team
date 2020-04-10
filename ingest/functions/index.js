@@ -20,7 +20,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the database service
-var database = firebase.database();
+let database = firebase.database();
+let ref = database.ref('Venues');
 
 function scrapeBBBjs(type, n) {
     return new Promise((resolve, reject) => {
@@ -76,6 +77,12 @@ function sortVenues(allVenues) {
     return final;
 }
 
+function addToDatabase(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        ref.push(arr[i]);
+    }
+}
+
 exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
@@ -98,6 +105,7 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
 
     allVenues = venues.flat(Infinity);
     final = sortVenues(allVenues);
+    addToDatabase(final);
     res.send(final);
     console.log(final);
 });
