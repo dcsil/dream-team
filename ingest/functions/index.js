@@ -77,9 +77,18 @@ function sortVenues(allVenues) {
 }
 
 function addToDatabase(arr, type) {
+    let ref = database.ref('Venues/' + type);
     for (let i = 0; i < arr.length; i++) {
-        let ref = database.ref('Venues/' + type);
-        ref.push(arr[i]);
+        let place = arr[i];
+        ref.orderByChild("address").equalTo(arr[i].address).once("value", snapshot => {
+            if (snapshot.exists()) {
+                console.log(place.name + " already in database")
+            }
+            else {
+                ref.push(arr[i]);
+            }
+        })
+
     }
 }
 
