@@ -71,9 +71,6 @@ function sortVenues(allVenues) {
     for (let i = 0; i < allVenues.length; i++) {
         if (allVenues[i].status == 'fulfilled') {
             final = final.concat(allVenues[i].value);
-            // for (let j = 0; j < allVenues[i].value.length; j++) {
-            //     final.push(allVenues[i].value[j]);
-            // }
         }
     }
     return final;
