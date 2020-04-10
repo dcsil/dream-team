@@ -70,9 +70,10 @@ function sortVenues(allVenues) {
     final = []
     for (let i = 0; i < allVenues.length; i++) {
         if (allVenues[i].status == 'fulfilled') {
-            for (let j = 0; j < allVenues[i].value.length; j++) {
-                final.push(allVenues[i].value[j]);
-            }
+            final = final.concat(allVenues[i].value);
+            // for (let j = 0; j < allVenues[i].value.length; j++) {
+            //     final.push(allVenues[i].value[j]);
+            // }
         }
     }
     return final;
