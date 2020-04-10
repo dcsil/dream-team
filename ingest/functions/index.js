@@ -66,9 +66,21 @@ function getNumberOfPages(type) {
     })
 }
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-    response.send("Hello from Firebase test 2!");
-});
+function unrollArray(x) {
+    let result = [];
+    let func = function (arr) {
+        if (Array.isArray(arr)) {
+            let len = arr.length;
+            for (let i = 0; i < arr.length; ++i) {
+                func(arr[i]); // do this recursively
+            }
+        } else {
+            result.push(arr); // put the single element to result
+        }
+    }
+    func(x);
+    return result;
+}
 
 exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
@@ -88,25 +100,9 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     await Promise.allSettled(allPromises).then((values) => {
         for (let j = 0; j < values.length; j++) {
             venues.push(values[j]);
-            //console.log("running" + j);
         }
     })
 
-    function unrollArray(x) {
-        let result = [];
-        let func = function (arr) {
-            if (Array.isArray(arr)) {
-                let len = arr.length;
-                for (let i = 0; i < arr.length; ++i) {
-                    func(arr[i]); // do this recursively
-                }
-            } else {
-                result.push(arr); // put the single element to result
-            }
-        }
-        func(x);
-        return result;
-    }
     allVenues = unrollArray(venues);
     for (let i = 0; i < allVenues.length; i++) {
         if (allVenues[i].status == 'fulfilled') {
