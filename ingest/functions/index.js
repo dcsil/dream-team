@@ -7,24 +7,15 @@ const rp = require('request-promise');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 function scrapeBBBjs(type, n) {
-    // url for next page $(".Next-btcjpv-0").attr("href")
     return new Promise((resolve, reject) => {
         let url = 'https://www.bbb.org/search?find_country=CAN&find_latlng=43.671195%2C-79.394576&find_loc=Toronto%2C%20ON&find_text=' + type + '&page=' + n;
         rp(url)
             .then((html) => {
                 const $ = cheerio.load(html);
-
                 let venues = [];
-
                 $('.Details-sc-1vh1927-0').each((index, element) => {
                     let json = {
-                        "name": "",
-                        "phone": "",
-                        "location": "",
-                        "address": "",
-                        "distance": "",
-                        "estimatedValue": 0,
-                        "acquired": false
+                        "name": "", "phone": "", "location": "", "address": "", "distance": "", "estimatedValue": 0, "acquired": false
                     };
                     json.name = $(element).children("h3").text();
                     json.phone = $(element).children("p").children("a").text();
@@ -32,7 +23,6 @@ function scrapeBBBjs(type, n) {
                     json.distance = $(element).children("p").children("i").text()
                     venues.push(json);
                 })
-
                 if (venues) {
                     resolve(venues);
                 } else {
