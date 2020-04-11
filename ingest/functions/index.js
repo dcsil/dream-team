@@ -2,9 +2,25 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const cheerio = require('cheerio');
 const rp = require('request-promise');
+const firebase = require("firebase");
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
+
+var firebaseConfig = {
+    apiKey: "AIzaSyD7CyGm8hPzSSTI54quyhEcwrS8_xRi1tQ",
+    authDomain: "dreamtune-cdf8a.firebaseapp.com",
+    databaseURL: "https://dreamtune-cdf8a.firebaseio.com",
+    projectId: "dreamtune-cdf8a",
+    storageBucket: "dreamtune-cdf8a.appspot.com",
+    messagingSenderId: "342835886078",
+    appId: "1:342835886078:web:3d9381525d1aea0332b2af",
+    measurementId: "G-KM6586Z5PP"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+let database = firebase.database();
 
 function scrapeBBBjs(type, n) {
     return new Promise((resolve, reject) => {
@@ -60,6 +76,22 @@ function sortVenues(allVenues) {
     return final;
 }
 
+function addToDatabase(arr, type) {
+    let ref = database.ref('Venues/' + type);
+    for (let i = 0; i < arr.length; i++) {
+        let place = arr[i];
+        ref.orderByChild("address").equalTo(arr[i].address).once("value", snapshot => {
+            if (snapshot.exists()) {
+                console.log(place.name + " already in database")
+            }
+            else {
+                ref.push(arr[i]);
+            }
+        })
+
+    }
+}
+
 exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
@@ -82,6 +114,7 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
 
     allVenues = venues.flat(Infinity);
     final = sortVenues(allVenues);
+    addToDatabase(final, type);
     res.send(final);
     console.log(final);
 });
