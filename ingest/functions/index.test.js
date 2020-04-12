@@ -18,6 +18,6 @@ test("Scraper returns a valid number of pages for the list of venues", async (do
 }, 10000);
 
 test("Is the sorting of venues ommiting promises that rejected", () => {
-    let arr = [{ "status": "fufilled", value: [1, 2, 3] }, { "status": "error", value: [4, 5] }, { "status": "fufilled", "value": [6] }];
+    let arr = [{ "status": "fulfilled", value: [1, 2, 3] }, { "status": "error", value: [4, 5] }, { "status": "fulfilled", "value": [6] }];
     expect(myFunctions.sortVenues(arr)).toEqual([1, 2, 3, 6]);
 });
