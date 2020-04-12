@@ -28,6 +28,11 @@
   },
   "private": true,
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "json-summary"
+    ]
   }
 }
