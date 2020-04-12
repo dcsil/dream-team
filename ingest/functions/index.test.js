@@ -17,12 +17,9 @@ test("Scraper returns a valid number of pages for the list of venues", async (do
 }, 10000);
 
 test("Returns an error when number of pages does not exist", async (done) => {
-    let n = await myFunctions.getNumberOfPages("fihwbfihrbg");
-    expect(n).toEqual(Error("Unknown number of pages"));
+    await expect(myFunctions.getNumberOfPages("fihwbfihrbg")).rejects.toThrow("Unknown number of pages");
     done();
 });
-
-
 
 test("Is the sorting of venues ommiting promises that rejected", () => {
     let arr = [{ "status": "fulfilled", value: [1, 2, 3] }, { "status": "error", value: [4, 5] }, { "status": "fulfilled", "value": [6] }];

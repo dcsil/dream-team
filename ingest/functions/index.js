@@ -55,7 +55,7 @@ function getNumberOfPages(type) {
                 if (numberOfPages) {
                     resolve(numberOfPages);
                 } else {
-                    reject(Error("Unknown number of pages"));
+                    reject(new Error("Unknown number of pages"));
                 }
             })
             .catch((err) => {
