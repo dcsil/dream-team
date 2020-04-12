@@ -1,5 +1,4 @@
 const functions = require('firebase-functions');
-const admin = require('firebase-admin');
 const cheerio = require('cheerio');
 const rp = require('request-promise');
 const firebase = require("firebase");
@@ -7,7 +6,7 @@ const firebase = require("firebase");
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-var firebaseConfig = {
+let firebaseConfig = {
     apiKey: "AIzaSyD7CyGm8hPzSSTI54quyhEcwrS8_xRi1tQ",
     authDomain: "dreamtune-cdf8a.firebaseapp.com",
     databaseURL: "https://dreamtune-cdf8a.firebaseio.com",
@@ -56,7 +55,7 @@ function getNumberOfPages(type) {
                 if (numberOfPages) {
                     resolve(numberOfPages);
                 } else {
-                    reject(Error("Unknown number of pages"));
+                    reject(new Error("Unknown number of pages"));
                 }
             })
             .catch((err) => {
@@ -118,3 +117,9 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     res.send(final);
     console.log(final);
 });
+
+module.exports = {
+    scrapeBBBjs: scrapeBBBjs,
+    getNumberOfPages: getNumberOfPages,
+    sortVenues: sortVenues
+}
