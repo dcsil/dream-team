@@ -9,7 +9,7 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "jest --detectOpenHandles",
-    "coverage": "jest --detectOpenHandles --coverage"
+    "test-once": "jest --detectOpenHandles --coverage"
   },
   "engines": {
     "node": "8"
