@@ -1,4 +1,3 @@
-// const test = require('firebase-functions-test')();
 const myFunctions = require('./index.js');
 
 test("Venues are being returned from the web scraper (the html tags haven't been changed)", async (done) => {
