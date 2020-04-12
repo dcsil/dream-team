@@ -29,5 +29,9 @@
     "mocha": "^7.1.1",
     "nyc": "^15.0.1"
   },
-  "private": true
+  "private": true,
+  "script": {
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  }
 }
