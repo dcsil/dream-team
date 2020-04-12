@@ -22,9 +22,12 @@
     "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.11",
     "eslint": "^5.12.0",
     "eslint-plugin-promise": "^4.0.1",
-    "firebase-functions-test": "^0.1.6"
+    "firebase-functions-test": "^0.1.6",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.1"
   },
   "private": true
 }
