@@ -7,7 +7,8 @@
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "test": "jest --detectOpenHandles"
   },
   "engines": {
     "node": "8"
@@ -22,16 +23,11 @@
     "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.11",
-    "eslint": "^5.12.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "firebase-functions-test": "^0.1.6",
-    "mocha": "^7.1.1",
+    "jest": "^25.3.0",
     "nyc": "^15.0.1"
   },
   "private": true,
-  "script": {
-    "test": "nyc --reporter=html --reporter=text mocha",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  "jest": {
+    "verbose": true
   }
 }
