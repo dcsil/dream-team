@@ -1,0 +1,41 @@
+[{
+    name: "Argon Design System",
+    img: require("assets/img/theme/bootstrap.jpg"),
+    value: "$2,500 USD",
+    status: "pending",
+    profiles: this.profiles,
+    progress: "60"
+  },
+  {
+    name: "Angular Now UI Kit PRO",
+    img: require("assets/img/theme/angular.jpg"),
+    value: "$1,800 USD",
+    status: "completed",
+    profiles: this.profiles,
+    progress: "100"
+  },
+  {
+    name: "Black Dashboard",
+    img: require("assets/img/theme/sketch.jpg"),
+    value: "$3,150 USD",
+    status: "delayed",
+    profiles: this.profiles,
+    progress: "72"
+  },
+  {
+    name: "React Material Dashboard",
+    img: require("assets/img/theme/react.jpg"),
+    value: "$4,400 USD",
+    status: "on schedule",
+    profiles: this.profiles,
+    progress: "90"
+  },
+  {
+    name: "Vue Paper UI Kit PRO",
+    img: require("assets/img/theme/vue.jpg"),
+    value: "$2,200 USD",
+    status: "completed",
+    profiles: this.profiles,
+    progress: "100"
+  }
+  ]

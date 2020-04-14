@@ -64,9 +64,25 @@ We have been following the [Create React App documentation](https://create-react
 
 Tests are in app/src next to the components that they are testing. For example, `App.js` is tested using the `App.test.js` file. Jest automatically looks for these files and runs the tests. 
 
+**Improving Test Coverage**
+View the coverage report created by `npm run test-once` to see which files have a low percentage of test coverage. Generate tests for these files. There are three common tests provided in `CommonRenderTest`:
+- `commonRenderTest` shallow renders a component (doesn't render any children components) 
+- `commonMountTest` renders a component fully in the DOM
+- `commonHoverTest` simulates a mouse entering and leaving
+- `commonButtonTest` simulates a button click
+
+You can also see files that have a poor test coverage in [Code Climate](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db/code?sort=test_coverage).
+
 **Mocking Firestore with Jest**
 
 Read [this article](https://medium.com/stories-from-upstatement/jest-mocks-roasting-on-an-open-firestore-36fa55b76953) and take a look at the README from package we are using called [firestore-jest-mock](https://github.com/Upstatement/firestore-jest-mock).
+
+### Maintainability
+See the [CodeClimate overview](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db) for our resposity for details on the master branch. 
+
+**Please do not merge changes into master if they create significant maintainability issues.** If you create a pull request on Github, CodeClimate will automatically run checks on the pull request. You can see the results by clicking on "issues" if it does not pass. 
+
+**To improve maintability on the master branch** go to the [code tab of CodeClimate](https://codeclimate.com/repos/5e52ed5d4c82bf01780003db/code?sort=maintainability) and sort by worst to best. Create a new branch and try to fix the issues listed in the files that have recieved a poor score. (Click on the file name to see all the issues for that given file). 
 
 ### How to use git for 454 students
 Configure your credentials 

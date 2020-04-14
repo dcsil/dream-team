@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Firestore from "./Firestore";
-import { commonRenderTest } from "../../App.test";
+import { commonRenderTest } from "CommonRenderTest";
 
 const { mockFirebase } = require("firestore-jest-mock");
 // Create a fake firestore with a `venues' collection
