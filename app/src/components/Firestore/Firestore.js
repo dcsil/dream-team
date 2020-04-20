@@ -95,6 +95,7 @@ class Firestore extends React.Component {
       });
       console.log(venues);
       this.setState({ venues: venues });
+
       this.setState({ hasVenues: true });
     });
   };
