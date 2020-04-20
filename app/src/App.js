@@ -19,7 +19,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Switch>  
+        <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/firestore" render={() => <Firestore />} />
           <Route exact path="/map" render={() => <Map />} />
