@@ -1,4 +1,4 @@
-import {chartColors} from "../assets/charts.js";
+import { chartColors } from "../assets/charts.js";
 
 // Example 1 of Chart inside src/views/Index.js (Sales value - Card)
 export const chartExample1 = {
@@ -11,7 +11,7 @@ export const chartExample1 = {
             zeroLineColor: chartColors.gray[900]
           },
           ticks: {
-            callback: function(value) {
+            callback: function (value) {
               if (!(value % 10)) {
                 return "$" + value + "k";
               }
@@ -22,7 +22,7 @@ export const chartExample1 = {
     },
     tooltips: {
       callbacks: {
-        label: function(item, data) {
+        label: function (item, data) {
           var label = data.datasets[item.datasetIndex].label || "";
           var yLabel = item.yLabel;
           var content = "";
@@ -37,16 +37,18 @@ export const chartExample1 = {
       }
     }
   },
-  data1: canvas => {
-    return {
+  data1: (canvas, arr) => {
+    console.log(arr)
+    let ret = {
       labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: [
         {
           label: "Performance",
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+          data: arr ? arr : [0, 20, 15, 35, 40, 20, 17, 22, 55]
         }
       ]
     };
+    return ret;
   },
   data2: canvas => {
     return {
@@ -68,7 +70,7 @@ export const chartExample2 = {
       yAxes: [
         {
           ticks: {
-            callback: function(value) {
+            callback: function (value) {
               if (!(value % 10)) {
                 //return '$' + value + 'k'
                 return value;
@@ -80,7 +82,7 @@ export const chartExample2 = {
     },
     tooltips: {
       callbacks: {
-        label: function(item, data) {
+        label: function (item, data) {
           var label = data.datasets[item.datasetIndex].label || "";
           var yLabel = item.yLabel;
           var content = "";
