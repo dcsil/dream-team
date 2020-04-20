@@ -21,6 +21,8 @@ import React from "react";
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import "Common.css";
 
+import { getFirebaseDatabase } from "../Firestore/Firestore.js";
+
 class Header extends React.Component {
 
   state = {
@@ -53,21 +55,28 @@ class Header extends React.Component {
       icon: "fas fa-fingerprint",
       color: "gradient-bomb"
     }
-  ]
+    ]
+  }
+
+  componentDidMount() {
+    let db = getFirebaseDatabase();
+    let me = this;
+    // db.ref("Profits/Year").once("value").then(function (snapshot) {
+    // });
   }
 
   getChange = (stat) => {
     let float = parseFloat(stat.change)
-    if (float < 0){
+    if (float < 0) {
       return (
-      <span className="text-warning mr-2">
-      <i className="fas fa-arrow-down" /> {-float*100}%
-      </span>
+        <span className="text-warning mr-2">
+          <i className="fas fa-arrow-down" /> {-float * 100}%
+        </span>
       )
     } else {
       return (
         <span className="text-success mr-2">
-        <i className="fa fa-arrow-up" /> {float*100}%
+          <i className="fa fa-arrow-up" /> {float * 100}%
         </span>
       )
     }
@@ -103,7 +112,7 @@ class Header extends React.Component {
             </p>
           </CardBody>
         </Card>
-      </Col>           
+      </Col>
     )
   }
 
@@ -116,7 +125,7 @@ class Header extends React.Component {
             <div className="header-body">
               {/* Card stats */}
               <Row>
-                {this.state.stats.map((stat) => this.statsMap(stat))} 
+                {this.state.stats.map((stat) => this.statsMap(stat))}
               </Row>
             </div>
           </Container>

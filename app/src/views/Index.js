@@ -22,7 +22,7 @@ class Index extends React.Component {
   componentDidMount() {
     let db = getFirebaseDatabase();
     let me = this;
-    db.ref("Profits/Year").once("value").then(function (snapshot) {
+    db.ref("Profits/Year").on("value", function (snapshot) {
       console.log(snapshot.val());
       let temp = {
         labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -35,7 +35,8 @@ class Index extends React.Component {
         ]
       };
       me.setState({ chart_graph_data: temp });
-      me.state.chart_line.data1(null, snapshot.val);
+      chartExample1.data1(null, snapshot.val());
+      me.setState({ chart_line: chartExample1 });
     });
   }
 

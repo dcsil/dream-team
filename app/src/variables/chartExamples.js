@@ -1,5 +1,4 @@
 import { chartColors } from "../assets/charts.js";
-
 // Example 1 of Chart inside src/views/Index.js (Sales value - Card)
 export const chartExample1 = {
   options: {
@@ -37,17 +36,19 @@ export const chartExample1 = {
       }
     }
   },
+  glob: [0, 10, 15, 20, 25, 30, 35, 50, 55],
   data1: (canvas, arr) => {
-    console.log(arr)
+    let glob = chartExample1.glob;
     let ret = {
       labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: [
         {
           label: "Performance",
-          data: arr ? arr : [0, 20, 15, 35, 40, 20, 17, 22, 55]
+          data: glob
         }
       ]
     };
+    console.log(glob);
     return ret;
   },
   data2: canvas => {
