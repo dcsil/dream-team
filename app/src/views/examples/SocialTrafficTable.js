@@ -8,53 +8,45 @@ import {
 } from "reactstrap";
 import TableCardHeader from "./TableCardHeader";
 
-class SocialTrafficTable extends React.Component {
-  socialTrafficData = [
-    {
-      source: "Facebook",
-      visitors: "1,480",
-      percentage: "60",
-      percentageStatus: "bg-gradient-danger"
-    },
-    {
-      source: "TikTok",
-      visitors: "5,480",
-      percentage: "70",
-      percentageStatus: "bg-gradient-success"
-    },
-    {
-      source: "Google",
-      visitors: "4,807",
-      percentage: "80",
-      percentageStatus: ""
-    },
-    {
-      source: "Instagram",
-      visitors: "3,678",
-      percentage: "75",
-      percentageStatus: "bg-gradient-info"
-    },
-    {
-      source: "Twitter",
-      visitors: "2,645",
-      percentage: "30",
-      percentageStatus: "bg-gradient-warning"
-    }
-  ];
+import { getFirebaseDatabase } from "../../components/Firestore/Firestore.js";
 
-  socialTrafficRow(socialTraffic) {
+class SocialTrafficTable extends React.Component {
+  state = {
+    socials_rated: [
+      {
+        source: "Yelp",
+        locations: "1,480",
+        percentage: "60",
+        percentageStatus: "bg-gradient-danger"
+      }
+    ]
+  }
+
+  componentDidMount() {
+    let db = getFirebaseDatabase();
+    let me = this;
+    db.ref("convictions").on("value", function (snapshot) {
+      let new_data = [];
+      snapshot.forEach(doc => {
+        new_data.push(doc.val());
+      });
+      me.setState({ socials_rated: new_data });
+    });
+  }
+
+  socialConvictions(social) {
     return (
       <tr>
-        <th scope="row">{socialTraffic.source}</th>
-        <td>{socialTraffic.visitors}</td>
+        <th scope="row">{social.source}</th>
+        <td>{social.locations}</td>
         <td>
           <div className="d-flex align-items-center">
-            <span className="mr-2">{socialTraffic.percentage}%</span>
+            <span className="mr-2">{social.percentage}%</span>
             <div>
               <Progress
                 max="100"
-                value={socialTraffic.percentage}
-                barClassName={socialTraffic.percentageStatus}
+                value={social.percentage}
+                barClassName={social.percentageStatus}
               />
             </div>
           </div>
@@ -67,18 +59,18 @@ class SocialTrafficTable extends React.Component {
     return (
       <Col xl="4">
         <Card className="shadow">
-          <TableCardHeader name="Social traffic"/>
+          <TableCardHeader name="Social traffic" />
           <Table className="align-items-center table-flush" responsive>
             <thead className="thead-light">
               <tr>
                 <th scope="col">Referral</th>
                 <th scope="col">Visitors</th>
-                <th scope="col" />
+                <th scope="col">Conviction Rate</th>
               </tr>
             </thead>
             <tbody>
-              {this.socialTrafficData.map(socialTraffic =>
-                this.socialTrafficRow(socialTraffic)
+              {this.state.socials_rated.map(social =>
+                this.socialConvictions(social)
               )}
             </tbody>
           </Table>
