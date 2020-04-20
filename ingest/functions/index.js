@@ -3,6 +3,10 @@ const cheerio = require('cheerio');
 const rp = require('request-promise');
 const firebase = require("firebase");
 
+const yelp = require('yelp-fusion');
+const client = yelp.client('Mq_-ub80ZLwFpMH3oTU8HFZ82Z3-KU2MIkqfkQOOb8EV7IVAEC3Jq0hOfMK7G6XJYzcGcIr8kIGqsgj9vbeHw5B3w0sN0NMT9L4TfROBqS3YyIdjPnX2RLXtJhGBXnYx');
+
+
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
@@ -118,8 +122,25 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     console.log(final);
 });
 
+const searchRequest = {
+    term: 'Four Barrel Coffee',
+    location: 'san francisco, ca'
+};
+
+exports.yelpVenue = functions.https.onRequest(async (request, response) => {
+    const result = await client.search(request.body).then(response => {
+        const firstResult = response.jsonBody.businesses[0];
+        return firstResult
+    }).catch(e => {
+        response.send(e);
+    });
+    const prettyJson = JSON.stringify(result, null, 4);
+    response.send(prettyJson);
+});
+
 module.exports = {
     scrapeBBBjs: scrapeBBBjs,
     getNumberOfPages: getNumberOfPages,
-    sortVenues: sortVenues
+    sortVenues: sortVenues,
+    yelpVenue: this.yelpVenue
 }
