@@ -61,8 +61,14 @@ class Header extends React.Component {
   componentDidMount() {
     let db = getFirebaseDatabase();
     let me = this;
-    // db.ref("Profits/Year").once("value").then(function (snapshot) {
-    // });
+    db.ref("headers").on("value", function (snapshot) {
+      let new_data = [];
+      snapshot.forEach(doc => {
+        new_data.push(doc.val());
+      });
+      console.log(new_data);
+      me.setState({ stats: new_data });
+    });
   }
 
   getChange = (stat) => {
