@@ -50,32 +50,8 @@ class Firestore extends React.Component {
   //   profile_picture: "www.google.com"
   // });
 
-  // readVenues = db => {
-  //   db.ref("/Venues/gym")
-  //     .get()
-  //     .then(querySnapshot => {
-  //       let venues = [];
-  //       querySnapshot.forEach(doc => {
-  //         console.log(`${doc.id} => ${doc.data()}`);
-  //         console.log(doc.data());
-  //         let data = doc.data();
-  //         venues.push({
-  //           acquired: data.acquired,
-  //           address: data.address,
-  //           estimatedValue: data.estimatedValue,
-  //           location: data.location,
-  //           name: data.name,
-  //           phone: data.phone,
-  //           id: uid(doc.id)
-  //         });
-  //       });
-
-  //       this.setState({ venues: venues });
-  //       this.setState({ hasVenues: true });
-  //     });
-  // };
-
-  readVenues = db => {
+  readVenues = (db) => {
+    let me = this;
     console.log("HELLOS");
     db.ref("/Venues/gym").once("value").then(function (querySnapshot) {
       let venues = [];
@@ -94,9 +70,8 @@ class Firestore extends React.Component {
         });
       });
       console.log(venues);
-      this.setState({ venues: venues });
-
-      this.setState({ hasVenues: true });
+      me.setState({ venues: venues });
+      me.setState({ hasVenues: true });
     });
   };
 
