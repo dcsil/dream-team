@@ -20,15 +20,15 @@ class LoginRegister extends React.Component {
 
   getButton = name => {
     return (
-      <a href="/admin">            
-      <Button
-        className="btn-neutral text-muted btn-icon mr-4"
-      >
-        <span className="btn-inner--icon">
-          <img alt="..." src={require(`assets/img/icons/common/${name}.svg`)} />
-        </span>
-        {name}
-      </Button>
+      <a href="/admin">
+        <Button
+          className="btn-neutral text-muted btn-icon mr-4"
+        >
+          <span className="btn-inner--icon">
+            <img alt="..." src={require(`assets/img/icons/common/${name}.svg`)} />
+          </span>
+          {name}
+        </Button>
       </a>
     );
   };
@@ -84,9 +84,9 @@ class LoginRegister extends React.Component {
         </label>
       </div>
       <div className="text-center">
-      <a href="/admin">          
-        <Button className="my-4 dreamButton" color="primary" type="button">
-          Sign in
+        <a href="/admin">
+          <Button className="my-4 dreamButton" color="primary" type="button">
+            Sign in
         </Button>
         </a>
       </div>
@@ -157,29 +157,29 @@ class LoginRegister extends React.Component {
 
   render() {
     return (
-        <Col
-          lg={this.props.register ? "6" : "5"}
-          md={this.props.register ? "8" : "7"}
-        >
-          <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
-                <small>Sign in with</small>
-              </div>
-              <div className="btn-wrapper text-center">
-                {this.getButton("Github")}
-                {this.getButton("Google")}
-              </div>
-            </CardHeader>
-            <CardBody className="px-lg-5 py-lg-5">
-              <div className="text-center text-muted mb-4">
-                <small>Or sign in with credentials</small>
-              </div>
-              {this.props.register ? this.signUpForm : this.loginForm}
-            </CardBody>
-          </Card>
-          {this.props.register ? "" : this.bottomOptions}
-        </Col>
+      <Col
+        lg={this.props.register ? "6" : "5"}
+        md={this.props.register ? "8" : "7"}
+      >
+        <Card className="bg-secondary shadow border-0">
+          <CardHeader className="bg-transparent pb-5">
+            <div className="text-muted text-center mt-2 mb-4">
+              <small>Sign in with</small>
+            </div>
+            <div className="btn-wrapper text-center">
+              {this.getButton("Github")}
+              {this.getButton("Google")}
+            </div>
+          </CardHeader>
+          <CardBody className="px-lg-5 py-lg-5">
+            <div className="text-center text-muted mb-4">
+              <small>Or sign in with credentials</small>
+            </div>
+            {this.props.register ? this.signUpForm : this.loginForm}
+          </CardBody>
+        </Card>
+        {this.props.register ? "" : this.bottomOptions}
+      </Col>
     );
   }
 }
