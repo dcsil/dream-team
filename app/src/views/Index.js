@@ -23,7 +23,6 @@ class Index extends React.Component {
     let db = getFirebaseDatabase();
     let me = this;
     db.ref("Profits/Year").on("value", function (snapshot) {
-      console.log(snapshot.val());
       let temp = {
         labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [

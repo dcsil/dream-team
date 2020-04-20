@@ -66,7 +66,6 @@ class Header extends React.Component {
       snapshot.forEach(doc => {
         new_data.push(doc.val());
       });
-      console.log(new_data);
       me.setState({ stats: new_data });
     });
   }
