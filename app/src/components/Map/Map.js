@@ -74,7 +74,7 @@ class Map extends React.Component {
       return
     }
     var map = new mapboxgl.Map({
-      container: "map",
+      container: "exmap",
       style: "mapbox://styles/mapbox/light-v10",
       center: [-77.04, 38.907],
       zoom: 11.15
@@ -87,7 +87,7 @@ class Map extends React.Component {
     return (
       <div>
         <div className="title">Dreamtune Map</div>
-        <div id="map"></div>
+        <div id="exmap"></div>
         <div className="filter-ctrl">
           <input
             id="filter-input"
