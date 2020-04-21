@@ -23,7 +23,8 @@ import {
 
 class Sidebar extends React.Component {
   state = {
-    collapseOpen: false
+    collapseOpen: false,
+    selectedVenue: ""
   };
   constructor(props) {
     super(props);
@@ -67,7 +68,7 @@ class Sidebar extends React.Component {
   docData = [
     {
       link:
-        "https://github.com/dcsil/dream-team/blob/master/Getting-Started.md",
+        "https://github.com/dcsil/dream-team/",
       name: "Getting started",
       icon: "ni ni-spaceship"
     },

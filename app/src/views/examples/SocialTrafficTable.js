@@ -63,8 +63,8 @@ class SocialTrafficTable extends React.Component {
           <Table className="align-items-center table-flush" responsive>
             <thead className="thead-light">
               <tr>
-                <th scope="col">Referral</th>
-                <th scope="col">Visitors</th>
+                <th scope="col">Source</th>
+                <th scope="col"># Leads</th>
                 <th scope="col">Conviction Rate</th>
               </tr>
             </thead>
