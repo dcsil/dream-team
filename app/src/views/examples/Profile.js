@@ -122,7 +122,7 @@ class Profile extends React.Component {
           </h3>
           <div className="h5 font-weight-300">
             <i className="ni location_pin mr-2" />
-            Toronto, Ontario
+            Ontario, Canada
           </div>
           <div>
             <i className="ni education_hat mr-2" />
