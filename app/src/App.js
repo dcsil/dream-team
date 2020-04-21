@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Map from "./components/Map/Map";
 import Card from "./components/Card/Card"
 import Firestore from "./components/Firestore/Firestore";
 
@@ -22,7 +21,6 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/firestore" render={() => <Firestore />} />
-          <Route exact path="/map" render={() => <Map />} />
           <Route exact path="/card" render={() => <Card />} />
           <Route exact path="/login" render={() => <LoginRegister />} />
           <Route exact path="/register" render={() => <LoginRegister register />} />
