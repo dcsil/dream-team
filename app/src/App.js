@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
-import Home from "./components/Home/Home";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Auth from "./layouts/Auth"
 
 import "assets/plugins/nucleo/css/nucleo.css";
