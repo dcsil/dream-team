@@ -13,7 +13,7 @@ import TableCardHeader from "./TableCardHeader";
 
 //Render Test
 commonRenderTest.bind(this)(Login)
-//commonRenderTest.bind(this)(Maps)
+commonRenderTest.bind(this)(Maps)
 //commonRenderTest.bind(this)(Profile)
 commonRenderTest.bind(this)(Register)
 commonRenderTest.bind(this)(Tables)

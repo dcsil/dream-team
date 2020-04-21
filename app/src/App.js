@@ -20,8 +20,6 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/firestore" render={() => <Firestore />} />
-          <Route exact path="/card" render={() => <Card />} />
           <Route exact path="/login" render={() => <LoginRegister />} />
           <Route exact path="/register" render={() => <LoginRegister register />} />
           <Route path="/admin" render={props => <AdminLayout {...props} />} />
