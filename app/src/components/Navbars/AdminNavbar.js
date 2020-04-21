@@ -40,19 +40,19 @@ class AdminNavbar extends React.Component {
   state = {dropdownItems: [{
     name: "My profile",
     icon: "ni ni-single-02",
-    destination: "/admin/user-profile"
+    destination: "/admin/"
   },{
     name: "Settings",
     icon: "ni ni-settings-gear-65",
-    destination: "/admin/user-profile"
+    destination: "/admin/"
   },{
     name: "Activity",
     icon: "ni ni-calendar-grid-58",
-    destination: "/admin/user-profile"
+    destination: "/admin/"
   },{
     name: "Support",
     icon: "ni ni-support-16",
-    destination: "/admin/user-profile"
+    destination: "/admin/"
   }
 
   ]}

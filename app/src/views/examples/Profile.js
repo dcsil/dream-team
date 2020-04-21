@@ -1,7 +1,7 @@
 import React from "react";
 
 // reactstrap components
-import { Button, Card, CardHeader, CardBody, Container, FormGroup, Form, Input, Row, Col } from "reactstrap";
+import { Button, Card, CardHeader, CardBody, Container, FormGroup, Form, Row, Col } from "reactstrap";
 // core components
 import { getFirebaseDatabase } from "components/Database/firebase.js";
 
@@ -13,6 +13,7 @@ class Profile extends React.Component {
     acquired: false,
     address: "loading",
     estimatedValue: 0,
+    venueType: "restaurant",
     phone: "loading"
   }
 
@@ -23,6 +24,12 @@ class Profile extends React.Component {
     if (venueKey !== null) {
       let db = getFirebaseDatabase();
 
+      if (venueKey.includes("gym")) {
+        this.setState({ venueType: "gym" })
+      } else if (venueKey.includes("restaurant")) {
+        this.setState({ venueType: "restaurant" })
+      }
+
       db.ref(`${venueKey}`).once("value").then((snapshot) => {
         console.log(snapshot.val());
         let venue = snapshot.val();
@@ -31,6 +38,8 @@ class Profile extends React.Component {
         this.setState({ venueName: venue.name, titleText: titleText, acquired: venue.acquired, address: venue.address, estimatedValue: venue.estimatedValue })
         this.setState({ phone: venue.phone })
       });
+    } else {
+      this.setState({ venueName: "No Venue Selected", titleText: "Please navigate to the Maps page via the left navbar and select a veneue to view its information" });
     }
     //venueKey === null ? this.props.store.permalinkPostID = 0 : this.props.store.permalinkPostID = postID
   }
@@ -43,8 +52,8 @@ class Profile extends React.Component {
           className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
           style={{
             minHeight: "600px",
-            backgroundImage:
-              "url(" + require("assets/img/theme/profile-cover.jpg") + ")",
+            // backgroundImage:
+            //   "url(" + require("assets/img/theme/profile-cover.jpg") + ")",
             backgroundSize: "cover",
             backgroundPosition: "center top"
           }}
@@ -81,7 +90,8 @@ class Profile extends React.Component {
                         <img
                           alt="..."
                           className="rounded-circle"
-                          src={require("assets/img/theme/team-4-800x800.jpg")}
+                          //src={require("assets/img/theme/team-4-800x800.jpg")}
+                          src={this.state.venueType === "gym" ? require("assets/img/theme/gym.png") : require("assets/img/theme/restaurant.png")}
                         />
                       </a>
                     </div>
@@ -90,22 +100,13 @@ class Profile extends React.Component {
                 <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                   <div className="d-flex justify-content-between">
                     <Button
-                      className="mr-4"
-                      color="info"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                      size="sm"
-                    >
-                      Add Venue to Interest
-          </Button>
-                    <Button
                       className="float-right"
                       color="default"
                       href="#pablo"
                       onClick={e => e.preventDefault()}
                       size="sm"
                     >
-                      Add Venue to Success
+                      Acquire
           </Button>
                   </div>
                 </CardHeader>
@@ -126,8 +127,9 @@ class Profile extends React.Component {
           </div>
                     <div>
                       <i className="ni education_hat mr-2" />
-            Amazing Local Gym
-          </div>
+                      {this.state.venueType === "gym" ? "Amazing Local Gym" : "Delicious Local Restaurant"}
+
+                    </div>
                     <hr className="my-4" />
                     <p>
                       Yelp reviews show evidence of infringment: users indicate that the venue plays music, even though they are not licensed
