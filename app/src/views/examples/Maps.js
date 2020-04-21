@@ -5,14 +5,14 @@ import { Card, Container, Row } from "reactstrap";
 import mapboxgl from 'mapbox-gl';
 import marker from './location.png';
 import "Common.css";
-import { getFirebaseDatabase } from "components/Firestore/Firestore.js";
+import { getFirebaseDatabase } from "components/Database/firebase.js";
 
 // core components
 import Header from "components/Headers/Header.js";
 // mapTypeId={google.maps.MapTypeId.ROADMAP}
 
 class Maps extends React.Component {
-  	state = {
+	state = {
 		features: [],
 		loading: false,
 		locationChosen: false,
@@ -27,21 +27,21 @@ class Maps extends React.Component {
 			let coords = venue.coordinates;
 			// console.log(coords);
 
-			if (coords !== undefined){
+			if (coords !== undefined) {
 				featuresLocal.push({
-				'type': 'Feature',
-				'properties': {
-					'location': coords.latitude + "," + coords.longitude,
-					'name': venue.name.split(",")[0],
-					'fbkey': key,
-					'icon': type
-				},
-				'geometry': {
-					'type': 'Point',
-					'coordinates': [parseFloat(coords.longitude), parseFloat(coords.latitude)]
-				}
-			});
-		}
+					'type': 'Feature',
+					'properties': {
+						'location': coords.latitude + "," + coords.longitude,
+						'name': venue.name.split(",")[0],
+						'fbkey': key,
+						'icon': type
+					},
+					'geometry': {
+						'type': 'Point',
+						'coordinates': [parseFloat(coords.longitude), parseFloat(coords.latitude)]
+					}
+				});
+			}
 		})
 
 	}
@@ -49,9 +49,9 @@ class Maps extends React.Component {
 	parseSnapshot = (snapshot) => {
 		let venueData = snapshot.val();
 		// console.log(venueData); //All the venues in the gym table
-		
+
 		const featuresLocal = [...this.state.features];
-		
+
 		let gymVenueData = venueData['gym'];
 		let restaurantVenueData = venueData['restaurant'];
 
@@ -69,13 +69,13 @@ class Maps extends React.Component {
 
 		let db = getFirebaseDatabase();
 
-		db.ref("Venues").once("value").then( (snapshot) => {
+		db.ref("Venues").once("value").then((snapshot) => {
 			this.parseSnapshot(snapshot, map);
 			console.log(this.state.features);
 			this.addFeatures(mapboxgl, map, this.state.features);
 		});
 
-		
+
 	};
 
 	addFeatures = (mapboxgl, map, features) => {
@@ -84,7 +84,7 @@ class Maps extends React.Component {
 		// 	if (error) throw error;
 		// 	map.addImage('post-icon', image);
 		// });
-    
+
 		map.addSource('places', {
 			'type': 'geojson',
 			'data': {
@@ -114,45 +114,45 @@ class Maps extends React.Component {
 			}
 		}); */
 		let layerIDs = this.state.layerIDs;
-		features.forEach(function(feature) {
+		features.forEach(function (feature) {
 			var symbol = feature.properties["icon"];
 			var layerID = "poi-" + symbol;
-	
+
 			// Add a layer for this symbol type if it hasn't been added already.
 			if (!map.getLayer(layerID)) {
-			  let color = "#202";
-			  if (symbol === "restaurant"){
+				let color = "#202";
+				if (symbol === "restaurant") {
 					color = "#a200ff";
-			  }
-			  map.addLayer({
-				id: layerID,
-				type: "symbol",
-				source: "places",
-				layout: {
-				  "icon-image": symbol + "-15",
-				  "icon-allow-overlap": true,
-				  'text-field': ['get', 'name'],
-				  "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
-				  "text-size": 11,
-				  "text-transform": "uppercase",
-				  "text-letter-spacing": 0.05,
-				  "text-offset": [0, 1.5]
-				},
-				paint: {
-				  "text-color": color,
-				  "text-halo-color": "#fff",
-				  "text-halo-width": 2
-				},
-				filter: ["==", "icon", symbol]
-			  });
-	
-			  layerIDs.push(layerID);
-			}
-		  });
+				}
+				map.addLayer({
+					id: layerID,
+					type: "symbol",
+					source: "places",
+					layout: {
+						"icon-image": symbol + "-15",
+						"icon-allow-overlap": true,
+						'text-field': ['get', 'name'],
+						"text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+						"text-size": 11,
+						"text-transform": "uppercase",
+						"text-letter-spacing": 0.05,
+						"text-offset": [0, 1.5]
+					},
+					paint: {
+						"text-color": color,
+						"text-halo-color": "#fff",
+						"text-halo-width": 2
+					},
+					filter: ["==", "icon", symbol]
+				});
 
-		  this.setState({ layerIDs: layerIDs });
-		  this.mapActions(map, "poi-fitness-centre");
-		  this.mapActions(map, "poi-restaurant");
+				layerIDs.push(layerID);
+			}
+		});
+
+		this.setState({ layerIDs: layerIDs });
+		this.mapActions(map, "poi-fitness-centre");
+		this.mapActions(map, "poi-restaurant");
 	}
 
 	mapActions = (map, layer) => {
@@ -163,7 +163,7 @@ class Maps extends React.Component {
 			console.log(location);
 			console.log(fbkey);
 			//this.props.store.search(location)
-			if (layer === "poi-fitness-centre"){
+			if (layer === "poi-fitness-centre") {
 				window.location.href = `/admin/user-profile?venueKey=Venues/gym/${fbkey}`
 			} else {
 				window.location.href = `/admin/user-profile?venueKey=Venues/restaurant/${fbkey}`
@@ -197,34 +197,34 @@ class Maps extends React.Component {
 		map.scrollZoom.disable();
 
 		// Get all the locations and plot on the map
-		map.on('load', () => {this.getAllLocations(mapboxgl, map)})
+		map.on('load', () => { this.getAllLocations(mapboxgl, map) })
 
-		 map.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                trackUserLocation: false
-            })
-        );
+		map.addControl(
+			new mapboxgl.GeolocateControl({
+				positionOptions: {
+					enableHighAccuracy: true
+				},
+				trackUserLocation: false
+			})
+		);
 	}
 
-  render() {
-    return (
-      <>
-        <Header />
-        <Container className="mt--7" fluid>
-          <Row>
-            <div className="col">
-              <Card className="shadow border-0">
-				<div id="map"></div>
-              </Card>
-            </div>
-          </Row>
-        </Container>
-      </>
-    );
-  }
+	render() {
+		return (
+			<>
+				<Header />
+				<Container className="mt--7" fluid>
+					<Row>
+						<div className="col">
+							<Card className="shadow border-0">
+								<div id="map"></div>
+							</Card>
+						</div>
+					</Row>
+				</Container>
+			</>
+		);
+	}
 }
 
 export default Maps;

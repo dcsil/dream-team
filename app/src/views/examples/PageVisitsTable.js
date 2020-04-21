@@ -7,7 +7,7 @@ import {
 } from "reactstrap";
 import TableCardHeader from "./TableCardHeader";
 
-import { getFirebaseDatabase } from "../../components/Firestore/Firestore.js";
+import { getFirebaseDatabase } from "../../components/Database/firebase.js";
 
 class PageVisitsTable extends React.Component {
   state = {

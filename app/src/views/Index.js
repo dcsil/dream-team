@@ -10,7 +10,7 @@ import Header from "components/Headers/Header.js";
 import ArgonLineChart from "variables/ArgonLineChart";
 import ArgonBarChart from "variables/ArgonBarChart";
 
-import { getFirebaseDatabase } from "../components/Firestore/Firestore.js";
+import { getFirebaseDatabase } from "../components/Database/firebase.js";
 
 class Index extends React.Component {
   state = {

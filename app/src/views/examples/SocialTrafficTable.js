@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import TableCardHeader from "./TableCardHeader";
 
-import { getFirebaseDatabase } from "../../components/Firestore/Firestore.js";
+import { getFirebaseDatabase } from "../../components/Database/firebase";
 
 class SocialTrafficTable extends React.Component {
   state = {

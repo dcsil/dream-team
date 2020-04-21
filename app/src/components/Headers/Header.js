@@ -21,7 +21,7 @@ import React from "react";
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import "Common.css";
 
-import { getFirebaseDatabase } from "../Firestore/Firestore.js";
+import { getFirebaseDatabase } from "../Database/firebase.js";
 
 class Header extends React.Component {
 

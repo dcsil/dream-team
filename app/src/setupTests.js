@@ -9,4 +9,6 @@ import Adapter from 'enzyme-adapter-react-16';
 
 require('jest-canvas-mock');
 
+window.URL.createObjectURL = function() {}
+
 configure({ adapter: new Adapter() });
