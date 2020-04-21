@@ -7,53 +7,42 @@ import {
 } from "reactstrap";
 import TableCardHeader from "./TableCardHeader";
 
-class PageVisitsTable extends React.Component {
-  pageVisitsData = [
-    {
-      page: "/argon/",
-      visitors: "4,569",
-      uniqueUsers: "340",
-      bounceRate: "46,53%",
-      bounceStatus: "fas fa-arrow-up text-success mr-3"
-    },
-    {
-      page: "/argon/index.html",
-      visitors: "3,985",
-      uniqueUsers: "319",
-      bounceRate: "46,53%",
-      bounceStatus: "fas fa-arrow-down text-warning mr-3"
-    },
-    {
-      page: "/argon/charts.html",
-      visitors: "3,513",
-      uniqueUsers: "294",
-      bounceRate: "36,49%",
-      bounceStatus: "fas fa-arrow-down text-warning mr-3"
-    },
-    {
-      page: "/argon/tables.html",
-      visitors: "2,050",
-      uniqueUsers: "147",
-      bounceRate: "50,87%",
-      bounceStatus: "fas fa-arrow-up text-success mr-3"
-    },
-    {
-      page: "/argon/profile.html",
-      visitors: "1,795",
-      uniqueUsers: "190",
-      bounceRate: "46,53%",
-      bounceStatus: "fas fa-arrow-down text-danger mr-3"
-    }
-  ];
+import { getFirebaseDatabase } from "../../components/Firestore/Firestore.js";
 
-  pageVisitsRow(pageVisit) {
+class PageVisitsTable extends React.Component {
+  state = {
+    managedPeople: [
+      {
+        name: "Joel Marquee",
+        revenue_gen: "$4,569",
+        reach: "112",
+        delta: "16.53%",
+        status: "fas fa-arrow-down text-warning mr-3"
+      }
+    ]
+  }
+
+  componentDidMount() {
+    let db = getFirebaseDatabase();
+    let me = this;
+    db.ref("/ManagedPeeople").on("value", function (snapshot) {
+
+      let new_data = [];
+      snapshot.forEach(doc => {
+        new_data.push(doc.val());
+      });
+      me.setState({ managedPeople: new_data });
+    });
+  }
+
+  formatRow(person) {
     return (
       <tr>
-        <th scope="row">{pageVisit.page}</th>
-        <td>{pageVisit.visitors}</td>
-        <td>{pageVisit.uniqueUsers}</td>
+        <th scope="row">{person.name}</th>
+        <td>{person.revenue_gen}</td>
+        <td>{person.reach}</td>
         <td>
-          <i className={pageVisit.bounceStatus} /> {pageVisit.bounceRate}
+          <i className={person.status} /> {person.delta}
         </td>
       </tr>
     );
@@ -63,19 +52,19 @@ class PageVisitsTable extends React.Component {
     return (
       <Col className="mb-5 mb-xl-0" xl="8">
         <Card className="shadow">
-            <TableCardHeader name="Page visits"/>
+          <TableCardHeader name="Managed People" />
           <Table className="align-items-center table-flush" responsive>
             <thead className="thead-light">
               <tr>
-                <th scope="col">Page name</th>
-                <th scope="col">Visitors</th>
-                <th scope="col">Unique users</th>
-                <th scope="col">Bounce rate</th>
+                <th scope="col">Name</th>
+                <th scope="col">Revenue Generated</th>
+                <th scope="col">Venues Reached</th>
+                <th scope="col">Performance Metric</th>
               </tr>
             </thead>
             <tbody>
-              {this.pageVisitsData.map(pageVisit =>
-                this.pageVisitsRow(pageVisit)
+              {this.state.managedPeople.map(person =>
+                this.formatRow(person)
               )}
             </tbody>
           </Table>

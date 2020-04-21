@@ -31,3 +31,9 @@
     background: #5700ff;
     font-size: 1rem;
 }
+
+#map {
+    height: 40vw;
+    background-color: powderblue;
+    border-radius: 7px;
+  }

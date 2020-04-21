@@ -30,6 +30,7 @@ class ArgonLineChart extends React.Component {
   state = {
     activeNav: 1,
     dataSelection: "data1"
+
   };
 
   toggleNavs = (e, index) => {
