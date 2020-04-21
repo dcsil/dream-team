@@ -2,8 +2,6 @@ import React from "react";
 import "./App.css";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Card from "./components/Card/Card"
-import Firestore from "./components/Firestore/Firestore";
 
 import "assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";

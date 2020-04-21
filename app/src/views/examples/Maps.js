@@ -42,6 +42,7 @@ class Maps extends React.Component {
 					}
 				});
 			}
+			return null;
 		})
 
 	}
