@@ -1,29 +1,33 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
 import {Button, Card, CardHeader, CardBody, Container, Row, Col} from "reactstrap";
 // core components
-import UserHeader from "components/Headers/UserHeader.js";
 import ProfileInformation from "./ProfileInformation.js";
+import { getFirebaseDatabase } from "components/Firestore/Firestore.js";
 
 class Profile extends React.Component {
+
+  state = {
+    venueName: "Venue Name",
+    titleText: "Venue information loading... here you will be able to view the details of a venue identified as a potential lead for music licensing"
+  }
+
+  componentDidMount = () => { 
+    console.log(window.location.pathname +  window.location.search);
+    let venueKey = new URLSearchParams(this.props.location.search).get("venueKey")
+    console.log(venueKey)
+    if (venueKey !== null){
+      let db = getFirebaseDatabase();
+
+      db.ref(`${venueKey}`).once("value").then( (snapshot) => {
+        console.log(snapshot.val());
+        let venue = snapshot.val();
+        this.setState({venueName: venue.name})
+      });
+    }
+		//venueKey === null ? this.props.store.permalinkPostID = 0 : this.props.store.permalinkPostID = postID
+  }
 
   myAccount = 
   <Col className="order-xl-1" xl="8">
@@ -31,7 +35,7 @@ class Profile extends React.Component {
       <CardHeader className="bg-white border-0">
         <Row className="align-items-center">
           <Col xs="8">
-            <h3 className="mb-0">My account</h3>
+            <h3 className="mb-0">Venue Information</h3>
           </Col>
           <Col className="text-right" xs="4">
             <Button
@@ -40,7 +44,7 @@ class Profile extends React.Component {
               onClick={e => e.preventDefault()}
               size="sm"
             >
-              Settings
+              Edit
             </Button>
           </Col>
         </Row>
@@ -110,7 +114,7 @@ class Profile extends React.Component {
         </Row>
         <div className="text-center">
           <h3>
-            Jessica Jones
+            {this.state.venueName}
             <span className="font-weight-light">, 27</span>
           </h3>
           <div className="h5 font-weight-300">
@@ -138,12 +142,41 @@ class Profile extends React.Component {
       </CardBody>
     </Card>
   </Col>
-            
 
   render() {
     return (
       <>
-        <UserHeader />
+        <div
+          className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+          style={{
+            minHeight: "600px",
+            backgroundImage:
+              "url(" + require("assets/img/theme/profile-cover.jpg") + ")",
+            backgroundSize: "cover",
+            backgroundPosition: "center top"
+          }}
+        >
+          {/* Mask */}
+          <span className="mask bg-gradient-default opacity-8" />
+          {/* Header container */}
+          <Container className="d-flex align-items-center" fluid>
+            <Row>
+              <Col lg="7" md="10">
+                <h1 className="display-2 text-white">{this.state.venueName}</h1>
+                <p className="text-white mt-0 mb-5">
+                  {this.state.titleText}
+                </p>
+                <Button
+                  color="info"
+                  href="#pablo"
+                  onClick={e => e.preventDefault()}
+                >
+                  Contact Venue
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        </div>
         <Container className="mt--7" fluid>
           <Row>
             {this.profileCard}

@@ -33,6 +33,7 @@ class Maps extends React.Component {
 				'properties': {
 					'location': coords.latitude + "," + coords.longitude,
 					'name': venue.name.split(",")[0],
+					'fbkey': key,
 					'icon': type
 				},
 				'geometry': {
@@ -150,21 +151,32 @@ class Maps extends React.Component {
 		  });
 
 		  this.setState({ layerIDs: layerIDs });
+		  this.mapActions(map, "poi-fitness-centre");
+		  this.mapActions(map, "poi-restaurant");
+	}
 
+	mapActions = (map, layer) => {
 		// When a click event occurs on a feature in the places layer
-		map.on('click', 'places-labels', (e) => {
+		map.on('click', layer, (e) => {
 			let location = e.features[0].properties.location;
+			let fbkey = e.features[0].properties.fbkey;
 			console.log(location);
+			console.log(fbkey);
 			//this.props.store.search(location)
+			if (layer === "poi-fitness-centre"){
+				window.location.href = `/admin/user-profile?venueKey=Venues/gym/${fbkey}`
+			} else {
+				window.location.href = `/admin/user-profile?venueKey=Venues/restaurant/${fbkey}`
+			}
 		});
 
 		// Change the cursor to a pointer when the mouse is over the places layer.
-		map.on('mouseenter', 'places-labels', function () {
+		map.on('mouseenter', layer, function () {
 			map.getCanvas().style.cursor = 'pointer';
 		});
 
 		// Change it back to a cursor when it leaves.
-		map.on('mouseleave', 'places-labels', function () {
+		map.on('mouseleave', layer, function () {
 			map.getCanvas().style.cursor = '';
 		});
 	}
