@@ -15,7 +15,7 @@ You can view our production [application hosted here](https://dreamtune-cdf8a.we
 ## How our Team Works
 We are using issues as the main way to delegate tasks. We are also using the projects tabs and milestones to help organize this information. Communication will happen mainly over our private slack channel. Some of our internal documents will be hosted on Google Drive, but as needed we will convert them to markdown and upload to GitHub. 
 
-Table of Contents
+Table of Contents.
 ---
 
 - [People](./team/)
