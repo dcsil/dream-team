@@ -4,7 +4,11 @@ import { mount } from 'enzyme';
 
 
   export const commonRenderTest = function(Component) {
+    window.URL.createObjectURL = jest.fn();
     global.URL.createObjectURL = jest.fn();
+    jest.mock('mapbox-gl', () => ({
+      Map: () => ({})
+    }));
     if (typeof window.URL.createObjectURL === 'undefined') { 
       Object.defineProperty(window.URL, 'createObjectURL', { value: 'results'})
     }
