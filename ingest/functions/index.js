@@ -3,6 +3,10 @@ const cheerio = require('cheerio');
 const rp = require('request-promise');
 const firebase = require("firebase");
 
+const yelp = require('yelp-fusion');
+const client = yelp.client('Mq_-ub80ZLwFpMH3oTU8HFZ82Z3-KU2MIkqfkQOOb8EV7IVAEC3Jq0hOfMK7G6XJYzcGcIr8kIGqsgj9vbeHw5B3w0sN0NMT9L4TfROBqS3YyIdjPnX2RLXtJhGBXnYx');
+
+
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
@@ -91,6 +95,26 @@ function addToDatabase(arr, type) {
     }
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function send_to_db(place, result) {
+    database.ref("Venues/restaurant/" + place.key).update({ coordinates: result });
+}
+
+function updatePlace(place) {
+    console.log(place.val().address);
+    let addr = place.val().address;
+    client.search({ location: addr }).then(response => {
+        const firstResult = response.jsonBody.businesses[0].coordinates;
+        send_to_db(place, firstResult);
+    }).catch(e => {
+        console.log(e);
+    });
+
+}
+
 exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     let venues = []
     let allPromises = []
@@ -118,8 +142,41 @@ exports.scrapeBBB = functions.https.onRequest(async (req, res) => {
     console.log(final);
 });
 
+const searchRequest = {
+    // Example request body
+    term: 'Four Barrel Coffee',
+    location: 'san francisco, ca'
+};
+
+exports.yelpme = functions.https.onRequest(async (request, response) => {
+    const result = await client.search(request.body).then(response => {
+        console.log("I Print here");
+        const firstResult = response.jsonBody.businesses[0];
+        console.log(firstResult);
+        return firstResult
+    }).catch(e => {
+        response.send(e);
+    });
+    const prettyJson = JSON.stringify(result, null, 4);
+    response.send(prettyJson);
+});
+
+exports.makeCoords = functions.https.onRequest(async (req, res) => {
+    let i = 0;
+    database.ref("Venues/restaurant").once("value", function (snapshot) {
+        snapshot.forEach(doc => {
+            if (!doc.val().coordinates) {
+                sleep(i).then(() => { updatePlace(doc); console.log("H"); });
+                i += 1000;
+            }
+        });
+    });
+});
+
 module.exports = {
     scrapeBBBjs: scrapeBBBjs,
     getNumberOfPages: getNumberOfPages,
-    sortVenues: sortVenues
+    sortVenues: sortVenues,
+    yelpme: this.yelpme,
+    makeCoords: this.makeCoords
 }
