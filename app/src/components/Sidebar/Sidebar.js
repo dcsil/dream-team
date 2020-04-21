@@ -23,7 +23,8 @@ import {
 
 class Sidebar extends React.Component {
   state = {
-    collapseOpen: false
+    collapseOpen: false,
+    selectedVenue: ""
   };
   constructor(props) {
     super(props);
