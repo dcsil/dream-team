@@ -12,8 +12,8 @@ class Home extends React.Component {
           <tbody>
             <tr>
               <td>
-                <button className="top-right-button">
-                  <div id="button" className="button-text">Button</div>
+                <button className="top-right-button"><a href="/admin">
+                  <div id="button"  className="button-text">Enter</div></a>
                 </button>
               </td>
             </tr>

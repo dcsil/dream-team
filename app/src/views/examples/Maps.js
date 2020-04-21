@@ -3,7 +3,7 @@ import React from "react";
 // reactstrap components
 import { Card, Container, Row } from "reactstrap";
 import mapboxgl from 'mapbox-gl';
-import marker from './location.png';
+//import marker from './location.png';
 import "Common.css";
 import { getFirebaseDatabase } from "components/Database/firebase.js";
 

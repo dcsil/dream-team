@@ -6,14 +6,14 @@ import { mount } from 'enzyme';
   export const commonRenderTest = function(Component) {
     window.URL.createObjectURL = jest.fn();
     global.URL.createObjectURL = jest.fn();
-    jest.mock('mapbox-gl', () => ({
-      Map: () => ({})
-    }));
     if (typeof window.URL.createObjectURL === 'undefined') { 
       Object.defineProperty(window.URL, 'createObjectURL', { value: 'results'})
     }
     global.URL.createObjectURL = jest.fn(() => 'details');
     describe('MyComponent', () => {
+      jest.mock('mapbox-gl', () => ({
+        Map: () => ({})
+      }));
         it('should render correctly in "debug" mode', () => {
           const component = shallow(<Component debug />);
         });
