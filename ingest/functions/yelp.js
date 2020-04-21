@@ -12,6 +12,14 @@ const searchRequest = {
 };
 
 exports.yelpme = functions.https.onRequest(async (request, response) => {
+    let db = functions.database()
+    db.ref("convictions").once("value", function (snapshot) {
+        let new_data = [];
+        snapshot.forEach(doc => {
+            new_data.push(doc.val());
+        });
+        console.log(new_data)
+    });
     const result = await client.search(searchRequest).then(response => {
         console.log("I Print here");
         const firstResult = response.jsonBody.businesses[0];
