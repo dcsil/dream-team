@@ -30,48 +30,29 @@ class Firestore extends React.Component {
     return db;
   }
 
-
-
-  // addVenue = (db, venue) => {
-  //   db.collection("venues")
-  //     .add(venue)
-  //     .then(function(docRef) {
-  //       console.log("Document written with ID: ", docRef.id);
-  //     })
-  //     .catch(function(error) {
-  //       console.error("Error adding document: ", error);
-  //     });
-  // }
-
-  // USE THIS
-  // db.ref('users/HOLLA').set({
-  //   username: "Prince",
-  //   email: "Prince@g.com",
-  //   profile_picture: "www.google.com"
-  // });
-
-  readVenues = (db) => {
-    let me = this;
-    db.ref("/Venues/gym").once("value").then(function (querySnapshot) {
-      let venues = [];
-      querySnapshot.forEach(doc => {
-        console.log(`${doc.key} => ${doc.val()}`);
-        console.log(doc.val());
-        let data = doc.val();
-        venues.push({
-          acquired: data.acquired,
-          address: data.address,
-          estimatedValue: data.estimatedValue,
-          location: data.location,
-          name: data.name,
-          phone: data.phone,
-          id: uid(doc.key)
+  readVenues = db => {
+    db.collection("venues")
+      .get()
+      .then(querySnapshot => {
+        let venues = [];
+        querySnapshot.forEach(doc => {
+          console.log(`${doc.id} => ${doc.data()}`);
+          console.log(doc.data());
+          let data = doc.data();
+          venues.push({
+            acquired: data.acquired,
+            address: data.address,
+            estimatedValue: data.estimatedValue,
+            location: data.location,
+            name: data.name,
+            phone: data.phone,
+            id: uid(doc.id)
+          });
         });
+
+        this.setState({ venues: venues });
+        this.setState({ hasVenues: true });
       });
-      console.log(venues);
-      me.setState({ venues: venues });
-      me.setState({ hasVenues: true });
-    });
   };
 
 
@@ -109,45 +90,3 @@ class Firestore extends React.Component {
 }
 
 export default Firestore;
-
-export const getFirebaseDatabase = function () {
-  const firebase = require("firebase");
-  // Required for side-effects
-  require("firebase/database");
-  // Initialize Cloud Firestore through Firebase
-  if (firebase.apps.length === 0) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyD7CyGm8hPzSSTI54quyhEcwrS8_xRi1tQ",
-      authDomain: "dreamtune-cdf8a.firebaseapp.com",
-      databaseURL: "https://dreamtune-cdf8a.firebaseio.com",
-      projectId: "dreamtune-cdf8a",
-      storageBucket: "dreamtune-cdf8a.appspot.com",
-      messagingSenderId: "342835886078",
-      appId: "1:342835886078:web:3d9381525d1aea0332b2af",
-      measurementId: "G-KM6586Z5PP"
-    });
-  }
-
-  let db = firebase.database();
-  return db;
-}
-
-export const getFirebaseAuth = function () {
-  const firebase = require("firebase");
-  // Required for side-effects
-  require("firebase/database");
-  // Initialize Cloud Firestore through Firebase
-  firebase.initializeApp({
-    apiKey: "AIzaSyD7CyGm8hPzSSTI54quyhEcwrS8_xRi1tQ",
-    authDomain: "dreamtune-cdf8a.firebaseapp.com",
-    databaseURL: "https://dreamtune-cdf8a.firebaseio.com",
-    projectId: "dreamtune-cdf8a",
-    storageBucket: "dreamtune-cdf8a.appspot.com",
-    messagingSenderId: "342835886078",
-    appId: "1:342835886078:web:3d9381525d1aea0332b2af",
-    measurementId: "G-KM6586Z5PP"
-  });
-
-  let auth = firebase.auth();
-  return auth;
-}
