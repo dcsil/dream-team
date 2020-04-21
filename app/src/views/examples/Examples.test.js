@@ -1,7 +1,6 @@
 import {commonButtonTest } from "CommonRenderTest";
 import {commonRenderTest} from "CommonRenderTest"
 
-import Icons from "./Icons";
 import Login from "./Login";
 import Maps from "./Maps";
 import Profile from "./Profile";
@@ -13,7 +12,6 @@ import PageVisitsTable from "./PageVisitsTable";
 import TableCardHeader from "./TableCardHeader";
 
 //Render Test
-commonRenderTest.bind(this)(Icons)
 commonRenderTest.bind(this)(Login)
 commonRenderTest.bind(this)(Maps)
 commonRenderTest.bind(this)(Profile)

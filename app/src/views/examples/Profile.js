@@ -26,6 +26,8 @@ class Profile extends React.Component {
 
       if (venueKey.includes("gym")){
         this.setState({venueType: "gym"})
+      } else if (venueKey.includes("restaurant")){
+        this.setState({venueType: "restaurant"})
       }
 
       db.ref(`${venueKey}`).once("value").then( (snapshot) => {
@@ -36,6 +38,8 @@ class Profile extends React.Component {
         this.setState({venueName: venue.name, titleText: titleText, acquired: venue.acquired, address: venue.address, estimatedValue: venue.estimatedValue})
         this.setState({phone: venue.phone})
       });
+    } else {
+      this.setState({venueName: "No Venue Selected", titleText: "Please navigate to the Maps page via the left navbar and select a veneue to view its information"});
     }
 		//venueKey === null ? this.props.store.permalinkPostID = 0 : this.props.store.permalinkPostID = postID
   }
