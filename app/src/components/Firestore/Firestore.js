@@ -26,7 +26,7 @@ class Firestore extends React.Component {
       measurementId: "G-KM6586Z5PP"
     });
 
-    let db = firebase.database();
+    let db = firebase.firestore();
     return db;
   }
 
