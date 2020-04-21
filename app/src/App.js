@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Home from "./components/Home/Home";
+import Auth from "./layouts/Auth"
 
 import "assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -17,7 +18,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/" render={() => <Auth />} />
           <Route exact path="/login" render={() => <LoginRegister />} />
           <Route exact path="/register" render={() => <LoginRegister register />} />
           <Route path="/admin" render={props => <AdminLayout {...props} />} />
