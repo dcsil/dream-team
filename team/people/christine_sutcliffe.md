@@ -1,7 +1,5 @@
 # Christine Sutcliffe
 
-![Christine Sutcliffe Profile](./Christine.Sutcliffe.png)
-
 - Music and Art History
 - christine.nsutcliffe@gmail.com
 
@@ -9,7 +7,6 @@
 
 - [GitHub](https://github.com/christinesutcliffe)
 - [LinkedIn](https://www.linkedin.com/in/christinesutcliffe/)
-- [Resume](https://drive.google.com/file/d/1cvKm2n7cdHVTe4xH0zsz-Y16L0N-Hndx/view?usp=sharing)
 
 ## About Christine
 
@@ -20,9 +17,3 @@ Christine is very excited to be joining the DreamTune team! Christine has been p
 - Leadership and adaptability
 - Experience in arts programming
 - Igniting a passion for the creative arts in others!
-
-## Weaknesses
-
-- Too easily internalizing constructive feedback 
-- Delegation of tasks
-- A strong desire to try everything in regards to projects, campus activities, and work experience!
