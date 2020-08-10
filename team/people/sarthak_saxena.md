@@ -1,7 +1,5 @@
 # Sarthak Saxena
 
-![Sarthak Saxena Profile](./sarthak.png)
-
 - Computer Science and Math Student
 - ssarthak.1999@gmail.com
 
@@ -10,7 +8,6 @@
 - [GitHub](https://github.com/jollyredflames)
 - [LinkedIn](https://www.linkedin.com/in/jollyredflames)
 - [Website](https://www.jollyredflames.com)
-- [Resume](http://individual.utoronto.ca/jollyredflames/documents/Official_Resume.pdf)
 
 ## About Sarthak
 
@@ -22,9 +19,3 @@ Sarthak was born in India in 1999 but moved to Texas shortly after. Amongst lear
 - Explaining Complex Concepts
 - Code Architecture for Modularity
 - Attention to Detail
-
-## Weaknesses
-
-- Front End Coding
-- Non-Object oriented programming
-- Circuit Creation
