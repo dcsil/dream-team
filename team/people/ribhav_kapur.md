@@ -1,7 +1,5 @@
 # Ribhav Kapur
 
-![Ribhav Kapur Profile](./ribhav.png)
-
 - Computer Science Student specialising in Artificial Intelligence and Web Development
 - ribhav.kapur99@gmail.com
 
@@ -10,7 +8,6 @@
 - [GitHub](https://github.com/ribhav99)
 - [LinkedIn](https://www.linkedin.com/in/ribhav99)
 - [Website](https://www.ribhavkapur.com)
-- [Resume](http://ribhavkapur.com/Resume(Jan2020).pdf)
 
 ## About Ribhav
 
@@ -23,8 +20,3 @@ Ribhav is currently a student at the University of Toronto specialising in Compu
 - Backend coding
 - Software development
 - Modelling AI algorithms
-
-## Weaknesses
-
-- Front end coding
-- Sometimes doesn't comment code
