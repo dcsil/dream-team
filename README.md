@@ -2,7 +2,9 @@
 
 ![Dreamtune Logo](./product_research/Reverse-527.png)
 
-DreamTune is a company founded in the Music Copyright industry and is dedicated to streamlining the process of music payment. By integrating into our customer's POS system and tracking relevant information, we aim to become the seamless solution for businesses to pay royalties quickly and easily. [Demo Video](https://drive.google.com/drive/u/0/folders/1BdKA-Ltrz7zCSLbTkAVe-CuxQRkCO79t)
+## [Demo Video](https://drive.google.com/drive/u/0/folders/1BdKA-Ltrz7zCSLbTkAVe-CuxQRkCO79t)
+
+DreamTune is a company founded in the Music Copyright industry and is dedicated to streamlining the process of music payment. By integrating into our customer's POS system and tracking relevant information, we aim to become the seamless solution for businesses to pay royalties quickly and easily. 
 
 ## Application
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dcsil/dreamtune)
